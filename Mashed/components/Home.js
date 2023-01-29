@@ -1,4 +1,4 @@
-// home screen
+// home screen (naomy)
 import React from "react";
 import { View, ScrollView, Text, StyleSheet, SectionList } from 'react-native';
 import { Avatar, Image, Badge, Card } from '@rneui/themed';
