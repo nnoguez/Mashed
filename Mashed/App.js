@@ -16,10 +16,10 @@ export default function App() {
   return (
   <NavigationContainer>
     <Tab.Navigator initialRouteName="Home">
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Explore" component={Explore} />
-      <Tab.Screen name="Challenge" component={Challenge} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Home" component={Home} options={{headerShown: false}}/>
+      <Tab.Screen name="Explore" component={Explore} options={{headerShown: false}}/>
+      <Tab.Screen name="Challenge" component={Challenge} options={{headerShown: false}}/>
+      <Tab.Screen name="Profile" component={Profile} options={{headerShown: false}}/>
     </Tab.Navigator>
   </NavigationContainer>
   );
