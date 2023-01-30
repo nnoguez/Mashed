@@ -2,23 +2,27 @@
 import React from "react";
 import { View, ScrollView, Text, StyleSheet, SectionList } from 'react-native';
 import { Avatar, Image, Badge, Card } from '@rneui/themed';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Home({ navigation }) {
     return (
     <>
+    {/* mashed logo */}
     <View style={styles.viewOne}>
         <Image
         style={{ 
-            marginLeft: 80, 
+            marginLeft: 110, 
             marginBottom: 10,
             marginTop: 5, 
-            width:"50%", 
+            width:"35%", 
             height:25}}
         source={{
         uri:'https://i.postimg.cc/65XBkHNg/logo.png',
         }}
         /> 
-        <ScrollView
+
+    <ScrollView
+        // horizontal functionality
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         pagingEnabled={true}>
@@ -34,8 +38,8 @@ export default function Home({ navigation }) {
                 source={{ uri: "https://communication.ucf.edu/wp-content/uploads/sites/2/2018/05/Daniel-V.-Novatnak-1.jpeg" }}
             />
             <Badge
-                value="+" 
-                status="warning" 
+                value= "+" 
+                status= "warning" 
                 containerStyle={{ position: 'absolute', bottom: 5, left: 50 }}
             />
         </View>
@@ -124,6 +128,7 @@ export default function Home({ navigation }) {
 
         {/* card posting 1*/}
         <Card borderRadius={25} margin>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
             <Avatar
                 avatarStyle={{ 
                 borderWidth: 4, 
@@ -135,19 +140,30 @@ export default function Home({ navigation }) {
                 source={{ uri: "https://i.pinimg.com/originals/39/15/61/391561b89ca54138d1bd989765305c0f.jpg" }}
             />
             <Badge
-                value=" jr.lisa03 " 
+                value=" jrlisa03 " 
                 status="success" 
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
+            <Text style={{ marginLeft: 200, marginTop: 17, fontWeight: 'bold'}}> 1.3k </Text>
+            <Icon style={{ marginTop: 13, marginRight: 5 }} name="heart" size={25} color="#EE7E74" />
+        </View>
         <Card.Image
             style={{width:"100%",height:300}}
             source={{
             uri:'https://i.pinimg.com/originals/90/2c/91/902c916c90e7eab300f623db3384e614.jpg',
             }}
         />
-        <Text style={{fontWeight: 'bold', marginTop: 10}}>
-            lisaaa!
-        </Text>
+    {/* post bio */}
+        <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 10 }}>
+            <Text style={{fontWeight: 'bold', marginTop: 3, marginRight: 76}}> lisaaa! </Text>
+            <Icon style={{ marginLeft: 10 }} name="comment" size={20} color="#9492EF" />
+            <Text style={{ marginTop: 5 }}> 299 </Text>
+            <Icon style={{ marginLeft: 10, marginTop: 2 }} name="bookmark" size={20} color="#9492EF" />
+            <Text style={{ marginTop: 5 }}> 182 </Text>
+            <Icon style={{ marginLeft: 10, marginTop: 2 }} name="share" size={20} color="#9492EF" />
+            <Text style={{ marginTop: 5 }}> 293 </Text>
+        </View>
+
         <Text style={{ marginTop: 5 }}>
             making little margherita pizzas with 
             <Text style={{fontWeight: 'bold'}}> @allii.sun7 </Text>
@@ -165,6 +181,7 @@ export default function Home({ navigation }) {
 
     {/* card posting 2*/}
     <Card borderRadius={25} margin>
+       <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
             <Avatar
                 avatarStyle={{ 
                 borderWidth: 4, 
@@ -176,19 +193,31 @@ export default function Home({ navigation }) {
                 source={{ uri: "https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlJTIwc21pbGV8ZW58MHx8MHx8&w=1000&q=80" }}
             />
             <Badge
-                value=" 3dilan " 
+                value=" 3d.ilan " 
                 badgeStyle={{backgroundColor:'grey'}}
-                containerStyle={{ position: 'absolute',  left: 50, color: 'grey' }}
+                containerStyle={{ position: 'absolute',  left: 50 }}
             />
+            <Text style={{ marginLeft: 200, marginTop: 17, fontWeight: 'bold'}}> 2.4k </Text>
+            <Icon style={{ marginTop: 13, marginRight: 5 }} name="heart" size={25} color="#EE7E74" />
+        </View>
         <Card.Image
             style={{width:"100%",height:300}}
             source={{
             uri:'https://64.media.tumblr.com/3edf6724cd61788b621c7f2ebfef3b5d/2d4ed2bc1204eeaa-3a/s1280x1920/387e893ca9e70fffd9518dfa79fb404b9822bd06.jpg',
             }}
         />
-        <Text style={{fontWeight: 'bold', marginTop: 10}}>
-            Lani ^-^
-        </Text>
+
+        {/* post bio */}
+        <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 10 }}>
+            <Text style={{fontWeight: 'bold', marginTop: 3, marginRight: 64}}> Lani ^-^ </Text>
+            <Icon style={{ marginLeft: 10 }} name="comment" size={20} color="#9492EF" />
+            <Text style={{ marginTop: 5 }}> 299 </Text>
+            <Icon style={{ marginLeft: 10, marginTop: 2 }} name="bookmark" size={20} color="#9492EF" />
+            <Text style={{ marginTop: 5 }}> 182 </Text>
+            <Icon style={{ marginLeft: 10, marginTop: 2 }} name="share" size={20} color="#9492EF" />
+            <Text style={{ marginTop: 5 }}> 293 </Text>
+        </View>
+
         <Text style={{ marginTop: 5 }}>
             Went out to eat with my sister and they had the best Greek
             salad I've had in a while. Definitely my own once I travel back home. 😍
@@ -202,6 +231,7 @@ export default function Home({ navigation }) {
 
         {/* card posting 3*/}
         <Card borderRadius={25} margin>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
             <Avatar
                 avatarStyle={{ 
                 borderWidth: 4, 
@@ -217,15 +247,26 @@ export default function Home({ navigation }) {
                 status="success" 
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
+            <Text style={{ marginLeft: 200, marginTop: 17, fontWeight: 'bold'}}> 3.1k </Text>
+            <Icon style={{ marginTop: 13, marginRight: 5 }} name="heart" size={25} color="#EE7E74" />
+        </View>
         <Card.Image
             style={{width:"100%",height:300}}
             source={{
             uri:'https://images.squarespace-cdn.com/content/v1/5984b6c159cc687d5abe522d/1519327286911-KWBHIN9P9D6AAVRELK7D/Unknown+%281%29.jpeg',
             }}
         />
-        <Text style={{fontWeight: 'bold', marginTop: 10}}>
-            Emanuel
-        </Text>
+        {/* post bio */}
+        <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 10 }}>
+            <Text style={{fontWeight: 'bold', marginTop: 3, marginRight: 60}}> Emanuel </Text>
+            <Icon style={{ marginLeft: 10 }} name="comment" size={20} color="#9492EF" />
+            <Text style={{ marginTop: 5 }}> 732 </Text>
+            <Icon style={{ marginLeft: 10, marginTop: 2 }} name="bookmark" size={20} color="#9492EF" />
+            <Text style={{ marginTop: 5 }}> 821 </Text>
+            <Icon style={{ marginLeft: 10, marginTop: 2 }} name="share" size={20} color="#9492EF" />
+            <Text style={{ marginTop: 5 }}> 405 </Text>
+        </View>
+
         <Text style={{ marginTop: 5 }}>
             Made one too many desserts today, but that just
             means more food for my wife and I to enjoy! 🍽
