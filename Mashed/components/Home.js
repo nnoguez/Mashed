@@ -296,5 +296,6 @@ const styles = StyleSheet.create({
     },
     followForColor: {
         color: "#FFC42D",
+        fontWeight: 'bold'
     }
 })
