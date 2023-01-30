@@ -273,11 +273,10 @@ export default function Home({ navigation }) {
         </Text>
         <Card.Divider style={{marginTop: 5}}/>
         <Text style={{ fontSize: 10, fontWeight: 'bold'}}>
-            BEST Homemade Margherita Pizza - Laura Nettle
+            Yummy Berry Pastries - Emanuel Milano
         </Text>
         </Card>
     </ScrollView>
-            
     </>
     );
 };
