@@ -151,7 +151,7 @@ export default function Home({ navigation }) {
             <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
-            style={{width:"100%",height:300}}
+            style={{width:"100%", height:300, marginTop: 5}}
             source={{
             uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
             }}
@@ -203,7 +203,7 @@ export default function Home({ navigation }) {
             <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
-            style={{width:"100%",height:300}}
+            style={{width:"100%", height:300, marginTop: 5}}
             source={{
             uri:'https://i.pinimg.com/originals/90/2c/91/902c916c90e7eab300f623db3384e614.jpg',
             }}
@@ -259,7 +259,7 @@ export default function Home({ navigation }) {
             <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
-            style={{width:"100%",height:300}}
+            style={{width:"100%", height:300, marginTop: 5}}
             source={{
             uri:'https://64.media.tumblr.com/3edf6724cd61788b621c7f2ebfef3b5d/2d4ed2bc1204eeaa-3a/s1280x1920/387e893ca9e70fffd9518dfa79fb404b9822bd06.jpg',
             }}
@@ -312,7 +312,7 @@ export default function Home({ navigation }) {
             <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
-            style={{width:"100%",height:300}}
+            style={{width:"100%", height:300, marginTop: 5}}
             source={{
             uri:'https://images.squarespace-cdn.com/content/v1/5984b6c159cc687d5abe522d/1519327286911-KWBHIN9P9D6AAVRELK7D/Unknown+%281%29.jpeg',
             }}

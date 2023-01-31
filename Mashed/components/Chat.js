@@ -4,7 +4,7 @@ import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity } fro
 import { Avatar, Image, Badge, Card } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Home({ navigation }) {
+export default function Chat({ navigation }) {
     return (
     <>
     {/* mashed logo */}

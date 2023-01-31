@@ -1,5 +1,5 @@
 // App.js
-import * as React from "react";
+import React, { useState } from "react";
 import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -18,43 +18,66 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  const [active, setActive] = useState(false);
+  const handlePress = () => {
+    setActive(!active);
+  };
+
   return (
       <NavigationContainer initialRouteName="Home">
-        <Tab.Navigator>
+        <Tab.Navigator 
+          activeColor="#FFC42D"
+          inactiveColor="grey">
           <Tab.Screen 
             name="Home" 
             component={Home} 
             options={{
               headerShown: false,
-              tabBarIcon: () => <Icon name="home" size={25} color="#FFC42D" />
+              tabBarShowLabel: false,
+              tabBarIcon: ({ color,focused }) => (
+                <Icon name="home" color={focused?'#FFC42D':'grey'} size={30} />
+              )
             }}/>
+
           <Tab.Screen 
             name="Explore" 
             component={Explore} 
             options={{
               headerShown: false,
-              tabBarIcon: () => <Icon name="compass" size={25} color="grey" />,
+              tabBarShowLabel: false,
+              tabBarIcon: ({ color,focused }) => (
+                <Icon name="compass" color={focused?'#FFC42D':'grey'} size={30} />
+              )
             }}/>
             <Tab.Screen 
               name="Post" 
               component={Post} 
               options={{
                 headerShown: false,
-                tabBarIcon: () => <Icon name="plus" size={35} color="black" />,
+                tabBarShowLabel: false,
+                tabBarIcon: ({ color,focused }) => (
+                  <Icon name="plus" color="#9492EF" size={35} />
+                )
             }}/>
           <Tab.Screen 
             name="Challenge" 
             component={Challenge} 
             options={{
               headerShown: false,
-              tabBarIcon: () => <Icon name="bullseye" size={25} color="grey" />,
+              tabBarShowLabel: false,
+              tabBarIcon: ({ color,focused }) => (
+                <Icon name="bullseye" color={focused?'#FFC42D':'grey'} size={30} />
+              )
             }}/>
           <Tab.Screen 
             name="Profile" 
             component={Profile} 
             options={{
               headerShown: false,
-              tabBarIcon: () => <Icon name="user" size={25} color="grey" />,
+              tabBarShowLabel: false,
+              tabBarIcon: ({ color,focused }) => (
+                <Icon name="user" color={focused?'#FFC42D':'grey'} size={30} />
+              )
             }}/>
         </Tab.Navigator>
       </NavigationContainer>
