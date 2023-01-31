@@ -3,7 +3,7 @@
 
 import { Card } from '@rneui/themed';
 import React, { Component } from "react";
-import { View, ScrollView, Text, Image, StyleSheet, SectionList, TouchableOpacity } from 'react-native';
+import { View, ScrollView, Text, Image, StyleSheet, SectionList, TouchableOpacity,ImageBackground } from 'react-native';
 import { ListItem } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -34,14 +34,16 @@ export default function Challenge() {
         pagingEnabled={true}>
 
     <Card>
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}></View>
-          <Card.Image
+    <ImageBackground source={'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg'} resizeMode="cover" style= {styles.image}>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, flex:1 }}>
+    </View>
+          {/* <Card.Image
             style={{ padding: 0 }}
             source={{
               uri:
                 'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg'
             }}
-          />
+          /> */}
           <Card.Title>Berry Stuffed French Toast</Card.Title>
           <ListItem>
             <ListItem.Content>
@@ -61,6 +63,7 @@ export default function Challenge() {
              <ListItem.Title>Contains Eggs, Diary</ListItem.Title> 
             </ListItem.Content>
           </ListItem>
+          </ImageBackground> 
         </Card>
         </ScrollView>
         </>
@@ -86,5 +89,10 @@ const styles = StyleSheet.create({
   followForColor: {
       color: "#FFC42D",
       fontWeight: 'bold'
-  }
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+
 })
