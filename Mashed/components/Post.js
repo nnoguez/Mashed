@@ -1,8 +1,5 @@
 // post screen (laura)
 
-// need to find way of adding this screen without it showing up in nav tabs
-
-
 
 import React, { Component } from "react";
 import { View, Text, TouchableOpacity } from "react-native";

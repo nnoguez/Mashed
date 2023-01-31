@@ -1,23 +1,28 @@
-// splash screen
+// splash screen (naomy)
 
-// need to find way of adding this screen without it showing up in nav tabs
-
+// still needs some fixing no real way to fill whole bg w color 
 
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 
-export default function Splash () {
+export default function Splash ({ navigation }) {
   return (
-    <View>
-      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-        {/* <img src={img1} alt="Mashed Logo"/> */}
-        <Text> splash! </Text>
-        <Text> splash! </Text>
-        <Text> splash! </Text>
-        <Text> splash! </Text>
-        <Text> splash! </Text>
-
-      </TouchableOpacity>
+    <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
+    <View style={{ backgroundColor: '#9492EF'}}>
+          <View>
+            <Image
+              style={{ 
+                height:850,
+                width:'80%%',
+                margin: 40,
+                resizeMode:'contain',
+                     }}
+                  source={{
+                  uri:'https://i.postimg.cc/65XBkHNg/logo.png',
+                  }}
+                  /> 
+          </View>
     </View>
+  </TouchableOpacity>
   );
 }

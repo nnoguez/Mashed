@@ -1,3 +1,13 @@
 // sign up screen (shelby)
 
-// need to find way of adding this screen without it showing up in nav tabs
+
+import React, { Component } from "react";
+import { Button, View, Text } from "react-native";
+
+export default function Signup() {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text>Sign up</Text>
+    </View>
+  );
+}

@@ -12,6 +12,10 @@ import Challenge from './components/Challenge';
 import Profile from './components/Profile';
 import Splash from './components/Splash';
 import Chat from './components/Chat';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Settings from './components/Settings';
+
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -25,7 +29,7 @@ export default function App() {
   };
 
   return (
-      <NavigationContainer initialRouteName="Home">
+      <NavigationContainer initialRouteName="Splash">
         <Tab.Navigator 
           activeColor="#FFC42D"
           inactiveColor="grey"
@@ -40,6 +44,36 @@ export default function App() {
               : undefined,
           })}
         >
+          <Tab.Screen 
+            name="Splash" 
+            component={Splash} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
+          <Tab.Screen 
+            name="Signup" 
+            component={Signup} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
+          <Tab.Screen 
+            name="Login" 
+            component={Login} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
           <Tab.Screen 
             name="Home" 
             component={Home} 
@@ -92,14 +126,6 @@ export default function App() {
               )
             }}/>
           <Tab.Screen 
-            name="Splash" 
-            component={Splash} 
-            options={{
-              tabBarVisible: false, 
-              tabBarButton: (props) => null, 
-            }}
-          />
-          <Tab.Screen 
             name="Chat" 
             component={Chat} 
             options={{
@@ -109,6 +135,17 @@ export default function App() {
               tabBarButton: (props) => null, 
             }}
           />
+          <Tab.Screen 
+            name="Settings" 
+            component={Settings} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
+
         </Tab.Navigator>
       </NavigationContainer>
   );
