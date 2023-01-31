@@ -1,6 +1,6 @@
 // home screen (naomy)
 import React from "react";
-import { View, ScrollView, Text, StyleSheet, SectionList } from 'react-native';
+import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity } from 'react-native';
 import { Avatar, Image, Badge, Card } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -9,18 +9,22 @@ export default function Home({ navigation }) {
     <>
     {/* mashed logo */}
     <View style={styles.viewOne}>
-        <Image
-        style={{ 
-            marginLeft: 110, 
-            marginBottom: 10,
-            marginTop: 5, 
-            width:"35%", 
-            height:25}}
-        source={{
-        uri:'https://i.postimg.cc/65XBkHNg/logo.png',
-        }}
-        /> 
-
+        <View>
+            <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
+                <Icon style={{ marginLeft: 310 }} name="commenting" size={25} color="#FFC42D" />
+            </TouchableOpacity>
+            <Image
+            style={{ 
+                marginLeft: 110, 
+                marginBottom: 10,
+                marginTop: 5, 
+                width:"35%", 
+                height:25}}
+            source={{
+            uri:'https://i.postimg.cc/65XBkHNg/logo.png',
+            }}
+            /> 
+        </View>
     <ScrollView
         // horizontal functionality
         horizontal={true}
@@ -39,7 +43,7 @@ export default function Home({ navigation }) {
             />
             <Badge
                 value= "+" 
-                status= "warning" 
+                badgeStyle={{backgroundColor:'#FFC42D'}}
                 containerStyle={{ position: 'absolute', bottom: 5, left: 50 }}
             />
         </View>
@@ -145,7 +149,7 @@ export default function Home({ navigation }) {
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
             <Text style={{ marginLeft: 200, marginTop: 17, fontWeight: 'bold'}}> 1.3k </Text>
-            <Icon style={{ marginTop: 13, marginRight: 5 }} name="heart" size={25} color="#EE7E74" />
+            <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
             style={{width:"100%",height:300}}
@@ -198,7 +202,7 @@ export default function Home({ navigation }) {
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
             <Text style={{ marginLeft: 200, marginTop: 17, fontWeight: 'bold'}}> 2.4k </Text>
-            <Icon style={{ marginTop: 13, marginRight: 5 }} name="heart" size={25} color="#EE7E74" />
+            <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
             style={{width:"100%",height:300}}
@@ -248,7 +252,7 @@ export default function Home({ navigation }) {
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
             <Text style={{ marginLeft: 200, marginTop: 17, fontWeight: 'bold'}}> 3.1k </Text>
-            <Icon style={{ marginTop: 13, marginRight: 5 }} name="heart" size={25} color="#EE7E74" />
+            <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
             style={{width:"100%",height:300}}
@@ -286,6 +290,9 @@ const styles = StyleSheet.create({
         textAlign: "center",
         margin: 20,
         marginBottom: 10
+    },
+    header: {
+        marginRight: 10,
     },
     avatarSpacing: {
         marginRight: 10,

@@ -26,7 +26,7 @@ export default function App() {
             component={Home} 
             options={{
               headerShown: false,
-              tabBarIcon: () => <Icon name="home" size={25} color="gold" />
+              tabBarIcon: () => <Icon name="home" size={25} color="#FFC42D" />
             }}/>
           <Tab.Screen 
             name="Explore" 
@@ -40,7 +40,7 @@ export default function App() {
               component={Post} 
               options={{
                 headerShown: false,
-                tabBarIcon: () => <Icon name="plus" size={35} color="grey" />,
+                tabBarIcon: () => <Icon name="plus" size={35} color="black" />,
             }}/>
           <Tab.Screen 
             name="Challenge" 
