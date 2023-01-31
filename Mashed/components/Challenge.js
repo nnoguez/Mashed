@@ -3,16 +3,22 @@
 
 import { Card } from '@rneui/themed';
 import React, { Component } from "react";
-import { Button, View, Text } from "react-native";
+import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity } from 'react-native';
 import { ListItem } from '@rneui/themed';
 
 export default function Challenge() {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Challenge</Text>
-    </View>
-  );
-  <Card>
+    <ScrollView
+        horizontal= {true}
+        showsHorizontalScrollIndicator={true}
+        pagingEnabled={true}>
+        <View>
+            <Text style={styles.followFor}> 
+            <Text style={styles.followForColor}> Following | </Text>
+            For You</Text>
+        </View>
+    <Card>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}></View>
           <Card.Image
             style={{ padding: 0 }}
             source={{
@@ -40,4 +46,28 @@ export default function Challenge() {
             </ListItem.Content>
           </ListItem>
         </Card>
+        </ScrollView>
+  );
+ 
 }
+
+const styles = StyleSheet.create({
+  viewOne: {
+      textAlign: "center",
+      margin: 20,
+      marginBottom: 10
+  },
+  header: {
+      marginRight: 10,
+  },
+  avatarSpacing: {
+      marginRight: 10,
+  },
+  followFor: {
+      textAlign: "center",
+  },
+  followForColor: {
+      color: "#FFC42D",
+      fontWeight: 'bold'
+  }
+})
