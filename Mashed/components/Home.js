@@ -151,7 +151,7 @@ export default function Home({ navigation }) {
             <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
-            style={{width:"100%", height:300, marginTop: 5}}
+            style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
             source={{
             uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
             }}
@@ -177,6 +177,11 @@ export default function Home({ navigation }) {
             <Text style={{ marginLeft: 5, marginTop: 2, fontSize: 10, fontWeight: 'bold'}}>
                 Crispy Chicken Katsu - Alice Zhang
             </Text>
+            <View style={{ justifyContent: 'flex-end', marginLeft: 77 }}>
+                <Text style={{fontSize: 10, color: "lightgrey"}}>
+                    3:24 PM   01/31/23
+                </Text>
+            </View>
         </View>
         </Card>
 
@@ -203,7 +208,7 @@ export default function Home({ navigation }) {
             <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
-            style={{width:"100%", height:300, marginTop: 5}}
+            style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
             source={{
             uri:'https://i.pinimg.com/originals/90/2c/91/902c916c90e7eab300f623db3384e614.jpg',
             }}
@@ -233,6 +238,11 @@ export default function Home({ navigation }) {
             <Text style={{ marginLeft: 5, marginTop: 2, fontSize: 10, fontWeight: 'bold'}}>
             BEST Homemade Margherita Pizza - Laura Nettle
             </Text>
+            <View style={{ justifyContent: 'flex-end', marginLeft: 6 }}>
+                <Text style={{fontSize: 10, color: "lightgrey"}}>
+                    2:35 PM   01/31/23
+                </Text>
+            </View>
         </View>
         </Card>
 
@@ -259,7 +269,7 @@ export default function Home({ navigation }) {
             <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
-            style={{width:"100%", height:300, marginTop: 5}}
+            style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
             source={{
             uri:'https://64.media.tumblr.com/3edf6724cd61788b621c7f2ebfef3b5d/2d4ed2bc1204eeaa-3a/s1280x1920/387e893ca9e70fffd9518dfa79fb404b9822bd06.jpg',
             }}
@@ -286,6 +296,11 @@ export default function Home({ navigation }) {
             <Text style={{ marginLeft: 5, marginTop: 2, fontSize: 10, fontWeight: 'bold'}}>
                 Modern Greek Salad - Uptown Eatery
             </Text>
+            <View style={{ justifyContent: 'flex-end', marginLeft: 66 }}>
+                <Text style={{fontSize: 10, color: "lightgrey"}}>
+                    4:15 PM   01/30/23
+                </Text>
+            </View>
         </View>
         </Card>
 
@@ -312,7 +327,7 @@ export default function Home({ navigation }) {
             <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
-            style={{width:"100%", height:300, marginTop: 5}}
+            style={{width:"100%", height:300, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
             source={{
             uri:'https://images.squarespace-cdn.com/content/v1/5984b6c159cc687d5abe522d/1519327286911-KWBHIN9P9D6AAVRELK7D/Unknown+%281%29.jpeg',
             }}
@@ -338,6 +353,11 @@ export default function Home({ navigation }) {
             <Text style={{ marginLeft: 5, marginTop: 2, fontSize: 10, fontWeight: 'bold'}}>
                 Yummy Berry Pastries - Emanuel Milano
             </Text>
+            <View style={{ justifyContent: 'flex-end', marginLeft: 47 }}>
+                <Text style={{fontSize: 10, color: "lightgrey"}}>
+                    10:01 PM   01/29/23
+                </Text>
+            </View>
         </View>
         </Card>
     </ScrollView>
