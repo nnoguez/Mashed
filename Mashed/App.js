@@ -9,8 +9,8 @@ import Explore from "./components/Explore";
 import Post from './components/Post';
 import Challenge from './components/Challenge';
 import Profile from './components/Profile';
-import Splash from './components/Splash';
-
+// import Splash from './components/Splash';
+// import Chat from './components/Chat';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 

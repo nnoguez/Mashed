@@ -129,7 +129,59 @@ export default function Home({ navigation }) {
             For You</Text>
         </View>
 
-        {/* card posting 1*/}
+    {/* card posting 1*/}
+        <Card borderRadius={25} margin>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
+            <Avatar
+                avatarStyle={{ 
+                borderWidth: 4, 
+                borderColor: '#9492EF', 
+                borderRadius: 100, 
+                }}        
+                size={50}
+                rounded
+                source={{ uri: "https://media.istockphoto.com/id/1150742429/photo/asian-girl-taking-a-selfie-in-rain.jpg?s=612x612&w=0&k=20&c=SQITcq6XT-JTScQLFkTtvvj6yOpP04EPRUOq5Y-3-Hg=" }}
+            />
+            <Badge
+                value=" alice_sun " 
+                status="success" 
+                containerStyle={{ position: 'absolute',  left: 50 }}
+            />
+            <Text style={{ marginLeft: 250, marginTop: 17, fontWeight: 'bold'}}> 2.5k </Text>
+            <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
+        </View>
+        <Card.Image
+            style={{width:"100%",height:300}}
+            source={{
+            uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
+            }}
+        />
+    {/* post bio */}
+        <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 10 }}>
+            <Text style={{fontWeight: 'bold', marginTop: 3, marginRight: 124}}> sunny ☼ </Text>
+            <Icon style={{ marginLeft: 10 }} name="comment" size={20} color="#9492EF" />
+            <Text style={{ marginTop: 5 }}> 483 </Text>
+            <Icon style={{ marginLeft: 10, marginTop: 2 }} name="bookmark" size={20} color="#9492EF" />
+            <Text style={{ marginTop: 5 }}> 238 </Text>
+            <Icon style={{ marginLeft: 10, marginTop: 2 }} name="share" size={20} color="#9492EF" />
+            <Text style={{ marginTop: 5 }}> 104 </Text>
+        </View>
+
+        <Text style={{ marginTop: 5 }}>
+            have been wanting to replicate this recipe for the longest time 
+            and i'm happy to announce that it's finally here and so good! 🥰
+        </Text>
+        <Card.Divider style={{marginTop: 5}}/>
+        <View style={{ flexDirection: 'row'}}>
+            <Icon name="book" size={15} color="#FFC42D" />
+            <Text style={{ marginLeft: 5, marginTop: 2, fontSize: 10, fontWeight: 'bold'}}>
+                Crispy Chicken Katsu - Alice Zhang
+            </Text>
+        </View>
+        </Card>
+
+
+        {/* card posting 2*/}
         <Card borderRadius={25} margin>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
             <Avatar
@@ -176,13 +228,16 @@ export default function Home({ navigation }) {
             like hearts, but they were still soo good! 🫶🏽🍕
         </Text>
         <Card.Divider style={{marginTop: 5}}/>
-        <Text style={{ fontSize: 10, fontWeight: 'bold'}}>
+        <View style={{ flexDirection: 'row'}}>
+            <Icon name="book" size={15} color="#FFC42D" />
+            <Text style={{ marginLeft: 5, marginTop: 2, fontSize: 10, fontWeight: 'bold'}}>
             BEST Homemade Margherita Pizza - Laura Nettle
-        </Text>
+            </Text>
+        </View>
         </Card>
 
 
-    {/* card posting 2*/}
+    {/* card posting 3*/}
     <Card borderRadius={25} margin>
        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
             <Avatar
@@ -197,7 +252,7 @@ export default function Home({ navigation }) {
             />
             <Badge
                 value=" 3d.ilan " 
-                badgeStyle={{backgroundColor:'grey'}}
+                badgeStyle={{backgroundColor:'#ACACAC'}}
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
             <Text style={{ marginLeft: 250, marginTop: 17, fontWeight: 'bold'}}> 2.4k </Text>
@@ -226,13 +281,16 @@ export default function Home({ navigation }) {
             salad I've had in a while. Definitely my own once I travel back home. 😍
         </Text>
         <Card.Divider style={{marginTop: 5}}/>
-        <Text style={{ fontSize: 10, fontWeight: 'bold'}}>
-            Modern Greek Salad - Uptown Eatery
-        </Text>
+        <View style={{ flexDirection: 'row'}}>
+            <Icon name="book" size={15} color="#FFC42D" />
+            <Text style={{ marginLeft: 5, marginTop: 2, fontSize: 10, fontWeight: 'bold'}}>
+                Modern Greek Salad - Uptown Eatery
+            </Text>
+        </View>
         </Card>
 
 
-        {/* card posting 3*/}
+        {/* card posting 4*/}
         <Card borderRadius={25} margin>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
             <Avatar
@@ -275,9 +333,12 @@ export default function Home({ navigation }) {
             means more food for my wife and I to enjoy! 🍽
         </Text>
         <Card.Divider style={{marginTop: 5}}/>
-        <Text style={{ fontSize: 10, fontWeight: 'bold'}}>
-            Yummy Berry Pastries - Emanuel Milano
-        </Text>
+        <View style={{ flexDirection: 'row'}}>
+            <Icon name="book" size={15} color="#FFC42D" />
+            <Text style={{ marginLeft: 5, marginTop: 2, fontSize: 10, fontWeight: 'bold'}}>
+                Yummy Berry Pastries - Emanuel Milano
+            </Text>
+        </View>
         </Card>
     </ScrollView>
     </>
