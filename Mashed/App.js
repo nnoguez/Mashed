@@ -6,9 +6,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Home from "./components/Home";
 import Explore from "./components/Explore";
+import Post from './components/Post';
 import Challenge from './components/Challenge';
 import Profile from './components/Profile';
 import Splash from './components/Splash';
+
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -24,7 +26,7 @@ export default function App() {
             component={Home} 
             options={{
               headerShown: false,
-              tabBarIcon: () => <Icon name="home" size={25} color="#9492EF" />
+              tabBarIcon: () => <Icon name="home" size={25} color="gold" />
             }}/>
           <Tab.Screen 
             name="Explore" 
@@ -32,6 +34,13 @@ export default function App() {
             options={{
               headerShown: false,
               tabBarIcon: () => <Icon name="compass" size={25} color="grey" />,
+            }}/>
+            <Tab.Screen 
+              name="Post" 
+              component={Post} 
+              options={{
+                headerShown: false,
+                tabBarIcon: () => <Icon name="plus" size={35} color="grey" />,
             }}/>
           <Tab.Screen 
             name="Challenge" 
