@@ -75,9 +75,16 @@ export default function Challenge() {
 
         <TouchableOpacity
         style={styles.roundButton1}>
+          <Icon name="fa-solid fa-x"  size={35} color="grey" />
+        </TouchableOpacity>
+        <TouchableOpacity
+        style={styles.roundButton2}>
+          <Icon name="fa-solid fa-shuffle"c size={35} color="#white" />
+        </TouchableOpacity>
+        <TouchableOpacity
+        style={styles.roundButton1}>
           <Icon name="heart" size={35} color="#EE7E74" />
         </TouchableOpacity>
-
     {/* </ScrollView> */}
     </>
   );
@@ -118,5 +125,14 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     backgroundColor: 'white',
   },
+  roundButton2:{
+    width: 60,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: 100,
+    backgroundColor: '#FFC42D',
+  }
 
 })
