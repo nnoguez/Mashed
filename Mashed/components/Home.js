@@ -11,13 +11,12 @@ export default function Home({ navigation }) {
     <View style={styles.viewOne}>
         <View>
             <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
-                <Icon style={{ marginLeft: 310 }} name="commenting" size={25} color="#FFC42D" />
+                <Icon style={{ marginLeft: 355, marginTop: 20 }} name="commenting" size={25} color="#FFC42D" />
             </TouchableOpacity>
             <Image
             style={{ 
-                marginLeft: 110, 
+                marginLeft: 127, 
                 marginBottom: 10,
-                marginTop: 5, 
                 width:"35%", 
                 height:25}}
             source={{
@@ -148,7 +147,7 @@ export default function Home({ navigation }) {
                 status="success" 
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
-            <Text style={{ marginLeft: 200, marginTop: 17, fontWeight: 'bold'}}> 1.3k </Text>
+            <Text style={{ marginLeft: 250, marginTop: 17, fontWeight: 'bold'}}> 1.3k </Text>
             <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
@@ -159,7 +158,7 @@ export default function Home({ navigation }) {
         />
     {/* post bio */}
         <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 10 }}>
-            <Text style={{fontWeight: 'bold', marginTop: 3, marginRight: 76}}> lisaaa! </Text>
+            <Text style={{fontWeight: 'bold', marginTop: 3, marginRight: 134}}> lisaaa! </Text>
             <Icon style={{ marginLeft: 10 }} name="comment" size={20} color="#9492EF" />
             <Text style={{ marginTop: 5 }}> 299 </Text>
             <Icon style={{ marginLeft: 10, marginTop: 2 }} name="bookmark" size={20} color="#9492EF" />
@@ -201,7 +200,7 @@ export default function Home({ navigation }) {
                 badgeStyle={{backgroundColor:'grey'}}
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
-            <Text style={{ marginLeft: 200, marginTop: 17, fontWeight: 'bold'}}> 2.4k </Text>
+            <Text style={{ marginLeft: 250, marginTop: 17, fontWeight: 'bold'}}> 2.4k </Text>
             <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
@@ -213,7 +212,7 @@ export default function Home({ navigation }) {
 
         {/* post bio */}
         <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 10 }}>
-            <Text style={{fontWeight: 'bold', marginTop: 3, marginRight: 64}}> Lani ^-^ </Text>
+            <Text style={{fontWeight: 'bold', marginTop: 3, marginRight: 120}}> Lani ^-^ </Text>
             <Icon style={{ marginLeft: 10 }} name="comment" size={20} color="#9492EF" />
             <Text style={{ marginTop: 5 }}> 299 </Text>
             <Icon style={{ marginLeft: 10, marginTop: 2 }} name="bookmark" size={20} color="#9492EF" />
@@ -251,7 +250,7 @@ export default function Home({ navigation }) {
                 status="success" 
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
-            <Text style={{ marginLeft: 200, marginTop: 17, fontWeight: 'bold'}}> 3.1k </Text>
+            <Text style={{ marginLeft: 250, marginTop: 17, fontWeight: 'bold'}}> 3.1k </Text>
             <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
         </View>
         <Card.Image
@@ -262,7 +261,7 @@ export default function Home({ navigation }) {
         />
         {/* post bio */}
         <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 10 }}>
-            <Text style={{fontWeight: 'bold', marginTop: 3, marginRight: 60}}> Emanuel </Text>
+            <Text style={{fontWeight: 'bold', marginTop: 3, marginRight: 120}}> Emanuel </Text>
             <Icon style={{ marginLeft: 10 }} name="comment" size={20} color="#9492EF" />
             <Text style={{ marginTop: 5 }}> 732 </Text>
             <Icon style={{ marginLeft: 10, marginTop: 2 }} name="bookmark" size={20} color="#9492EF" />
