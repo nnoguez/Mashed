@@ -8,10 +8,12 @@ import { ListItem } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Challenge() {
+  const image = {uri: 'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg'};
   return (
     <>
     {/* mashed logo */}
     <View style={styles.viewOne}>
+      
         <View>
             <TouchableOpacity onPress={()=> navigation.navigate('Chat')}>
                 <Icon style={{ marginLeft: 355, marginTop: 20 }} name="commenting" size={25} color="#FFC42D"/>
@@ -28,47 +30,57 @@ export default function Challenge() {
             /> 
       </View>
     </View>
-    <ScrollView
-        horizontal= {true}
-        showsHorizontalScrollIndicator={true}
-        pagingEnabled={true}>
+    {/* <ScrollView
+      horizontal= {true}
+      showsHorizontalScrollIndicator={true}
+      pagingEnabled={true}> */}
 
-    <Card>
-    <ImageBackground source={'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg'} resizeMode="cover" style= {styles.image}>
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, flex:1 }}>
-    </View>
-          {/* <Card.Image
-            style={{ padding: 0 }}
+
+        {/* card posting 2*/}
+        <Card borderRadius={25}>
+        <Card.Image
+            style={{width:"100%", height:500, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
             source={{
-              uri:
-                'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg'
+            uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
             }}
-          /> */}
-          <Card.Title>Berry Stuffed French Toast</Card.Title>
-          <ListItem>
-            <ListItem.Content>
-              <Icon name="nutfree" type="material-community" color="purple"></Icon>
-              <ListItem.Title>Nut-Free</ListItem.Title>  
-            </ListItem.Content>  
-          </ListItem>    
-          <ListItem>
-            <ListItem.Content>
-            <Icon name="dietary" type="material-community" color="purple"></Icon>
-             <ListItem.Title>Halal, Kosher</ListItem.Title> 
-            </ListItem.Content>
-          </ListItem>
-          <ListItem>
-            <ListItem.Content>
-            <Icon name="WarningOutlined" type="material-community" color="purple"></Icon>
-             <ListItem.Title>Contains Eggs, Diary</ListItem.Title> 
-            </ListItem.Content>
-          </ListItem>
-          </ImageBackground> 
+        />
+        {/* post bio */}
+            <View style={{ flexDirection: 'row', marginTop: 10 }}>
+            </View>
+
+          <Text style={{ marginTop: 5, fontWeight: 'bold', fontSize: '20' }}>
+              Berry-Stuffed French Toast 
+          </Text>
+          {/* row 1 */}
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
+            <Text style={styles.fontBig}>
+              <Icon name="plus" color="#9492EF" size={20} paddingRight={20} />
+              Nut-free
+            </Text>
+            
+            <Text style={styles.fontBig}>
+              <Icon name="plus" color="#9492EF" size={20} paddingRight={20} />
+              Halal, Kosher
+            </Text>
+          </View>
+          {/* row 2 */}
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3, marginRight: 50 }}> 
+            <Text style={styles.fontBig}>
+              <Icon name="plus" color="#9492EF" size={20} />
+              Contains Egg, Dairy
+            </Text>
+          </View>
+
         </Card>
-        </ScrollView>
-        </>
+
+        <TouchableOpacity
+        style={styles.roundButton1}>
+          <Icon name="heart" size={35} color="#EE7E74" />
+        </TouchableOpacity>
+
+    {/* </ScrollView> */}
+    </>
   );
- 
 }
 
 const styles = StyleSheet.create({
@@ -93,6 +105,18 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: 'center',
+  },
+  fontBig: {
+    fontSize: 15,
+  },
+  roundButton1: {
+    width: 60,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: 100,
+    backgroundColor: 'white',
   },
 
 })
