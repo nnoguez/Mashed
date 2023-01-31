@@ -103,6 +103,7 @@ export default function App() {
                 tabBarShowLabel: false,
                 tabBarIcon: ({ color,focused }) => (
                   <Icon name="plus" color="#9492EF" size={35} />
+                  
                 )
             }}/>
           <Tab.Screen 

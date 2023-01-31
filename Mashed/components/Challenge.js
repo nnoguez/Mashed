@@ -3,20 +3,36 @@
 
 import { Card } from '@rneui/themed';
 import React, { Component } from "react";
-import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity } from 'react-native';
+import { View, ScrollView, Text, Image, StyleSheet, SectionList, TouchableOpacity } from 'react-native';
 import { ListItem } from '@rneui/themed';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Challenge() {
   return (
+    <>
+    {/* mashed logo */}
+    <View style={styles.viewOne}>
+        <View>
+            <TouchableOpacity onPress={()=> navigation.navigate('Chat')}>
+                <Icon style={{ marginLeft: 355, marginTop: 20 }} name="commenting" size={25} color="#FFC42D"/>
+            </TouchableOpacity>
+            <Image
+            style={{ 
+                marginLeft: 127, 
+                marginBottom: 10,
+                width:"35%", 
+                height:25}}
+            source={{
+            uri:'https://i.postimg.cc/65XBkHNg/logo.png',
+            }}
+            /> 
+      </View>
+    </View>
     <ScrollView
         horizontal= {true}
         showsHorizontalScrollIndicator={true}
         pagingEnabled={true}>
-        <View>
-            <Text style={styles.followFor}> 
-            <Text style={styles.followForColor}> Following | </Text>
-            For You</Text>
-        </View>
+
     <Card>
     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}></View>
           <Card.Image
@@ -47,16 +63,17 @@ export default function Challenge() {
           </ListItem>
         </Card>
         </ScrollView>
+        </>
   );
  
 }
 
 const styles = StyleSheet.create({
   viewOne: {
-      textAlign: "center",
-      margin: 20,
-      marginBottom: 10
-  },
+    textAlign: "center",
+    margin: 20,
+    marginBottom: 10
+},
   header: {
       marginRight: 10,
   },
