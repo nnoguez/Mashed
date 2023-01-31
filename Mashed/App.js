@@ -3,14 +3,15 @@ import React, { useState } from "react";
 import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import { BottomTabBar } from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Home from "./components/Home";
 import Explore from "./components/Explore";
 import Post from './components/Post';
 import Challenge from './components/Challenge';
 import Profile from './components/Profile';
-// import Splash from './components/Splash';
-// import Chat from './components/Chat';
+import Splash from './components/Splash';
+import Chat from './components/Chat';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -27,7 +28,18 @@ export default function App() {
       <NavigationContainer initialRouteName="Home">
         <Tab.Navigator 
           activeColor="#FFC42D"
-          inactiveColor="grey">
+          inactiveColor="grey"
+          screenOptions={({ route }) => ({
+            tabBarButton: [
+              "Route1ToExclude",
+              "Route2ToExclude"
+            ].includes(route.name)
+              ? () => {
+                  return null;
+                }
+              : undefined,
+          })}
+        >
           <Tab.Screen 
             name="Home" 
             component={Home} 
@@ -79,6 +91,24 @@ export default function App() {
                 <Icon name="user" color={focused?'#FFC42D':'grey'} size={30} />
               )
             }}/>
+          <Tab.Screen 
+            name="Splash" 
+            component={Splash} 
+            options={{
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
+          <Tab.Screen 
+            name="Chat" 
+            component={Chat} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
         </Tab.Navigator>
       </NavigationContainer>
   );
