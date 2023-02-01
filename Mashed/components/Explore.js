@@ -1,11 +1,12 @@
 // explore screen (alan)
 
-
+import { SearchBar } from "@rneui/base";
 import React, { Component } from "react";
 import { Button, View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Explore() {
+  const [value, setValue] = React.useState("");
   return (
     <>
     {/* mashed logo */}
@@ -26,9 +27,25 @@ export default function Explore() {
             /> 
       </View>
     </View>
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Explore</Text>
-    </View>
+    <SearchBar
+      bordercolor="grey"
+      color= "white"
+      platform="default"
+      containerStyle={{}}
+      inputContainerStyle={{}}
+      inputStyle={{}}
+      leftIconContainerStyle={{}}
+      rightIconContainerStyle={{}}
+      loadingProps={{}}
+      onChangeText={newVal => setValue(newVal)}
+      onClearText={() => console.log(onClearText())}
+      placeholder="Entire a Recipe..."
+      placeholderTextColor="grey"
+      cancelButtonTitle="Cancel"
+      cancelButtonProps={{}}
+      onCancel={() => console.log(onCancel())}
+      value={value}
+       />
     </>
   );
 }
