@@ -1,6 +1,6 @@
 // explore screen (alan)
 
-import { SearchBar } from "@rneui/base";
+import { Card, SearchBar } from "@rneui/base";
 import React, { Component } from "react";
 import { Button, View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -27,25 +27,54 @@ export default function Explore() {
             /> 
       </View>
     </View>
-    <SearchBar
-      bordercolor="grey"
-      color= "white"
-      platform="default"
-      containerStyle={{}}
-      inputContainerStyle={{}}
-      inputStyle={{}}
-      leftIconContainerStyle={{}}
-      rightIconContainerStyle={{}}
-      loadingProps={{}}
-      onChangeText={newVal => setValue(newVal)}
-      onClearText={() => console.log(onClearText())}
-      placeholder="Entire a Recipe..."
-      placeholderTextColor="grey"
-      cancelButtonTitle="Cancel"
-      cancelButtonProps={{}}
-      onCancel={() => console.log(onCancel())}
-      value={value}
+      <SearchBar
+          bordercolor="grey"
+          color= "white"
+          platform="default"
+          containerStyle={{}}
+          inputContainerStyle={{}}
+          inputStyle={{}}
+          leftIconContainerStyle={{}}
+          rightIconContainerStyle={{}}
+          loadingProps={{}}
+          onChangeText={newVal => setValue(newVal)}
+          onClearText={() => console.log(onClearText())}
+          placeholder="Entire a Recipe..."
+          placeholderTextColor="grey"
+          cancelButtonTitle="Cancel"
+          cancelButtonProps={{}}
+          onCancel={() => console.log(onCancel())}
+          value={value}
        />
+       <Text style={styles.Headers}>Featured</Text>
+        <Card borderRadius={25} margin>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
+          </View>
+          <Card.Image
+              style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
+              source={{
+              uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
+              }}
+          />
+          <Text style={{ marginTop: 5 }}>
+              Give thanks and celebrate Thanksgiving with someone yummy recipes! <Icon name="fa-arrow-right" color="FFC42D"></Icon>
+          </Text>
+        </Card>
+      <Text style={styles.Headers}>For You</Text>
+      <Text style={styles.Subheaders}>Based on your recent likes and creations.</Text>    
+      <ScrollView horizontal= {true} showsHorizontalScrollIndicator={true} pagingEnabled={true}> 
+              <Card>
+                <Card.Image style= {{width: "50%", height:100, marginTop:5}}
+                source={{uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',}}></Card.Image>
+              </Card>
+      
+      
+      
+      
+      
+      
+      
+      </ScrollView>        
     </>
   );
 }
@@ -56,4 +85,12 @@ const styles = StyleSheet.create({
       margin: 20,
       marginBottom: 10
   },
+  Headers: {
+    fontSize: 15,
+    fontWeight:'bold'
+  },
+  Subheaders: {
+    fontSize: 13,
+    color: 'grey'
+  }
 })

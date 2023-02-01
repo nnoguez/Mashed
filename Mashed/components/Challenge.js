@@ -30,11 +30,6 @@ export default function Challenge() {
             /> 
       </View>
     </View>
-    {/* <ScrollView
-      horizontal= {true}
-      showsHorizontalScrollIndicator={true}
-      pagingEnabled={true}> */}
-
 
         {/* card posting 2*/}
         <Card borderRadius={25}>
