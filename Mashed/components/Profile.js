@@ -52,22 +52,29 @@ export default function Profile ({ navigation }) {
           <Text style={{ fontWeight:'bold' }}>@dnovatnak007</Text>
           <Text>Followers</Text>
       </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }}>
-          <Text style={{ fontWeight:'bold' }}>208</Text>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', margin: 10 }}>
+          <Text style={{ fontWeight:'bold', fontSize: 17 }}>208</Text>
           <Button
-            title="LOG IN"
+            title="Edit Profile"
             buttonStyle={{
               backgroundColor: '#9492EF',
               borderRadius: 30,
+              padding: 1,
           }}
           containerStyle={{
             marginHorizontal: 25,
             marginVertical: 5,
           }}
           />
-          <Text style={{ fontWeight:'bold' }}>103</Text>
+          <Text style={{ fontWeight:'bold', fontSize: 17 }}>103</Text>
       </View>
-      <Text>design professor, food-enthusiast, better than you</Text>
+      <Text style={{ textAlign: 'center', margin: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey' }}>design professor, food-enthusiast, better than you </Text>
+      <View style={{ margin: 15 }}>
+        <Text style={{ textAlign: "center", fontSize: 17 }}> 
+        <Text style={{color: "#FFC42D",fontWeight: 'bold'}}> My Posts | </Text>
+            My Saved
+        </Text>
+      </View>
 
 
 
