@@ -7,7 +7,7 @@ import React, { Component } from "react";
 import { Button, View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Explore() {
+export default function Explore({ navigation }) {
   const [value, setValue] = React.useState("");
   return (
     <>
@@ -68,26 +68,28 @@ export default function Explore() {
       <Text style={styles.Headers}>For You</Text>
       <Text style={styles.Subheaders}>Based on your recent likes and creations.</Text>    
       <ScrollView horizontal= {true} showsHorizontalScrollIndicator={true} pagingEnabled={true}> 
+      <TouchableOpacity onPress={()=> navigation.navigate('Recipe')}>
         <Card borderRadius={25} width={160} margin>
-              <Card.Image
-                  style={{ height:100, borderRadius: 25}}
-                  source={{
-                  uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
-                  }}
-              />
-            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold'}}> Berry-Stuffed French Toast </Text>
-        </Card>
-      {/* card posting 2*/}
-      <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5}>
               <Card.Image
                   style={{ height:100, borderRadius: 25}}
                   source={{
                   uri:'https://www.thespruceeats.com/thmb/a8cS7kg5bbsuFsJN-5zO3eOVvBE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chicken-katsu-4778466-10-67e6122e936b418ab1a92f176709d299.jpg',
                   }}
               />
-            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Crispy Chicken Katsu </Text>
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold'}}> Crispy Chicken Katsu </Text>
+        </Card>
+      </TouchableOpacity>
+      {/* card posting 2*/}
+      <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5} margin>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Berry-Stuffed French Toast </Text>
       </Card>
-      <Card borderRadius={25} width={160} marginRight={-5}>
+      <Card borderRadius={25} width={160} marginRight={-5} margin> 
               <Card.Image
                   style={{ height:100, borderRadius: 25}}
                   source={{
@@ -96,7 +98,7 @@ export default function Explore() {
               />
             <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> BEST Belgian Waffles </Text>
         </Card>
-      <Card borderRadius={25} width={160} marginRight={-5}>
+      <Card borderRadius={25} width={160} marginRight={-5} margin>
               <Card.Image
                   style={{ height:100, borderRadius: 25}}
                   source={{
@@ -204,7 +206,8 @@ const styles = StyleSheet.create({
   },
   Headers: {
     fontSize: 15,
-    fontWeight:'bold'
+    fontWeight:'bold',
+    marginTop: 10
   },
   Subheaders: {
     fontSize: 13,
