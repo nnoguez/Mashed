@@ -2,8 +2,8 @@
 
 
 import React, { Component } from "react";
-import { Avatar } from '@rneui/themed';
-import { Button, View, Image, Text, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
+import { Avatar, Button } from '@rneui/themed';
+import { View, Image, Text, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const image = {uri: 'https://i.pinimg.com/736x/27/1a/b9/271ab997e179c7dde6530e8d8ae632d4.jpg'};
@@ -38,7 +38,7 @@ export default function Profile ({ navigation }) {
           <Avatar
             avatarStyle={{ 
             borderWidth: 10, 
-            borderColor: 'white', 
+            borderColor: '#F5F5F5', 
             borderRadius: 100, 
             }}        
               size={150}
@@ -49,8 +49,25 @@ export default function Profile ({ navigation }) {
       </ImageBackground>
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }}>
           <Text>Following</Text>
+          <Text style={{ fontWeight:'bold' }}>@dnovatnak007</Text>
           <Text>Followers</Text>
-        </View>
+      </View>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }}>
+          <Text style={{ fontWeight:'bold' }}>208</Text>
+          <Button
+            title="LOG IN"
+            buttonStyle={{
+              backgroundColor: '#9492EF',
+              borderRadius: 30,
+          }}
+          containerStyle={{
+            marginHorizontal: 25,
+            marginVertical: 5,
+          }}
+          />
+          <Text style={{ fontWeight:'bold' }}>103</Text>
+      </View>
+      <Text>design professor, food-enthusiast, better than you</Text>
 
 
 
