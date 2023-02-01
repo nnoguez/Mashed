@@ -11,6 +11,7 @@ export default function Challenge ({ navigation }) {
   const image = {uri: 'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg'};
   return (
     <>
+    <ScrollView>
     {/* mashed logo */}
     <View style={styles.viewOne}>
       
@@ -82,7 +83,7 @@ export default function Challenge ({ navigation }) {
             <Icon name="heart" size={35} color="#EE7E74" />
           </TouchableOpacity>
         </View>
-    {/* </ScrollView> */}
+    </ScrollView>
     </>
   );
 }
