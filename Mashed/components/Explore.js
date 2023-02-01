@@ -53,11 +53,11 @@ export default function Explore() {
           <Card.Image
               style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
               source={{
-              uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
+              uri:'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/thanksgivingmenus-1634134898.jpg',
               }}
           />
           <Text style={{ marginTop: 5 }}>
-              Give thanks and celebrate Thanksgiving with someone yummy recipes! <Icon name="fa-arrow-right" color="FFC42D"></Icon>
+              Give thanks and celebrate Thanksgiving with some yummy recipes! <Icon name="arrow-right" color="#FFC42D"></Icon>
           </Text>
         </Card>
       <Text style={styles.Headers}>For You</Text>
