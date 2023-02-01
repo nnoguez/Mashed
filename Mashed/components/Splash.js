@@ -7,7 +7,7 @@ import { View, Image, TouchableOpacity } from "react-native";
 
 export default function Splash ({ navigation }) {
   return (
-    <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
+    <TouchableOpacity onPress={()=> navigation.navigate('Login')}>
     <View style={{ backgroundColor: '#9492EF'}}>
           <View>
             <Image
