@@ -2,11 +2,13 @@
 
 
 import React, { Component } from "react";
-import { Button, View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Avatar } from '@rneui/themed';
+import { Button, View, Image, Text, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+const image = {uri: 'https://i.pinimg.com/736x/27/1a/b9/271ab997e179c7dde6530e8d8ae632d4.jpg'};
 
-export default function Profile() {
+export default function Profile ({ navigation }) {
   return (
     <>
     {/* mashed logo */}
@@ -26,10 +28,32 @@ export default function Profile() {
             }}
             /> 
       </View>
+      <ImageBackground source={image} resizeMode="cover">
+        <View style={{ 
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: 25,
+        }}
+        >
+          <Avatar
+            avatarStyle={{ 
+            borderWidth: 10, 
+            borderColor: 'white', 
+            borderRadius: 100, 
+            }}        
+              size={150}
+              rounded
+              source={{ uri: "https://communication.ucf.edu/wp-content/uploads/sites/2/2018/05/Daniel-V.-Novatnak-1.jpeg" }}
+          />
+        </View>
+      </ImageBackground>
+
+
+
+
+
+
     </View>   
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Profile</Text>
-    </View>
     </>
   );
 }
