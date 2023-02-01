@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity } from 'react-native';
+import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity, Image } from 'react-native';
 import { Avatar, Image, Badge, Card, CheckBox, ListItem } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -10,7 +10,10 @@ export default function Recipe({ navigation }) {
     <View style={styles.viewOne}>
         <View>
             <TouchableOpacity onPress={()=> navigation.navigate('Chat')}>
-                <Icon style={{ marginLeft: 355, marginTop: 20 }} name="commenting" size={25} color="#FFC42D"/>
+                <Icon style={{ marginLeft: 355, marginTop: 20 }} name="cart" size={25} color="#FFC42D"/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=> navigation.navigate('Explore')}>
+                <Icon style={{ marginLeft: 20, marginTop: 20 }} name="angle-left" size={25} color="#FFC42D"/>
             </TouchableOpacity>
             <Image
             style={{ 
@@ -24,6 +27,10 @@ export default function Recipe({ navigation }) {
             /> 
         </View>
         </View>
+        <Image style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
+            source={{
+            uri:'https://i.pinimg.com/originals/90/2c/91/902c916c90e7eab300f623db3384e614.jpg',
+            }}></Image>
         <ListItem>
         <ListItem.Content>
             <CheckBox
