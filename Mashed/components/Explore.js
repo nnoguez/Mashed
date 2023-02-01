@@ -1,3 +1,5 @@
+
+
 // explore screen (alan)
 
 import { Card, SearchBar } from "@rneui/base";
@@ -9,28 +11,26 @@ export default function Explore() {
   const [value, setValue] = React.useState("");
   return (
     <>
-    {/* mashed logo */}
     <View style={styles.viewOne}>
-        <View>
-            <TouchableOpacity onPress={()=> navigation.navigate('Chat')}>
-                <Icon style={{ marginLeft: 355, marginTop: 20 }} name="commenting" size={25} color="#FFC42D"/>
-            </TouchableOpacity>
-            <Image
-            style={{ 
-                marginLeft: 127, 
-                marginBottom: 10,
-                width:"35%", 
-                height:25}}
-            source={{
-            uri:'https://i.postimg.cc/65XBkHNg/logo.png',
-            }}
-            /> 
+      {/* mashed logo */}
+          <View>
+              <TouchableOpacity onPress={()=> navigation.navigate('Chat')}>
+                  <Icon style={{ marginLeft: 355, marginTop: 20 }} name="commenting" size={25} color="#FFC42D"/>
+              </TouchableOpacity>
+              <Image
+              style={{ 
+                  marginLeft: 127, 
+                  marginBottom: 10,
+                  width:"35%", 
+                  height:25}}
+              source={{
+              uri:'https://i.postimg.cc/65XBkHNg/logo.png',
+              }}
+              /> 
+        </View>
       </View>
-    </View>
       <SearchBar
-          bordercolor="grey"
-          color= "white"
-          platform="default"
+          platform="android"
           containerStyle={{}}
           inputContainerStyle={{}}
           inputStyle={{}}
@@ -39,19 +39,21 @@ export default function Explore() {
           loadingProps={{}}
           onChangeText={newVal => setValue(newVal)}
           onClearText={() => console.log(onClearText())}
-          placeholder="Entire a Recipe..."
+          placeholder="Enter a Recipe..."
           placeholderTextColor="grey"
           cancelButtonTitle="Cancel"
           cancelButtonProps={{}}
           onCancel={() => console.log(onCancel())}
           value={value}
        />
+    <View style={styles.viewOne}>
+       
        <Text style={styles.Headers}>Featured</Text>
-        <Card borderRadius={25} margin>
+        <Card borderRadius={25} margin >
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
           </View>
           <Card.Image
-              style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
+              style={{width:"100%", height:200, borderRadius: 25}}
               source={{
               uri:'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/thanksgivingmenus-1634134898.jpg',
               }}
@@ -63,18 +65,73 @@ export default function Explore() {
       <Text style={styles.Headers}>For You</Text>
       <Text style={styles.Subheaders}>Based on your recent likes and creations.</Text>    
       <ScrollView horizontal= {true} showsHorizontalScrollIndicator={true} pagingEnabled={true}> 
-              <Card>
-                <Card.Image style= {{width: "50%", height:100, marginTop:5}}
-                source={{uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',}}></Card.Image>
-              </Card>
+
+
+    {/* <View style={{ flexDirection: 'row' }}> */}
+    {/* card posting 1*/}
+      <Card borderRadius={25} width={160} margin>
+            <Card.Image
+                style={{ height:100, borderRadius: 25}}
+                source={{
+                uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
+                }}
+            />
+          <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold'}}> Berry-Stuffed French Toast </Text>
+      </Card>
+
+    {/* card posting 2*/}
+    <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5}>
+            <Card.Image
+                style={{ height:100, borderRadius: 25}}
+                source={{
+                uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
+                }}
+            />
+          <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Berry-Stuffed French Toast </Text>
+    </Card>
+
+    {/* card posting 1*/}
+    <Card borderRadius={25} width={160} marginRight={-5}>
+            <Card.Image
+                style={{ height:100, borderRadius: 25}}
+                source={{
+                uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
+                }}
+            />
+          <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Berry-Stuffed French Toast </Text>
+      </Card>
+
+    {/* card posting 2*/}
+    <Card borderRadius={25} width={160} marginRight={-5}>
+            <Card.Image
+                style={{ height:100, borderRadius: 25}}
+                source={{
+                uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
+                }}
+            />
+          <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Berry-Stuffed French Toast </Text>
+    </Card>
+    {/* </View> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
       
       
       
-      
-      
-      
-      </ScrollView>        
+      </ScrollView> 
+      </View>
     </>
   );
 }
