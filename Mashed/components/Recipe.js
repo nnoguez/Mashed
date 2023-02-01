@@ -63,3 +63,11 @@ export default function Recipe({ navigation }) {
         </>
     )
 }
+
+const styles = StyleSheet.create({
+    viewOne: {
+        textAlign: "center",
+        margin: 20,
+        marginBottom: 10
+    }
+})
