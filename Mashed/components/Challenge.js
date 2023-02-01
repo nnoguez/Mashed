@@ -39,7 +39,7 @@ export default function Challenge() {
         {/* card posting 2*/}
         <Card borderRadius={25}>
         <Card.Image
-            style={{width:"100%", height:500, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
+            style={{width:"100%", height:500, marginTop: 5, borderRadius: 25 }}
             source={{
             uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
             }}
@@ -47,10 +47,10 @@ export default function Challenge() {
         {/* post bio */}
             <View style={{ flexDirection: 'row', marginTop: 10 }}>
             </View>
-
           <Text style={{ marginTop: 5, fontWeight: 'bold', fontSize: '20' }}>
               Berry-Stuffed French Toast 
           </Text>
+
           {/* row 1 */}
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
             <Text style={styles.fontBig}>
@@ -63,6 +63,7 @@ export default function Challenge() {
               Halal, Kosher
             </Text>
           </View>
+
           {/* row 2 */}
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3, marginRight: 50 }}> 
             <Text style={styles.fontBig}>
@@ -72,19 +73,20 @@ export default function Challenge() {
           </View>
 
         </Card>
-
-        <TouchableOpacity
-        style={styles.roundButton1}>
-          <Icon name="fa-solid fa-x"  size={35} color="grey" />
-        </TouchableOpacity>
-        <TouchableOpacity
-        style={styles.roundButton2}>
-          <Icon name="fa-solid fa-shuffle"c size={35} color="#white" />
-        </TouchableOpacity>
-        <TouchableOpacity
-        style={styles.roundButton1}>
-          <Icon name="heart" size={35} color="#EE7E74" />
-        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }}> 
+          <TouchableOpacity
+          style={styles.roundButton1}>
+            <Icon name="times"  size={35} color="grey" />
+          </TouchableOpacity>
+          <TouchableOpacity
+          style={styles.roundButton2}>
+            <Icon name="random"c size={35} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity
+          style={styles.roundButton1}>
+            <Icon name="heart" size={35} color="#EE7E74" />
+          </TouchableOpacity>
+        </View>
     {/* </ScrollView> */}
     </>
   );
