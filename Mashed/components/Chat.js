@@ -12,9 +12,14 @@ export default function Chat({ navigation }) {
     {/* mashed logo */}
     <View style={styles.viewOne}>
         <View>
-            <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
-                <Icon style={{ marginLeft: 355, marginTop: 20 }} name="pencil" size={25} color="#FFC42D" />
-            </TouchableOpacity>
+                <View style={[styles.container,{flexDirection: 'row'}]}>
+                    <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
+                        <Icon style={{ marginRight: 355, marginTop: 20 }} name="angle-left" size={35} color="#FFC42D" />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=> navigation.navigate('Message')}>
+                        <Icon style={{ marginRight: 355, marginTop: 20 }} name="pencil" size={25} color="#FFC42D" />
+                    </TouchableOpacity>
+                </View>
             <Image
             style={{ 
                 marginLeft: 127, 

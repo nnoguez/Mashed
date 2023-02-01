@@ -3,11 +3,11 @@
 
 import { Card } from '@rneui/themed';
 import React, { Component } from "react";
-import { View, ScrollView, Text, Image, StyleSheet, SectionList, TouchableOpacity,ImageBackground } from 'react-native';
+import { View, ScrollView, Text, Image, StyleSheet, SectionList, TouchableOpacity } from 'react-native';
 import { ListItem } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Challenge() {
+export default function Challenge ({ navigation }) {
   const image = {uri: 'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg'};
   return (
     <>
