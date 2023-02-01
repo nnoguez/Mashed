@@ -28,11 +28,11 @@ export default function Profile ({ navigation }) {
             }}
             /> 
       </View>
-      <ImageBackground source={image} resizeMode="cover">
+      <ImageBackground source={image} resizeMode="cover" borderBottomLeftRadius={25} borderBottomRightRadius={25}>
         <View style={{ 
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: 25,
+          marginTop: 75,
         }}
         >
           <Avatar
@@ -47,7 +47,10 @@ export default function Profile ({ navigation }) {
           />
         </View>
       </ImageBackground>
-
+      <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }}>
+          <Text>Following</Text>
+          <Text>Followers</Text>
+        </View>
 
 
 
