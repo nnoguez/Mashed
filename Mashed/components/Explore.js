@@ -11,6 +11,7 @@ export default function Explore() {
   const [value, setValue] = React.useState("");
   return (
     <>
+    <ScrollView>
     <View style={styles.viewOne}>
       {/* mashed logo */}
           <View>
@@ -62,76 +63,135 @@ export default function Explore() {
               Give thanks and celebrate Thanksgiving with some yummy recipes! <Icon name="arrow-right" color="#FFC42D"></Icon>
           </Text>
         </Card>
+
+      {/* First Scroll of Recipes  */}
       <Text style={styles.Headers}>For You</Text>
       <Text style={styles.Subheaders}>Based on your recent likes and creations.</Text>    
       <ScrollView horizontal= {true} showsHorizontalScrollIndicator={true} pagingEnabled={true}> 
-
-
-    {/* <View style={{ flexDirection: 'row' }}> */}
-    {/* card posting 1*/}
-      <Card borderRadius={25} width={160} margin>
-            <Card.Image
-                style={{ height:100, borderRadius: 25}}
-                source={{
-                uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
-                }}
-            />
-          <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold'}}> Berry-Stuffed French Toast </Text>
+        <Card borderRadius={25} width={160} margin>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold'}}> Berry-Stuffed French Toast </Text>
+        </Card>
+      {/* card posting 2*/}
+      <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5}>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://www.thespruceeats.com/thmb/a8cS7kg5bbsuFsJN-5zO3eOVvBE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chicken-katsu-4778466-10-67e6122e936b418ab1a92f176709d299.jpg',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Crispy Chicken Katsu </Text>
       </Card>
-
-    {/* card posting 2*/}
-    <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5}>
-            <Card.Image
-                style={{ height:100, borderRadius: 25}}
-                source={{
-                uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
-                }}
-            />
-          <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Berry-Stuffed French Toast </Text>
-    </Card>
-
-    {/* card posting 1*/}
-    <Card borderRadius={25} width={160} marginRight={-5}>
-            <Card.Image
-                style={{ height:100, borderRadius: 25}}
-                source={{
-                uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
-                }}
-            />
-          <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Berry-Stuffed French Toast </Text>
+      <Card borderRadius={25} width={160} marginRight={-5}>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://www.jocooks.com/wp-content/uploads/2020/09/belgian-waffles-1-16-730x913.jpg',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> BEST Belgian Waffles </Text>
+        </Card>
+      <Card borderRadius={25} width={160} marginRight={-5}>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://midwestfoodieblog.com/wp-content/uploads/2022/03/FINAL-cheese-tortellini-3.jpg',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Cheese Tortellini </Text>
+      </Card>    
+      </ScrollView>
+      {/* Second Scroll of Recipes   */}
+      <Text style={styles.Headers}>Latin</Text>
+      <Text style={styles.Subheaders}>An aggregate of various national dishes with Native American, African, and European influence.</Text> 
+      <ScrollView horizontal= {true} showsHorizontalScrollIndicator={true} pagingEnabled={true}> 
+        <Card borderRadius={25} width={160} margin>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://www.swankyrecipes.com/wp-content/uploads/2022/08/Birria-Tacos-467x700.jpg',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold'}}> Crispy Birria Tacos </Text>
+        </Card>
+      {/* card posting 2*/}
+      <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5}>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://kitchendelujo.com/wp-content/uploads/2018/08/Mofongo-con-Camarones-Mashed-Plantains-with-Shrimp-1648-682x1024.jpg',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Mofongo con Camarones </Text>
       </Card>
-
-    {/* card posting 2*/}
-    <Card borderRadius={25} width={160} marginRight={-5}>
-            <Card.Image
-                style={{ height:100, borderRadius: 25}}
-                source={{
-                uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
-                }}
-            />
-          <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Berry-Stuffed French Toast </Text>
-    </Card>
-    {/* </View> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-      
-      
-      
-      </ScrollView> 
+      <Card borderRadius={25} width={160} marginRight={-5}>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://kathrynskitchenblog.com/wp-content/uploads/2022/04/Shrimp-Ceviche-13-768x1152.jpg',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Shrimp Ceviche </Text>
+        </Card>
+      <Card borderRadius={25} width={160} marginRight={-5}>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/arroz-al-horno-e63f8cb.jpg?quality=90&webp=true&resize=300,272',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Arroz al horno  </Text>
+      </Card>    
+      </ScrollView>
+      {/* Third Scroll of Recipes   */}
+      <Text style={styles.Headers}>Date Night</Text>
+      <Text style={styles.Subheaders}>Savory and sweet food that will make your heart beat. Get out the candles, turn down the lights, and spend time with the one you love.</Text> 
+      <ScrollView horizontal= {true} showsHorizontalScrollIndicator={true} pagingEnabled={true}> 
+        <Card borderRadius={25} width={160} margin>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://cafedelites.com/wp-content/uploads/2018/06/Garlic-Butter-Steak-Shrimp-Recipe-IMAGE-1.jpg',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold'}}>Garlic Butter Grilled Steak & Shrimp</Text>
+        </Card>
+      {/* card posting 2*/}
+      <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5}>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://www.centralcoop.co.uk/assets/images/recipes/Fondue.jpg',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Chocolate Lava Cake</Text>
+      </Card>
+      <Card borderRadius={25} width={160} marginRight={-5}>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://www.aberdeenskitchen.com/wp-content/uploads/2021/01/Pan-Seared-Lemon-Garlic-Butter-Scallops-2.jpg',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Pan Seared Lemon Garlic Butter Scallops </Text>
+        </Card>
+      <Card borderRadius={25} width={160} marginRight={-5}>
+              <Card.Image
+                  style={{ height:100, borderRadius: 25}}
+                  source={{
+                  uri:'https://img.delicious.com.au/l-sP0yDc/del/2020/08/pecan-chocolate-bread-and-butter-pudding-137408-2.jpg',
+                  }}
+              />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Pecan chocolate bread and butter pudding </Text>
+      </Card>    
+      </ScrollView>
       </View>
+      </ScrollView>
     </>
   );
 }
