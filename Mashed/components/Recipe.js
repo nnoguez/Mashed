@@ -3,6 +3,7 @@ import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity, Imag
 import { Avatar, Image, Badge, Card, CheckBox, ListItem, AirbnbRating } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+
 export default function Recipe({ navigation }) {
     return (
     <>
@@ -90,10 +91,7 @@ export default function Recipe({ navigation }) {
                     </ListItem.Content>
                     </>
                 }
-                isExpanded={expanded}
-                onPress={() => {
-                    setExpanded(!expanded);
-                }}
+               
             >
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3 }}>
                     <ListItem.Content>
