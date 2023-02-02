@@ -80,7 +80,13 @@ export default function Challenge ({ navigation }) {
           </TouchableOpacity>
           <TouchableOpacity
           style={styles.roundButton1}>
-            <Icon name="heart" size={35} color="#EE7E74" />
+              <CheckBox
+                checked={checked}
+                checkedIcon="heart"
+                uncheckedIcon="heart-o"
+                checkedColor="red"
+                onPress={toggleCheckbox}
+                />
           </TouchableOpacity>
         </View>
     </ScrollView>
