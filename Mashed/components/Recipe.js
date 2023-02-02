@@ -6,7 +6,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 export default function Recipe({ navigation }) {
     const [check1, setCheck1] = useState(false);
     const [check2, setCheck2] = useState(false);
-
+    const [check3, setCheck3] = useState(false);
+    const [check4, setCheck4] = useState(false);
+    const [check5, setCheck5] = useState(false);
+    const [check6, setCheck6] = useState(false);
     return (
     <>
     {/* mashed logo */}
@@ -132,14 +135,14 @@ export default function Recipe({ navigation }) {
                             center
                             title="1 Egg, Beaten"
                             checked={check1}
-                            onPress={() => setCheck1(!check1)}
+                            onPress={() => setCheck3(!check3)}
                             />
                     </ListItem.Content>
                         <CheckBox
                             center
                             title="2 Tablespoons all-purpose flour"
                             checked={check2}
-                            onPress={() => setCheck2(!check2)}
+                            onPress={() => setCheck4(!check4)}
                             />
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3 }}>
@@ -148,14 +151,14 @@ export default function Recipe({ navigation }) {
                             center
                             title="Salt and Pepper"
                             checked={check1}
-                            onPress={() => setCheck1(!check1)}
+                            onPress={() => setCheck5(!check5)}
                             />
                     </ListItem.Content>
                         <CheckBox
                             center
                             title="1 Cup of vegetable oil"
                             checked={check2}
-                            onPress={() => setCheck2(!check2)}
+                            onPress={() => setCheck6(!check6)}
                             />
                 </View>
                 <Button
