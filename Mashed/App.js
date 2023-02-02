@@ -15,7 +15,7 @@ import Chat from './components/Chat';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Settings from './components/Settings';
-
+import Recipe from './components/Recipe';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -139,6 +139,16 @@ export default function App() {
           <Tab.Screen 
             name="Settings" 
             component={Settings} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
+          <Tab.Screen 
+            name="Recipe" 
+            component={Recipe} 
             options={{
               headerShown: false,
               tabBarShowLabel: false,
