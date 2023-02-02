@@ -16,7 +16,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Settings from './components/Settings';
 import Recipe from './components/Recipe';
-import Cart from './components/Cart';
+import Shopping from './components/Shopping';
 
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
