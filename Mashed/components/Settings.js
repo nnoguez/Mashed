@@ -15,7 +15,7 @@ import React from "react";
           <View>
                   <View style={[styles.container,{flexDirection: 'row'}]}>
                       <TouchableOpacity onPress={()=> navigation.navigate('Profile')}>
-                          <Icon style={{ marginRight: 355, marginTop: 20 }} name="angle-left" size={35} color="#FFC42D" />
+                          <Icon style={{ marginRight: 345, marginTop: 20 }} name="angle-left" size={35} color="#FFC42D" />
                       </TouchableOpacity>
                       <TouchableOpacity onPress={()=> navigation.navigate('Message')}>
                           <Icon style={{ marginRight: 355, marginTop: 20 }} name="pencil" size={25} color="#FFC42D" />
@@ -59,7 +59,7 @@ import React from "react";
           <Icon name="book" color="#9492EF" size={35}></Icon>
       </View>    
       <View style={{flex: 3, justifyContent: 'space-evenly', textAlign: 'center', marginTop: 10}}>
-        <Text style={{fontSize: 20, marginLeft: 40}}> My recipes and Alterations </Text>
+        <Text style={{fontSize: 20, marginLeft: 40}}> My Recipes and Alterations </Text>
       </View>
   </View>
   <View style={[styles.container,{flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: 'lightgrey', paddingBottom: 30}]}>
