@@ -159,8 +159,8 @@ export default function App() {
             }}
           />
           <Tab.Screen 
-            name="Cart" 
-            component={Cart} 
+            name="Shopping" 
+            component={Shopping} 
             options={{
               headerShown: false,
               tabBarShowLabel: false,
