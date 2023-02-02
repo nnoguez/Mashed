@@ -3,6 +3,7 @@ import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity, Imag
 import { Avatar, Badge, Card, CheckBox, ListItem, AirbnbRating } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+const [check1, setCheck1] = useState(false);
 
 export default function Recipe({ navigation }) {
     return (
