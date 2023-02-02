@@ -4,7 +4,7 @@
 import React, { Component } from "react";
 import { SafeAreaView, View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity, Image } from 'react-native';
 
-import { SocialIcon, Input, Button } from '@rneui/themed'; 
+import { SocialIcon, SocialIconProps, Input, Button, Icon } from '@rneui/themed'; 
 
 const styles = StyleSheet.create({
   backgroundPurple: {
@@ -37,9 +37,9 @@ const styles = StyleSheet.create({
   },
   userInputStyle: { 
     zIndex:3,     
-    borderColor: 'gray',
-    borderWidth: 2,
-    borderRadius: 25,
+    // borderColor: 'gray',
+    // borderWidth: 2,
+    // borderRadius: 25,
     padding:4,
     textAlign:'center',   
   },    
@@ -67,7 +67,11 @@ export default function Login({navigation}) {
         <View style={[styles.userInfo, {flex:1, flexDirection: 'column'},]}>   
           
           
-          <View style={{ width:'100%', height: 60}}><Input style={styles.userInputStyle} placeholder="Email Address"/></View>
+          <View style={{ width:'100%', height: 60}}>
+            <Input style={styles.userInputStyle} 
+              underlineColorAndroid='transparent'
+              placeholder="Email Address"/>
+          </View>
           <View style={{width:'100%', height:60}}><Input style={styles.userInputStyle} placeholder="Password"/></View>
             
           <View style={{ width:'100%'}}>

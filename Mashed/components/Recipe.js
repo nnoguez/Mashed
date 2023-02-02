@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity, Image } from 'react-native';
-import { Avatar, Badge, Card, CheckBox, ListItem, AirbnbRating } from '@rneui/themed';
+import { Avatar, Badge, Card, CheckBox, ListItem, Button, AirbnbRating } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const [check1, setCheck1] = useState(false);
-
 export default function Recipe({ navigation }) {
+    const [check1, setCheck1] = useState(false);
+    const [check2, setCheck2] = useState(false);
+
     return (
     <>
     {/* mashed logo */}
@@ -28,7 +29,10 @@ export default function Recipe({ navigation }) {
             }}
             /> 
         </View>
-        </View>
+    </View>
+
+
+
         <ScrollView>
         {/* image with heart icon */}
         <Image style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
@@ -40,7 +44,19 @@ export default function Recipe({ navigation }) {
         {/* Title and star rating */}
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
             <Text style={styles.header}>Cripsy Chicken Katsu</Text>
-            <AirbnbRating />
+            <AirbnbRating
+                isDisabled={true}
+                count={5}
+                reviews={[
+                    ' ',
+                    ' ',
+                    ' ',
+                    ' ',
+                    ' ',
+                ]}
+                defaultRating={4}
+                size={20}
+            />
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
             <Text style={styles.Subheader}>By: sakuraiiko</Text>
@@ -60,7 +76,7 @@ export default function Recipe({ navigation }) {
         </View>
 
         <Text style={styles.header}>Dietary Restrictions</Text>
-        {/* Row 1 for dietary restrictions */}
+        
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
             <Text style={styles.Subheader}>
               <Icon name="plus" color="#9492EF" size={20} paddingRight={20} />
@@ -75,15 +91,15 @@ export default function Recipe({ navigation }) {
               Lactose-Free
             </Text>
           </View>
-          {/* Row 2 for dietary restrictions */}
+          
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3, marginRight: 50 }}> 
             <Text style={styles.fontBig}>
               <Icon name="plus" color="#9492EF" size={20} />
               Contains Egg, Dairy
             </Text>
           </View>
-            {/* Ingredients list drawer */}
-          <ListItem.Accordion
+
+          <ListItem
                 content={
                     <>
                     <Icon name="Place" size={30} />
@@ -154,8 +170,8 @@ export default function Recipe({ navigation }) {
                         marginVertical: 5,
                     }}>
                 </Button>
-			</ListItem.Accordion>
-            {/* Directions and Images */}
+			</ListItem>
+            
             <Text style={styles.header}>Directions</Text>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3,  }}>                
                 <ListItem>

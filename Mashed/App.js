@@ -16,6 +16,8 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Settings from './components/Settings';
 import Recipe from './components/Recipe';
+import Cart from './components/Cart';
+
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -156,7 +158,16 @@ export default function App() {
               tabBarButton: (props) => null, 
             }}
           />
-
+          <Tab.Screen 
+            name="Shopping" 
+            component={Shopping} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
         </Tab.Navigator>
       </NavigationContainer>
   );

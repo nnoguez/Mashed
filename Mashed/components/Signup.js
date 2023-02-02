@@ -42,9 +42,9 @@ const styles = StyleSheet.create({
   },
   userInputStyle: { 
     zIndex:3,     
-    borderColor: 'gray',
-    borderWidth: 2,
-    borderRadius: 25,
+    // borderColor: 'gray',
+    // borderWidth: 2,
+    // borderRadius: 25,
     padding:4,
     textAlign:'center',
   }
@@ -86,7 +86,7 @@ export default function Login({navigation}) {
           </View>
 
           
-          <View style={{alignItems:'center', width:'100%', marginVertical: 40}}>
+          <View style={{alignItems:'center', width:'100%', marginVertical: 20}}>
             <Text>Already Have An Account? </Text>
             <Button title="Log in!" type="clear" />
           </View>
