@@ -11,10 +11,13 @@ export default function Home({ navigation }) {
     <>
     {/* mashed logo */}
     <View style={styles.viewOne}>
+        
+    
         <View>
             <TouchableOpacity onPress={()=> navigation.navigate('Chat')}>
                 <Icon style={{ marginLeft: 355, marginTop: 20 }} name="commenting" size={25} color="#FFC42D"/>
             </TouchableOpacity>
+            <TouchableOpacity onPress={()=> navigation.navigate('Login')}>
             <Image
             style={{ 
                 marginLeft: 127, 
@@ -25,7 +28,9 @@ export default function Home({ navigation }) {
             uri:'https://i.postimg.cc/65XBkHNg/logo.png',
             }}
             /> 
+            </TouchableOpacity> 
         </View>
+        
     <ScrollView
         // horizontal functionality
         horizontal={true}
