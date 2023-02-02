@@ -12,7 +12,7 @@ export default function Recipe({ navigation }) {
     {/* mashed logo */}
     <View style={styles.viewOne}>
         <View>
-            <TouchableOpacity onPress={()=> navigation.navigate('Chat')}>
+            <TouchableOpacity onPress={()=> navigation.navigate('Shopping')}>
                 <Icon style={{ marginLeft: 355, marginTop: 20 }} name="cart" size={25} color="#FFC42D"/>
             </TouchableOpacity>
             <TouchableOpacity onPress={()=> navigation.navigate('Explore')}>
