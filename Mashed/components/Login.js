@@ -4,7 +4,7 @@
 import React, { Component } from "react";
 import { SafeAreaView, View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity, Image } from 'react-native';
 
-import { SocialIcon, SocialIconProps, Input, Button, Icon,TextInput } from '@rneui/themed'; 
+import { SocialIcon, Input, Button } from '@rneui/themed'; 
 
 const styles = StyleSheet.create({
   backgroundPurple: {
@@ -58,7 +58,7 @@ export default function Login({navigation}) {
               source={{uri:'https://i.postimg.cc/65XBkHNg/logo.png'}}>  
       </Image> 
       <Image  
-              style={{ height: 50, width: '100%' ,resizeMode:'contain'}}
+              style={{ height: 50, width: '100%' , resizeMode:'contain'}}
               source={{uri:'https://ibb.co/XzwByw3'}}>  
       </Image> 
       </View>
