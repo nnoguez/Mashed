@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity, Image } from 'react-native';
 import { Avatar, Badge, Card, CheckBox, ListItem, AirbnbRating } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
