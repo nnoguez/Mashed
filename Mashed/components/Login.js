@@ -67,7 +67,11 @@ export default function Login({navigation}) {
         <View style={[styles.userInfo, {flex:1, flexDirection: 'column'},]}>   
           
           
-          <View style={{ width:'100%', height: 60}}><Input style={styles.userInputStyle} placeholder="Email Address"/></View>
+          <View style={{ width:'100%', height: 60}}>
+            <Input style={styles.userInputStyle} 
+              underlineColorAndroid='transparent'
+              placeholder="Email Address"/>
+          </View>
           <View style={{width:'100%', height:60}}><Input style={styles.userInputStyle} placeholder="Password"/></View>
             
           <View style={{ width:'100%'}}>

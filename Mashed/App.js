@@ -146,7 +146,7 @@ export default function App() {
               tabBarButton: (props) => null, 
             }}
           />
-          <Tab.Screen 
+          {/* <Tab.Screen 
             name="Recipe" 
             component={Recipe} 
             options={{
@@ -155,7 +155,7 @@ export default function App() {
               tabBarVisible: false, 
               tabBarButton: (props) => null, 
             }}
-          />
+          /> */}
 
         </Tab.Navigator>
       </NavigationContainer>
