@@ -3,39 +3,14 @@
 
 import React, { Component } from "react";
 import { SafeAreaView, View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity, Image } from 'react-native';
-//below is the library for the social media icons
+
 import { SocialIcon, SocialIconProps, Input, Button, Icon } from '@rneui/themed'; 
-
-//no clue what this does yet lol
-/*type IconData = {
-  type: SocialMediaType;
-  iconType:string;
-};
-
-//I think this is how I add the icon array (don't know how to input them into the login screen)
-const dataList: Partial<IconData>[] = [
-  {
-    type:'instagram',
-  },
-  {
-    type:'facebook',
-  },
-  {
-    type:'google',
-  }
-  
-];
-
-type SocialIconsComponentProps = {};
-
-const SocialIcons:React.FunctionComponent<SocialIconsComponentProps> = () => {
-  const socialProps = {};*/
 
 const styles = StyleSheet.create({
   backgroundPurple: {
       zIndex:0,
       backgroundColor:'#9492ef',
-      margin:0,
+      flexDirection:"column",
       flex: 1, 
       alignItems: "center", 
       justifyContent: "center",      
@@ -53,15 +28,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",  
   },
   userInfo: {
-    marginTop:30,
+    marginTop:50,
     zIndex:2,   
     top: 0,
     width: '75%',
     alignItems: 'center',
-    //justifyContent: 'center',
-    //height:'100%',
     padding: 10,
-   
   },
   userInputStyle: { 
     zIndex:3,     
@@ -69,22 +41,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 25,
     padding:4,
-    textAlign:'center',
-    
-    
-  },  
-  buttonOne:{
-    zIndex:4,
-    backgroundColor: 'white',
-    color:'white',
-    textColor: 'black', 
-    fontWeight:'bold'
-  },
-  signUp:{
-    marginBottom:10,
-    zIndex:5,
-
-  }
+    textAlign:'center',   
+  },    
 })
 
 
@@ -92,32 +50,47 @@ const styles = StyleSheet.create({
 export default function Login({navigation}) {
   return (  
 
-    <View style={styles.backgroundPurple}>       
+    <View style={styles.backgroundPurple}>  
+
+      <View style={{ zIndex:11, marginTop: -400, width:'100%'}}>
+        <Image  
+              style={{ height: 50, resizeMode:'contain'}}
+              source={{uri:'https://i.postimg.cc/65XBkHNg/logo.png'}}>  
+      </Image> 
+      </View>
+        
       <View style={styles.containerWhite}>
         <View style={[styles.userInfo, {flex:1, flexDirection: 'column'},]}>   
-
+          
+          
           <View style={{ width:'100%', height: 60}}><Input style={styles.userInputStyle} placeholder="Email Address"/></View>
           <View style={{width:'100%', height:60}}><Input style={styles.userInputStyle} placeholder="Password"/></View>
             
           <View style={{ width:'100%'}}>
-            <TouchableOpacity onPress={()=> navigation.navigate('Home.js')}>
-              <Button
+              <Button 
+                    onPress={()=> navigation.navigate('Home')}
                     title="LOG IN"
-                    buttonStyle={{backgroundColor: '#9492ef', borderWidth: 2, borderColor: 'white', borderRadius: 30,}}
+                    buttonStyle={{backgroundColor: '#FFC42D', borderWidth: 2, borderColor: 'white', borderRadius: 30,}}
                     containerStyle={{ width: 200, marginHorizontal: 50,  marginVertical: 10,}}
                     titleStyle={{ fontWeight: 'bold' }}>
               </Button>
-            </TouchableOpacity>
           </View>
 
           <View style={{alignItems:'center',marginVertical: 20, width:'100%'}}>
             <Text>- Log In With -</Text>
+            <View style={[styles.userInfo, {flex:1, flexDirection: 'row'},]}>
+            <SocialIcon type="instagram"></SocialIcon>
+            <SocialIcon type="facebook"></SocialIcon>
+            <SocialIcon type="google"></SocialIcon>
+            </View>
             
           </View>
           
-          <View style={{alignItems:'center', width:'100%',marginTop:100}}>
+          <View style={{alignItems:'center', width:'100%', marginVertical: 40}}>
             <Text>Dont Have An Account? </Text>
-            <Button title="SIGN UP" type="clear" />
+            
+              <Button title="SIGN UP" type="clear" onPress={()=> navigation.navigate('Signup')}/>
+            
           </View>
 
         </View>     

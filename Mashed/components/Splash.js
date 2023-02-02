@@ -13,7 +13,7 @@ export default function Splash ({ navigation }) {
             <Image
               style={{ 
                 height:850,
-                width:'80%%',
+                width:'80%',
                 margin: 40,
                 resizeMode:'contain',
                      }}
