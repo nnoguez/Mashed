@@ -1,6 +1,6 @@
 import React from "react";
 import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity, Image } from 'react-native';
-import { Avatar, Image, Badge, Card, CheckBox, ListItem, AirbnbRating } from '@rneui/themed';
+import { Avatar, Badge, Card, CheckBox, ListItem, AirbnbRating } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
@@ -142,7 +142,7 @@ export default function Recipe({ navigation }) {
                             />
                 </View>
                 <Button
-                    title="Edit Profile"
+                    title="Add to Cart"
                     buttonStyle={{
                     backgroundColor: '#FFC42D',
                     borderRadius: 30,
