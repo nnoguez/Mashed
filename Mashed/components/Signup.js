@@ -99,7 +99,7 @@ export default function Login({navigation}) {
           <View style={{ width:'100%'}}>
             
               <Button
-                    onPress={()=> navigation.navigate('Login')}
+                    onPress={()=> navigation.navigate('Home')}
                     title="SIGN UP"
                     buttonStyle={{backgroundColor: '#FFC42D', borderWidth: 2, borderColor: 'white', borderRadius: 30,}}
                     containerStyle={{ width: 200, marginHorizontal: 50,  marginVertical: 10,}}
