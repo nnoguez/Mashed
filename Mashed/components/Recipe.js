@@ -247,51 +247,63 @@ export default function Recipe({ navigation }) {
                     <ListItem.Title>1 cup Frying Oil</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
-            <Button
-                    title="Add to Cart"
-                    buttonStyle={{
-                    backgroundColor: '#FFC42D',
-                    borderRadius: 30,
-                    padding: 1,
-                    }}
-                    containerStyle={{
-                        marginHorizontal: 25,
-                        marginVertical: 5,
-                    }}>
+            <Button onPress={()=> navigation.navigate('Shopping')}
+                title="Add to Cart"
+                buttonStyle={{
+                backgroundColor: '#FFC42D',
+                borderRadius: 30,
+                padding: 1,
+                }}
+                containerStyle={{
+                    marginHorizontal: 25,
+                    marginVertical: 5,
+            }}>
             </Button>
-      </ListItem.Accordion>
+        </ListItem.Accordion>
 
 
 
 
 
 
+        <Text style={styles.header}>Directions</Text> 
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
+                <Text style={styles.Subheader}>
+                1. Season chicken breasts on both sides with salt and pepper. 
+                </Text>
+            </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
+                <Text style={styles.Subheader}>
+                2. Place flour, beaten egg, and panko crumbs into separate shallow dishes. 
+                </Text>
+            </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
+                <Text style={styles.Subheader}>
+                3. Coat chicken breasts in flour, shaking off any excess; dip into egg, and then press into 
+                panko crumbs until well coated on both sides.
+                </Text>
+            </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
+                <Text style={styles.Subheader}>
+                4. Heat oil in a large skillet over medium-high heat.
+                </Text>
+            </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
+                <Text style={styles.Subheader}>
+                5. Place chicken in the hot oil, and fry until golden brown, 3 or 4 minutes per side.
+                </Text>
+            </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
+                <Text style={styles.Subheader}>
+                6. Transfer to a paper towel-lined plate to drain.
+                </Text>
+            </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
+                <Text style={styles.Subheader}>
+                7. Enjoy!
+                </Text>
+            </View>
 
-            
-            <Text style={styles.header}>Directions</Text>               
-                <ListItem>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>1.Season chicken breasts on both sides with salt and pepper.</ListItem.Title>
-                    </ListItem.Content>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>2.Place flour, beaten egg, and panko crumbs into separate shallow dishes.</ListItem.Title>
-                    </ListItem.Content>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>3.Coat chicken breasts in flour, shaking off any excess; dip into egg, and then press into panko crumbs until well coated on both sides.</ListItem.Title>
-                    </ListItem.Content>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>4.Heat oil in a large skillet over medium-high heat.</ListItem.Title>
-                    </ListItem.Content>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>5.Place chicken in the hot oil, and fry until golden brown, 3 or 4 minutes per side.</ListItem.Title>
-                    </ListItem.Content>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>6.Transfer to a paper towel-lined plate to drain.</ListItem.Title>
-                    </ListItem.Content>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>7.Enjoy!</ListItem.Title>
-                    </ListItem.Content>
-                </ListItem>
                 {/* <View >
                 <Image
                     style={{
