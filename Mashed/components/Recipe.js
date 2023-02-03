@@ -13,6 +13,7 @@ export default function Recipe({ navigation }) {
     const [checked6, setChecked6] = React.useState([false, false]);
 
     const [expanded, setExpanded] = useState(false);
+    const [expanded2, setExpanded2] = useState(false);
     return (
     <>
     {/* mashed logo */}
@@ -262,82 +263,93 @@ export default function Recipe({ navigation }) {
         </ListItem.Accordion>
 
 
+        <ListItem.Accordion containerStyle={{
+            borderRadius: 20,
+            backgroundColor: '#F2F2F2',
+        }}
+            content={
+            <ListItem.Content>
+                <ListItem.Subtitle style={styles.header}> 
+                    Directions
+                </ListItem.Subtitle>
+            </ListItem.Content>
+            }
+            isExpanded={expanded2}
+            onPress={() => {
+            setExpanded2(!expanded2);
+            }}>
+            
+            {/* ingredient 1 */}
+            <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title style={styles.Subheader}>1. Season chicken breasts on both sides with salt and pepper. </ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+        
+        {/* ingredient 2 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title style={styles.Subheader}>2. Place flour, beaten egg, and panko crumbs into separate shallow dishes. </ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
 
+        {/* ingredient 3 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title  style={styles.Subheader}> 3. Coat chicken breasts in flour, shaking off any excess; dip into egg, and then press into 
+                panko crumbs until well coated on both sides.</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
 
+        {/* ingredient 4 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title  style={styles.Subheader}>4. Heat oil in a large skillet over medium-high heat.</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+        
+        {/* ingredient 5 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title  style={styles.Subheader}>5. Place chicken in the hot oil, and fry until golden brown, 3 or 4 minutes per side.</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
 
+        {/* ingredient 6 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title  style={styles.Subheader}>6. Transfer to a paper towel-lined plate to drain.</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
 
-        <Text style={styles.header}>Directions</Text> 
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
-                <Text style={styles.Subheader}>
-                1. Season chicken breasts on both sides with salt and pepper. 
-                </Text>
-            </View>
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
-                <Text style={styles.Subheader}>
-                2. Place flour, beaten egg, and panko crumbs into separate shallow dishes. 
-                </Text>
-            </View>
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
-                <Text style={styles.Subheader}>
-                3. Coat chicken breasts in flour, shaking off any excess; dip into egg, and then press into 
-                panko crumbs until well coated on both sides.
-                </Text>
-            </View>
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
-                <Text style={styles.Subheader}>
-                4. Heat oil in a large skillet over medium-high heat.
-                </Text>
-            </View>
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
-                <Text style={styles.Subheader}>
-                5. Place chicken in the hot oil, and fry until golden brown, 3 or 4 minutes per side.
-                </Text>
-            </View>
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
-                <Text style={styles.Subheader}>
-                6. Transfer to a paper towel-lined plate to drain.
-                </Text>
-            </View>
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
-                <Text style={styles.Subheader}>
-                7. Enjoy!
-                </Text>
-            </View>
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title  style={styles.Subheader}>7. Enjoy!</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+        </ListItem.Accordion>
 
-                {/* <View >
-                <Image
-                    style={{
-                        width:"35%", 
-                        height:25}}
-                    source={{
-                    uri:'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQQgF1STU0UydNMATSPKJRhVk2wfqO3_cZQYzRnovQL2H9FoN5V',
-                    }}
-                 />
-                 <Image
-                    style={{
-                        width:"35%", 
-                        height:25}}
-                    source={{
-                    uri:'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTAy9m8-qjTNmf_rUUvxwZznaJv6mabXJb1hXdJ5mQH_1ekG9Hf',
-                    }}
-                 />
-                  <Image
-                    style={{
-                        width:"35%", 
-                        height:25}}
-                    source={{
-                    uri:'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTAy9m8-qjTNmf_rUUvxwZznaJv6mabXJb1hXdJ5mQH_1ekG9Hf',
-                    }}
-                 />
-                  <Image
-                    style={{
-                        width:"35%", 
-                        height:25}}
-                    source={{
-                    uri:'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTAy9m8-qjTNmf_rUUvxwZznaJv6mabXJb1hXdJ5mQH_1ekG9Hf',
-                    }}
-                 />
-                 </View> */}
             </View>
         </ScrollView>
         </>
