@@ -200,7 +200,7 @@ export default function Recipe({ navigation }) {
                         <ListItem.Title style={styles.body}>7.Enjoy!</ListItem.Title>
                     </ListItem.Content>
                 </ListItem>
-                <View >
+                {/* <View >
                 <Image
                     style={{
                         width:"35%", 
@@ -233,7 +233,7 @@ export default function Recipe({ navigation }) {
                     uri:'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTAy9m8-qjTNmf_rUUvxwZznaJv6mabXJb1hXdJ5mQH_1ekG9Hf',
                     }}
                  />
-                 </View>
+                 </View> */}
             </View>
                   
                     
