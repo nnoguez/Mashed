@@ -4,7 +4,7 @@ Mashed is an application revolved around bringing people together through a love
 The main focus of the front-end development for Mashed is to properly convey the feelings and thematic messages of what we want Mashed to represent. 
 In order to make sure that those messages and themes are portrayed, we focused on the implementation of the design philosophies we created in the previous milestones. 
 
-_We are still working on the responsiveness and accessibility of our application. Because of this, Mashed is currently best viewed through the iOS simulator with an iPhone 14 Plus/iPhone 14 Pro Max display._
+>_We are still working on the responsiveness and accessibility of our application. Because of this, Mashed is currently best viewed through the iOS simulator with an iPhone 14 Plus/iPhone 14 Pro Max display._
 
 Navigate through our screens:
 
