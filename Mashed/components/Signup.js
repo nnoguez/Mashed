@@ -66,7 +66,14 @@ export default function Login({navigation}) {
         
       <View style={styles.containerWhite}>
         <View style={[styles.userInfo, {flex:1, flexDirection: 'column'},]}>   
-          
+        <Image
+          style={{
+          width:"35%", 
+          height:25}}
+          source={{
+          uri:'https://ibb.co/XzwByw3',
+          }}
+        />
           
           <View style={{ width:'100%', height: 60}}><Input clearButtonMode="always" style={styles.userInputStyle} placeholder="First Name"/></View>
           <View style={{width:'100%', height:60}}><Input style={styles.userInputStyle} placeholder="Last Name"/></View>
@@ -88,7 +95,11 @@ export default function Login({navigation}) {
           
           <View style={{alignItems:'center', width:'100%', marginVertical: 20}}>
             <Text>Already Have An Account? </Text>
-            <Button title="Log in!" type="clear" />
+            <Button 
+              onPress={()=> navigation.navigate('Login')}
+              title="LOG IN" 
+              type="clear" 
+            />
           </View>
 
         </View>     

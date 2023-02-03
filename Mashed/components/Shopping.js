@@ -1,6 +1,5 @@
-import React, {useState} from "react";
+import React, {useState, Component} from "react";
 import { Card, SearchBar } from "@rneui/base";
-import React, { Component } from "react";
 import { Button, View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
