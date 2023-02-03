@@ -1,65 +1,132 @@
-import React, {useState} from "react";
-import { Card, SearchBar } from "@rneui/base";
+
+import { Card,Button } from "@rneui/base";
 import React, { Component } from "react";
-import { Button, View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import {View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
     backgroundWhite: {
-        zIndex:0,
-        flexDirection:'column',
-    
+      zIndex:0,
+      backgroundColor:' #FAF9F6',
+      flexDirection:"column",
+      flex: 1, 
+      alignItems: "center", 
+      justifyContent: "center",   
     },
-    Headers: {
-      fontSize: 15,
-      fontWeight:'bold',
-      marginTop: 10
+    containerWhite:{
+      zIndex:1,
+      flex:1,
+      position:'absolute',    
+      bottom: 0,
+      height:"15%",
+      width: "100%",
+      borderTopLeftRadius: 25,
+      borderTopRightRadius:25,
+      shadowColor: 'gray',
+      shadowOpacity: '20%',  
+      shadowOffset:{width: 0, height: -3},
+      backgroundColor: '#fff',    
+      alignItems: "center",
+      paddingTop:20, 
+      //justifyContent: "center",  
     },
-    Subheaders: {
-      fontSize: 13,
-      color: 'grey'
-    }
+    totalStyle:{
+      fontSize: 20,
+      fontWeight: 'bold',
+      paddingRight:60,
+      color:'dark gray',
+    },
+    priceStyle:{
+      fontSize: 20,
+      fontWeight: 'bold',
+      color:"#9492ef",
+      paddingLeft:60,
+    },
+    headerStyle:{
+      zIndex:2,
+      position:'relative',    
+      marginTop:-750,
+      height:"20%",
+      width: "100%",
+      backgroundColor: '#fff',    
+      alignItems: "center", 
+      justifyContent: "center",
+      shadowColor:'gray',
+      shadowOffset: {width:0,height:-3},
+      shadowOpacity: '30%', 
+    },
+    logoStyle:{
+      //:'center',
+     
+      alignItems:'center',
+      
+      //marginTop:-60,
+      zIndex:4,
+    },
+    cardStyle:{
+      zindex:1,
+      marginVertical: 10,
+      marginHorizontal:5,
+      width: "80%",
+      height:30,
+      borderRadius:25,
+
+    },
+
   })
+
+
+
 export default function Shopping ({ navigation }) {
    
     return (
-      <>
-     
-      <View style>
-            <View>
-                <TouchableOpacity onPress={()=> navigation.navigate('Chat')}>
-                    <Icon style={{ marginLeft: 355, marginTop: 20 }} name="commenting" size={25} color="#FFC42D"/>
-                </TouchableOpacity>
-                <Image
-                style={{ 
-                    marginLeft: 127, 
-                    marginBottom: 10,
-                    width:"35%", 
-                    height:25}}
-                source={{
-                uri:'https://i.postimg.cc/65XBkHNg/logo.png',
-                }}
-                /> 
-          </View>
+      <>   
+      <View style={styles.backgroundWhite}>
+       
+      <View style={{flexDirection:'row'}}>
+              
+              <View style={{paddingLeft:0,paddingTop:60}}>
+                <Icon onPress={()=> navigation.navigate('Recipe')}  name="angle-left" size={35} color="#FFC42D"/>
+              </View>
+              <View style={{width:'35%', height: 35}}>   
+                  <Image   
+                        style={{marginLeft: 127, 
+                          marginBottom: 10,
+                          width:"35%", 
+                          height:25}}
+                        source={{uri:'https://i.postimg.cc/65XBkHNg/logo.png'}}>  
+                  </Image>           
+              </View>
         </View>
+
+<ScrollView>
+
+        <View>
+          <Text style={{zIndex: 1, color:'dark gray', fontSize: 15,}}>My Cart</Text>
+        </View>
+</ScrollView>
+
+
        
-      <View>
-          <Card borderRadius={25} margin >
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
-            </View>
-            <Card.Image
-                style={{width:"100%", height:200, borderRadius: 25}}
-                source={{
-                uri:'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/thanksgivingmenus-1634134898.jpg',
-                }}
-            />
-            <Text style={{ marginTop: 5 }}>
-                Give thanks and celebrate Thanksgiving with some yummy recipes! <Icon name="arrow-right" color="#FFC42D"></Icon>
-            </Text>
-          </Card>
-  
+        
        
-      </View>
+
+        <View style={styles.containerWhite}>
+          <View style={{flexDirection: 'row', flex: 1,}}>
+            <Text style={styles.totalStyle}>TOTAL</Text>
+            <Text style={styles.priceStyle}>$20.65</Text>
+          </View>
+          <Button title="PROCEED TO CHECKOUT"
+                    buttonStyle={{backgroundColor: '#FFC42D', borderRadius: 30,}}
+                    containerStyle={{ width: '60%' }}
+                    titleStyle={{ fontWeight: 'bold' }}>
+          </Button>
+        </View>
+      </View>      
+       
+    
+       
+      
       </>
     );
   }

@@ -13,7 +13,7 @@ export default function Recipe({ navigation }) {
     <View style={styles.viewOne}>
         <View>
             <TouchableOpacity onPress={()=> navigation.navigate('Shopping')}>
-                <Icon style={{ marginLeft: 355, marginTop: 20 }} name="cart" size={25} color="#FFC42D"/>
+                <Icon style={{ marginLeft: 355, marginTop: 20 }} name="plus" size={25} color="#FFC42D"/>
             </TouchableOpacity>
             <TouchableOpacity onPress={()=> navigation.navigate('Explore')}>
                 <Icon style={{ marginLeft: 20, marginTop: 20 }} name="angle-left" size={25} color="#FFC42D"/>
