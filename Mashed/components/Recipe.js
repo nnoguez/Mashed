@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity, Image } from 'react-native';
-import { Avatar, Badge, Card, CheckBox, ListItem, Button, AirbnbRating } from '@rneui/themed';
+import { Avatar, Badge, Card, CheckBox, ListItem, Button } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { AirbnbRating } from "@rneui/base";
 
 export default function Recipe({ navigation }) {
     const [check1, setCheck1] = useState(false);
@@ -14,13 +15,11 @@ export default function Recipe({ navigation }) {
     return (
     <>
     {/* mashed logo */}
-    <View style={styles.viewOne}>
-        <View>
-            <TouchableOpacity onPress={()=> navigation.navigate('Shopping')}>
-                <Icon style={{ marginLeft: 355, marginTop: 20 }} name="plus" size={25} color="#FFC42D"/>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={()=> navigation.navigate('Explore')}>
-                <Icon style={{ marginLeft: 20, marginTop: 20 }} name="angle-left" size={25} color="#FFC42D"/>
+   {/* mashed logo */}
+   <View style={styles.viewOne}>
+    <View>
+        <TouchableOpacity onPress={()=> navigation.navigate('Shopping')}>
+            <Icon style={{ marginLeft: 355, marginTop: 20 }} name="shopping-basket" size={25} color="#FFC42D"/>
             </TouchableOpacity>
             <Image
             style={{ 
@@ -32,83 +31,85 @@ export default function Recipe({ navigation }) {
             uri:'https://i.postimg.cc/65XBkHNg/logo.png',
             }}
             /> 
-        </View>
     </View>
-
-
-
-        <ScrollView>
-        {/* image with heart icon */}
+</View>
+    <ScrollView>
+    {/* image with heart icon */}
         <Image style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
             source={{
             uri:'https://www.thespruceeats.com/thmb/a8cS7kg5bbsuFsJN-5zO3eOVvBE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chicken-katsu-4778466-10-67e6122e936b418ab1a92f176709d299.jpg',
             }}>
         </Image>
 
+
+
+        <View style={{ margin:20 }}>
         {/* Title and star rating */}
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
-            <Text style={styles.header}>Cripsy Chicken Katsu</Text>
-            <AirbnbRating
-                isDisabled={true}
-                count={5}
-                reviews={[
-                    ' ',
-                    ' ',
-                    ' ',
-                    ' ',
-                    ' ',
-                ]}
-                defaultRating={4}
-                size={20}
-            />
-        </View>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
-            <Text style={styles.Subheader}>By: sakuraiiko</Text>
-            <Text style={styles.Subheader}>618 Reviews</Text>
-        </View>
-        <View style={{ flexDirection: 'row',justifyContent: 'space-between', marginTop: 10 }}>
-            <Text style={styles.body}>Chicken katsu is Japanese-style fried chicken. 
-                                      This recipe can also be used to make tonkatsu by using pork cutlets instead of chicken. 
-                                      Serve with white rice and tonkatsu sauce.
-            </Text>
-            <Text>Total Time:25 mins 
-                  Prep: 15
-                  Cook:10
-                  Yield 4-6 Servings
-                  Level:Easy
-            </Text>
-        </View>
+            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-start'}}>
+                <View style={[{flexDirection: 'row', marginLeft: -6 }]}>
+                    <Text style={styles.header}> Crispy Chicken Katsu</Text>
+                </View>
+                <View style={{ flexDirection: 'row' }}>
+                    <View style={{justifyContent:'space-evenly', marginLeft: 62}}>
+                        <AirbnbRating size={20} showRating={false} isDisabled={true} defaultRating={4}/>
+                    </View>
+                </View>
+            </View>
+
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
+                <Text style={styles.Subheader}>By: sakuraiiko</Text>
+                <Text style={styles.Subheader}>618 Reviews</Text>
+            </View>
+
+            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey'}}>
+                <View style={[{flexDirection: 'row', marginTop: 10 }]}>
+                    <Text style={styles.body}>
+                        Chicken katsu is Japanese-style fried chicken. 
+                        This recipe can also be used to make tonkatsu by using pork 
+                        cutlets instead of chicken. 
+                        Serve with white rice and tonkatsu sauce.
+                    </Text>
+                </View>
+            </View>
+
+            <View style={{ flexDirection: 'row',justifyContent: 'space-evenly', marginTop: 10 }}>
+                <Text style={styles.Subheader}> Total Time: 25 mins </Text>
+                <Text style={styles.Subheader}> Prep: 15 mins </Text>
+                <Text style={styles.Subheader}> Cook: 10 mins</Text>
+            </View>
+            <View style={{ flexDirection: 'row',justifyContent: 'space-evenly', marginTop: 10, fontWeight: 'bold' }}>
+                <Text style={styles.Subheader}> Level: Easy </Text>
+                <Text style={styles.Subheader}> Yield 4-6 Servings </Text>
+            </View>
+
+            <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10}}/>
 
         <Text style={styles.header}>Dietary Restrictions</Text>
         
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
             <Text style={styles.Subheader}>
-              <Icon name="plus" color="#9492EF" size={20} paddingRight={20} />
-              Nut-free
-            </Text>
-            <Text style={styles.Subheader}>
-              <Icon name="plus" color="#9492EF" size={20} paddingRight={20} />
               Halal, Kosher
             </Text>
             <Text style={styles.Subheader}>
-              <Icon name="plus" color="#9492EF" size={20} paddingRight={20} />
-              Lactose-Free
-            </Text>
-          </View>
-          
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3, marginRight: 50 }}> 
-            <Text style={styles.fontBig}>
-              <Icon name="plus" color="#9492EF" size={20} />
               Contains Egg, Dairy
             </Text>
           </View>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 10, marginLeft: 3, marginRight: 50 }}> 
+            <Text style={styles.Subheader}>
+              Nut-free
+            </Text>
+            <Text style={styles.Subheader}>
+              Lactose-Free
+            </Text>
+          </View>
+
+          <Text style={styles.header}>Ingredients</Text>
 
           <ListItem.Accordion
                 content={
                     <>
-                    <Icon name="plus" size={25} />
                     <ListItem.Content>
-                        <ListItem.Title>Ingredients</ListItem.Title>
+                        {/* <ListItem.Title>Ingredients</ListItem.Title> */}
                     </ListItem.Content>
                     </>
                 }
@@ -237,7 +238,7 @@ export default function Recipe({ navigation }) {
                     }}
                  />
                  </View> */}
-                 
+            </View>
         </ScrollView>
         </>
     )
@@ -254,7 +255,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     Subheader: {
-        fontSize: 18,
+        fontSize: 12,
         fontWeight: 'bold',
     },
     body:{
