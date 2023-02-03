@@ -38,7 +38,7 @@ export default function App() {
         }}>{() => (
           <Tab.Navigator initialRouteName="Home">
 
-            <Tab.Screen name="Home" component={Home}
+            <Tab.Screen name="Main" component={Home}
               options={{
               headerShown: false,
               tabBarShowLabel: false,

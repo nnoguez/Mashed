@@ -91,7 +91,7 @@ export default function Recipe({ navigation }) {
 
         <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10}}/>
 
-            <Text style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 15 }}>Dietary Restrictions</Text>
+            <Text style={{ fontSize: 19, color: '#242523', fontWeight: 'bold', marginLeft: 15 }}>Dietary Restrictions</Text>
             
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
                 <Text style={styles.Subheader}>

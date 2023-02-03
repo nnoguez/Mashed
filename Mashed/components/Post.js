@@ -11,8 +11,8 @@ export default function Post ( {navigation} ) {
   <View style={styles.viewOne}>
 
        <View style={{justifyContent: 'space-evenly', borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 30}}>
-          <TouchableOpacity onPress={()=> navigation.navigate('Chat')}>
-            <Icon style={{ marginLeft: 355, marginTop: 20 }} name="commenting" size={25} color="#FFC42D"/>
+          <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
+            <Icon style={{ marginLeft: 350, marginTop: 20 }} name="send" size={25} color="#FFC42D"/>
           </TouchableOpacity>
           <Image
             style={{ 

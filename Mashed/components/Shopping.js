@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       paddingRight:60,
       color:'dark gray',
+      marginTop: 10
     },
     priceStyle:{
       fontSize: 20,
@@ -74,6 +75,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       color:'gray',
       paddingLeft:20,
+      marginTop: 5
     },
 
   })
@@ -93,7 +95,6 @@ export default function Shopping ({ navigation }) {
                  
                   <Image   
                         style={{
-                          
                           marginLeft: 100, 
                           marginTop: 15,
                           width:"35%", 
@@ -106,7 +107,7 @@ export default function Shopping ({ navigation }) {
 <ScrollView >
   <View style={{alignItems:'center'}}> 
         <View>
-          <Text style={{zIndex: 1, color:'dark gray', fontSize: 15, paddingTop:10}}>My Cart</Text>
+          <Text style={{zIndex: 1, color:'dark gray', fontSize: 15, paddingTop:10, fontWeight:'bold' }}>My Cart</Text>
         </View>      
 
         
@@ -116,7 +117,7 @@ export default function Shopping ({ navigation }) {
                     <Card.Image
                         style={{width:100, height:100, marginTop: 5, borderRadius: 12}}
                         source={{
-                        uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
+                        uri:'https://i5.walmartimages.com/asr/606ac3a4-0207-4a84-99a0-f4eaa2e6b6dc_1.b77d2d33613f84645364e0d6d453f3a6.jpeg',
                         }}
                     /> 
                   </View>      
@@ -135,7 +136,7 @@ export default function Shopping ({ navigation }) {
                     <Card.Image
                         style={{width:100, height:100, marginTop: 5, borderRadius: 12}}
                         source={{
-                        uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
+                        uri:'https://i5.walmartimages.com/asr/b2c2ed2f-a958-4ff6-901b-667c7e51d622.0dfa0cf3b53e9776991066037362e4d3.jpeg',
                         }}
                     /> 
                   </View>      
@@ -155,7 +156,7 @@ export default function Shopping ({ navigation }) {
                     <Card.Image
                         style={{width:100, height:100, marginTop: 5, borderRadius: 12}}
                         source={{
-                        uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
+                        uri:'https://crowdedline.com/wp-content/uploads/2021/02/fc2b61a0-3755-4817-8555-3d42d4890178_1.46f5d46ba12d371cb5b5a240c40bbc14.jpeg',
                         }}
                     /> 
                   </View>      
@@ -175,13 +176,13 @@ export default function Shopping ({ navigation }) {
                     <Card.Image
                         style={{width:100, height:100, marginTop: 5, borderRadius: 12}}
                         source={{
-                        uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
+                        uri:'https://m.media-amazon.com/images/I/81yU+VIqSZL.jpg',
                         }}
                     /> 
                   </View>      
               <View style={{flex: 2, justifyContent: 'space-evenly'}}>
               <View style={{width:'70%'}}>
-              <Text style={styles.cardLabelStyle}>4C Japanese Style Seasoned Panko Bread Crumbs</Text>
+                <Text style={styles.cardLabelStyle}>4C Japanese Style Seasoned Panko Bread Crumbs</Text>
                 <Text style={styles.cardWeightStyle}>size: 8 oz</Text>
                 <Text style={styles.priceStyle}>$2.00</Text>
               </View>
@@ -195,10 +196,6 @@ export default function Shopping ({ navigation }) {
   </View> 
 </ScrollView>
 
-
-       
-        
-       
 
         <View style={styles.containerWhite}>
           <View style={{flexDirection: 'row'}}>
