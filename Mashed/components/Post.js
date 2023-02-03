@@ -83,9 +83,9 @@ export default function Post ( {navigation} ) {
               />
           </View>
         <View>
-          <Image style={{ height:'100%',width:420, borderRadius: 5, margin: 5}}
+          <Image style={{ zIndex:8,height: 300,width:420, borderRadius: 5, margin: 5}}
                   source={{
-                  uri:'https://ibb.co/Fw2XVkR',
+                  uri:'https://www.linkpicture.com/q/52BF962F-A2E1-4DDA-A7D0-F384AAE4F5D3.jpeg',
                   }}/>
         </View>
          
