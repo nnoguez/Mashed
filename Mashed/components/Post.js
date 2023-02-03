@@ -63,12 +63,12 @@ export default function Post ( {navigation} ) {
           <View style={{flexDirection: 'row'}}>
             <Image style={{ height:75,width:75, borderRadius: 5, margin: 5}}
                   source={{
-                  uri:'https://kathrynskitchenblog.com/wp-content/uploads/2022/04/Shrimp-Ceviche-13-768x1152.jpg',
+                  uri:'https://www.linkpicture.com/q/Screen-Shot-2023-02-03-at-12.54.29-AM.png',
                   }}
               />
             <Image style={{ height:75,width:75, borderRadius: 5, margin:5}}
                   source={{
-                  uri:'https://kathrynskitchenblog.com/wp-content/uploads/2022/04/Shrimp-Ceviche-13-768x1152.jpg',
+                  uri:'https://www.linkpicture.com/q/Screen-Shot-2023-02-03-at-12.54.20-AM_1.png',
                   }}
               />
               <Image style={{ height:75,width:75, borderRadius: 5, margin: 5}}
@@ -78,12 +78,12 @@ export default function Post ( {navigation} ) {
               />
               <Image style={{ height:75,width:75, borderRadius: 5, margin: 5}}
                   source={{
-                  uri:'https://kathrynskitchenblog.com/wp-content/uploads/2022/04/Shrimp-Ceviche-13-768x1152.jpg',
+                  uri:'https://www.linkpicture.com/q/The_Rose_Venice_Exterior.jpg',
                   }}
               />
           </View>
         <View>
-          <Image style={{ zIndex:8,height: 300,width:420, borderRadius: 5, margin: 5}}
+          <Image style={{ zIndex:8,height: 390,width:420, borderRadius: 5, marginBottom: 20}}
                   source={{
                   uri:'https://www.linkpicture.com/q/52BF962F-A2E1-4DDA-A7D0-F384AAE4F5D3.jpeg',
                   }}/>
