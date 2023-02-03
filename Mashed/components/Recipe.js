@@ -160,7 +160,7 @@ export default function Recipe({ navigation }) {
                     checkedColor='#FFC42D'
                 /> 
                 <ListItem.Content>
-                    <ListItem.Title> 1 egg, beaten </ListItem.Title>
+                    <ListItem.Title>1 egg, beaten</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
 
@@ -181,7 +181,7 @@ export default function Recipe({ navigation }) {
                     checkedColor='#FFC42D'
                 /> 
                 <ListItem.Content>
-                    <ListItem.Title>Salt and Pepper </ListItem.Title>
+                    <ListItem.Title>Salt and Pepper</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
 
@@ -202,7 +202,7 @@ export default function Recipe({ navigation }) {
                     checkedColor='#FFC42D'
                 /> 
                 <ListItem.Content>
-                    <ListItem.Title> 1 cup Panko Bread Crumbs</ListItem.Title>
+                    <ListItem.Title>1 cup Panko Bread Crumbs</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
         
@@ -223,7 +223,7 @@ export default function Recipe({ navigation }) {
                     checkedColor='#FFC42D'
                 /> 
                 <ListItem.Content>
-                    <ListItem.Title>4 Chicken Breasts</ListItem.Title>
+                    <ListItem.Title>2 tbsps All Purpose Flour</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
 
@@ -244,9 +244,21 @@ export default function Recipe({ navigation }) {
                     checkedColor='#FFC42D'
                 /> 
                 <ListItem.Content>
-                    <ListItem.Title>4 Chicken Breasts</ListItem.Title>
+                    <ListItem.Title>1 cup Frying Oil</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
+            <Button
+                    title="Add to Cart"
+                    buttonStyle={{
+                    backgroundColor: '#FFC42D',
+                    borderRadius: 30,
+                    padding: 1,
+                    }}
+                    containerStyle={{
+                        marginHorizontal: 25,
+                        marginVertical: 5,
+                    }}>
+            </Button>
       </ListItem.Accordion>
 
 
