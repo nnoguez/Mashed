@@ -13,6 +13,7 @@ export default function Recipe({ navigation }) {
     const [checked6, setChecked6] = React.useState([false, false]);
 
     const [expanded, setExpanded] = useState(false);
+    const [expanded2, setExpanded2] = useState(false);
     return (
     <>
     {/* mashed logo */}
@@ -160,7 +161,7 @@ export default function Recipe({ navigation }) {
                     checkedColor='#FFC42D'
                 /> 
                 <ListItem.Content>
-                    <ListItem.Title> 1 egg, beaten </ListItem.Title>
+                    <ListItem.Title>1 egg, beaten</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
 
@@ -181,7 +182,7 @@ export default function Recipe({ navigation }) {
                     checkedColor='#FFC42D'
                 /> 
                 <ListItem.Content>
-                    <ListItem.Title>Salt and Pepper </ListItem.Title>
+                    <ListItem.Title>Salt and Pepper</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
 
@@ -202,7 +203,7 @@ export default function Recipe({ navigation }) {
                     checkedColor='#FFC42D'
                 /> 
                 <ListItem.Content>
-                    <ListItem.Title> 1 cup Panko Bread Crumbs</ListItem.Title>
+                    <ListItem.Title>1 cup Panko Bread Crumbs</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
         
@@ -223,7 +224,7 @@ export default function Recipe({ navigation }) {
                     checkedColor='#FFC42D'
                 /> 
                 <ListItem.Content>
-                    <ListItem.Title>4 Chicken Breasts</ListItem.Title>
+                    <ListItem.Title>2 tbsps All Purpose Flour</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
 
@@ -244,76 +245,111 @@ export default function Recipe({ navigation }) {
                     checkedColor='#FFC42D'
                 /> 
                 <ListItem.Content>
-                    <ListItem.Title>4 Chicken Breasts</ListItem.Title>
+                    <ListItem.Title>1 cup Frying Oil</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
-      </ListItem.Accordion>
+            <Button onPress={()=> navigation.navigate('Shopping')}
+                title="Add to Cart"
+                buttonStyle={{
+                backgroundColor: '#FFC42D',
+                borderRadius: 30,
+                padding: 1,
+                }}
+                containerStyle={{
+                    marginHorizontal: 25,
+                    marginVertical: 5,
+            }}>
+            </Button>
+        </ListItem.Accordion>
 
 
-
-
-
-
-
+        <ListItem.Accordion containerStyle={{
+            borderRadius: 20,
+            backgroundColor: '#F2F2F2',
+        }}
+            content={
+            <ListItem.Content>
+                <ListItem.Subtitle style={styles.header}> 
+                    Directions
+                </ListItem.Subtitle>
+            </ListItem.Content>
+            }
+            isExpanded={expanded2}
+            onPress={() => {
+            setExpanded2(!expanded2);
+            }}>
             
-            <Text style={styles.header}>Directions</Text>               
-                <ListItem>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>1.Season chicken breasts on both sides with salt and pepper.</ListItem.Title>
-                    </ListItem.Content>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>2.Place flour, beaten egg, and panko crumbs into separate shallow dishes.</ListItem.Title>
-                    </ListItem.Content>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>3.Coat chicken breasts in flour, shaking off any excess; dip into egg, and then press into panko crumbs until well coated on both sides.</ListItem.Title>
-                    </ListItem.Content>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>4.Heat oil in a large skillet over medium-high heat.</ListItem.Title>
-                    </ListItem.Content>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>5.Place chicken in the hot oil, and fry until golden brown, 3 or 4 minutes per side.</ListItem.Title>
-                    </ListItem.Content>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>6.Transfer to a paper towel-lined plate to drain.</ListItem.Title>
-                    </ListItem.Content>
-                    <ListItem.Content>
-                        <ListItem.Title style={styles.body}>7.Enjoy!</ListItem.Title>
-                    </ListItem.Content>
-                </ListItem>
-                {/* <View >
-                <Image
-                    style={{
-                        width:"35%", 
-                        height:25}}
-                    source={{
-                    uri:'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQQgF1STU0UydNMATSPKJRhVk2wfqO3_cZQYzRnovQL2H9FoN5V',
-                    }}
-                 />
-                 <Image
-                    style={{
-                        width:"35%", 
-                        height:25}}
-                    source={{
-                    uri:'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTAy9m8-qjTNmf_rUUvxwZznaJv6mabXJb1hXdJ5mQH_1ekG9Hf',
-                    }}
-                 />
-                  <Image
-                    style={{
-                        width:"35%", 
-                        height:25}}
-                    source={{
-                    uri:'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTAy9m8-qjTNmf_rUUvxwZznaJv6mabXJb1hXdJ5mQH_1ekG9Hf',
-                    }}
-                 />
-                  <Image
-                    style={{
-                        width:"35%", 
-                        height:25}}
-                    source={{
-                    uri:'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTAy9m8-qjTNmf_rUUvxwZznaJv6mabXJb1hXdJ5mQH_1ekG9Hf',
-                    }}
-                 />
-                 </View> */}
+            {/* ingredient 1 */}
+            <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title style={styles.Subheader}>1. Season chicken breasts on both sides with salt and pepper. </ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+        
+        {/* ingredient 2 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title style={styles.Subheader}>2. Place flour, beaten egg, and panko crumbs into separate shallow dishes. </ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+
+        {/* ingredient 3 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title  style={styles.Subheader}> 3. Coat chicken breasts in flour, shaking off any excess; dip into egg, and then press into 
+                panko crumbs until well coated on both sides.</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+
+        {/* ingredient 4 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title  style={styles.Subheader}>4. Heat oil in a large skillet over medium-high heat.</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+        
+        {/* ingredient 5 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title  style={styles.Subheader}>5. Place chicken in the hot oil, and fry until golden brown, 3 or 4 minutes per side.</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+
+        {/* ingredient 6 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title  style={styles.Subheader}>6. Transfer to a paper towel-lined plate to drain.</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.Content>
+                    <ListItem.Title  style={styles.Subheader}>7. Enjoy!</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+        </ListItem.Accordion>
+
             </View>
         </ScrollView>
         </>
