@@ -46,15 +46,15 @@ export default function App() {
                 <Icon name="home" color={focused?'#FFC42D':'grey'} size={30} />
               )
             }}/>
-                      <Tab.Screen 
-            name="Explore" 
-            component={Explore} 
-            options={{
-              headerShown: false,
-              tabBarShowLabel: false,
-              tabBarIcon: ({ color,focused }) => (
-                <Icon name="compass" color={focused?'#FFC42D':'grey'} size={30} />
-              )
+            <Tab.Screen 
+              name="Explore" 
+              component={Explore} 
+              options={{
+                headerShown: false,
+                tabBarShowLabel: false,
+                tabBarIcon: ({ color,focused }) => (
+                  <Icon name="compass" color={focused?'#FFC42D':'grey'} size={30} />
+                )
             }}/>
             <Tab.Screen 
               name="Post" 

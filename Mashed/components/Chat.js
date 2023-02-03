@@ -17,7 +17,7 @@ export default function Chat({ navigation }) {
                         <Icon style={{ marginRight: 355, marginTop: 20 }} name="angle-left" size={35} color="#FFC42D" />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=> navigation.navigate('Message')}>
-                        <Icon style={{ marginRight: 345, marginTop: 20 }} name="pencil" size={25} color="#FFC42D" />
+                        <Icon style={{ marginLeft: -11, marginTop: 20 }} name="pencil" size={25} color="#FFC42D" />
                     </TouchableOpacity>
                 </View>
             <Image
