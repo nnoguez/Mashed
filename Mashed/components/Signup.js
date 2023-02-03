@@ -1,4 +1,4 @@
-// login screen (shelby)
+// Signup screen (shelby)
 
 
 import React, { Component } from "react";
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 
 
 
-export default function Login({navigation}) {
+export default function Signup({navigation}) {
   return (
 
     
