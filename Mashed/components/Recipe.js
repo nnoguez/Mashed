@@ -106,9 +106,9 @@ export default function Recipe({ navigation }) {
           <ListItem.Accordion
                 content={
                     <>
-                    <Icon name="place" size={30} />
+                    <Icon name="plus" size={30} />
                     <ListItem.Content>
-                        <ListItem.Title>List Accordion</ListItem.Title>
+                        <ListItem.Title>Ingredients</ListItem.Title>
                     </ListItem.Content>
                     </>
                 }
@@ -117,7 +117,7 @@ export default function Recipe({ navigation }) {
                     setExpanded(!expanded);
                 }}
             >
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3 }}>
+                <View style={{ justifyContent: 'space-between', marginTop: 10, marginLeft: 3 }}>
                     <ListItem.Content>
                         <CheckBox
                             center
@@ -180,7 +180,7 @@ export default function Recipe({ navigation }) {
                 </ListItem.Accordion>
             
             <Text style={styles.header}>Directions</Text>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3,  }}>                
+            <View style={{  justifyContent: 'space-between', marginTop: 10, marginLeft: 3,  }}>                
                 <ListItem>
                     <ListItem.Content>
                         <ListItem.Title style={styles.body}>1.Season chicken breasts on both sides with salt and pepper.</ListItem.Title>
