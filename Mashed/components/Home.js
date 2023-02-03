@@ -166,7 +166,7 @@ export default function Home({ navigation }) {
             <TouchableOpacity
                 style={{ 
                     justifyContent: 'center',
-                    marginLeft: -10
+                    marginLeft: -15
             }}>
                 <CheckBox
                     checked={checked}
@@ -237,7 +237,7 @@ export default function Home({ navigation }) {
             <TouchableOpacity
                 style={{ 
                     justifyContent: 'center',
-                    marginLeft: -10
+                    marginLeft: -15
             }}>
                 <CheckBox
                     checked={checked2}
@@ -311,7 +311,7 @@ export default function Home({ navigation }) {
             <TouchableOpacity
                 style={{ 
                     justifyContent: 'center',
-                    marginLeft: -10
+                    marginLeft: -15
             }}>
                 <CheckBox
                     checked={checked3}
@@ -382,7 +382,7 @@ export default function Home({ navigation }) {
             <TouchableOpacity
                 style={{ 
                     justifyContent: 'center',
-                    marginLeft: -10
+                    marginLeft: -15
             }}>
                 <CheckBox
                     checked={checked4}

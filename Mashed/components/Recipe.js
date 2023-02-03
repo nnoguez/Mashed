@@ -19,10 +19,15 @@ export default function Recipe({ navigation }) {
     {/* mashed logo */}
    {/* mashed logo */}
    <View style={styles.viewOne}>
-    <View>
-        <TouchableOpacity onPress={()=> navigation.navigate('Shopping')}>
-            <Icon style={{ marginLeft: 355, marginTop: 20 }} name="shopping-basket" size={25} color="#FFC42D"/>
+        <View>
+            <View style={[styles.container,{flexDirection: 'row'}]}>
+            <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
+                <Icon style={{ marginRight: 355, marginTop: 20 }} name="angle-left" size={35} color="#FFC42D" />
             </TouchableOpacity>
+            <TouchableOpacity onPress={()=> navigation.navigate('Shopping')}>
+                <Icon style={{ marginLeft: -15, marginTop: 20 }} name="shopping-basket" size={25} color="#FFC42D"/>
+            </TouchableOpacity>
+        </View>
             <Image
             style={{ 
                 marginLeft: 127, 
@@ -262,6 +267,7 @@ export default function Recipe({ navigation }) {
             </Button>
         </ListItem.Accordion>
 
+        <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10, marginTop: 10}}/>
 
         <ListItem.Accordion containerStyle={{
             borderRadius: 20,
@@ -285,7 +291,7 @@ export default function Recipe({ navigation }) {
                 backgroundColor: '#F2F2F2'
             }}>
                 <ListItem.Content>
-                    <ListItem.Title style={styles.Subheader}>1. Season chicken breasts on both sides with salt and pepper. </ListItem.Title>
+                    <ListItem.Title>1. Season chicken breasts on both sides with salt and pepper. </ListItem.Title>
                 </ListItem.Content>
             </ListItem>
         
@@ -295,7 +301,7 @@ export default function Recipe({ navigation }) {
                 backgroundColor: '#F2F2F2'
             }}>
                 <ListItem.Content>
-                    <ListItem.Title style={styles.Subheader}>2. Place flour, beaten egg, and panko crumbs into separate shallow dishes. </ListItem.Title>
+                    <ListItem.Title>2. Place flour, beaten egg, and panko crumbs into separate shallow dishes. </ListItem.Title>
                 </ListItem.Content>
             </ListItem>
 
@@ -305,7 +311,7 @@ export default function Recipe({ navigation }) {
                 backgroundColor: '#F2F2F2'
             }}>
                 <ListItem.Content>
-                    <ListItem.Title  style={styles.Subheader}> 3. Coat chicken breasts in flour, shaking off any excess; dip into egg, and then press into 
+                    <ListItem.Title> 3. Coat chicken breasts in flour, shaking off any excess; dip into egg, and then press into 
                 panko crumbs until well coated on both sides.</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
@@ -316,7 +322,7 @@ export default function Recipe({ navigation }) {
                 backgroundColor: '#F2F2F2'
             }}>
                 <ListItem.Content>
-                    <ListItem.Title  style={styles.Subheader}>4. Heat oil in a large skillet over medium-high heat.</ListItem.Title>
+                    <ListItem.Title>4. Heat oil in a large skillet over medium-high heat.</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
         
@@ -326,7 +332,7 @@ export default function Recipe({ navigation }) {
                 backgroundColor: '#F2F2F2'
             }}>
                 <ListItem.Content>
-                    <ListItem.Title  style={styles.Subheader}>5. Place chicken in the hot oil, and fry until golden brown, 3 or 4 minutes per side.</ListItem.Title>
+                    <ListItem.Title>5. Place chicken in the hot oil, and fry until golden brown, 3 or 4 minutes per side.</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
 
@@ -336,7 +342,7 @@ export default function Recipe({ navigation }) {
                 backgroundColor: '#F2F2F2'
             }}>
                 <ListItem.Content>
-                    <ListItem.Title  style={styles.Subheader}>6. Transfer to a paper towel-lined plate to drain.</ListItem.Title>
+                    <ListItem.Title>6. Transfer to a paper towel-lined plate to drain.</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
 
@@ -345,7 +351,7 @@ export default function Recipe({ navigation }) {
                 backgroundColor: '#F2F2F2'
             }}>
                 <ListItem.Content>
-                    <ListItem.Title  style={styles.Subheader}>7. Enjoy!</ListItem.Title>
+                    <ListItem.Title>7. Enjoy!</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
         </ListItem.Accordion>

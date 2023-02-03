@@ -46,15 +46,15 @@ export default function App() {
                 <Icon name="home" color={focused?'#FFC42D':'grey'} size={30} />
               )
             }}/>
-                      <Tab.Screen 
-            name="Explore" 
-            component={Explore} 
-            options={{
-              headerShown: false,
-              tabBarShowLabel: false,
-              tabBarIcon: ({ color,focused }) => (
-                <Icon name="compass" color={focused?'#FFC42D':'grey'} size={30} />
-              )
+            <Tab.Screen 
+              name="Explore" 
+              component={Explore} 
+              options={{
+                headerShown: false,
+                tabBarShowLabel: false,
+                tabBarIcon: ({ color,focused }) => (
+                  <Icon name="compass" color={focused?'#FFC42D':'grey'} size={30} />
+                )
             }}/>
             <Tab.Screen 
               name="Post" 
@@ -87,19 +87,8 @@ export default function App() {
                 <Icon name="user" color={focused?'#FFC42D':'grey'} size={30} />
               )
             }}/>
-          <Tab.Screen 
-            name="Recipe" 
-            component={Recipe} 
-            options={{
-              headerShown: false,
-              tabBarShowLabel: false,
-              tabBarVisible: false, 
-              tabBarButton: (props) => null, 
-            }}
-          />
           </Tab.Navigator>)}
         </Stack.Screen>
-
 
 {/* hidden */}
         <Tab.Screen 
@@ -155,6 +144,16 @@ export default function App() {
           <Tab.Screen 
             name="Shopping" 
             component={Shopping} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
+          <Tab.Screen 
+            name="Recipe" 
+            component={Recipe} 
             options={{
               headerShown: false,
               tabBarShowLabel: false,
