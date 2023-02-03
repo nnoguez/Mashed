@@ -7,13 +7,34 @@ In order to make sure that those messages and themes are portrayed, we focused o
 Navigate through our screens:
 
 # Splash Screen
+This is the Mashed Splash Screen. This is the first screen the user will encounter before entering the app, displaying our logo.
+
 # Sign Up
+Here users can enter their information to create an account on Mashed.
+
 # Login
+Existing users are able to enter their credentials or login through other applications.
+
 # Home
+Landing page for users. Displays story highlights, posts from your following and for you page, and provides navigation to Chat and other screens.
+
 # Chat
+Send messages to other users and connect!
+
 # Explore
+Search our database and find hundreds of different recipes from various cultures and lifestyles.
+
 # Recipe
+Displays one of our recipes along with rating, directions, and additional details. Ingredient dropdown allows users to select needed ingredients for recipe and head straight to check out.
+
 # Post
+Upload a media, recipe, or text post to share with others!
+
 # Challenge
+Engage in challenges against fellow Mashers by a swipe left-right challenge that gives you limited attempts to try out a new recipe.
+
 # Profile
+Displays user's public profile along with their posts and a link to settings.
+
 # Settings
+Allows users to edit their profile and account information.
