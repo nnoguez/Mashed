@@ -5,12 +5,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { AirbnbRating } from "@rneui/base";
 
 export default function Recipe({ navigation }) {
-    const [check1, setCheck1] = useState(false);
-    const [check2, setCheck2] = useState(false);
-    const [check3, setCheck3] = useState(false);
-    const [check4, setCheck4] = useState(false);
-    const [check5, setCheck5] = useState(false);
-    const [check6, setCheck6] = useState(false);
+    const [checked1, setChecked1] = React.useState([false, false]);
+    const [checked2, setChecked2] = React.useState([false, false]);
+    const [checked3, setChecked3] = React.useState([false, false]);
+    const [checked4, setChecked4] = React.useState([false, false]);
+    const [checked5, setChecked5] = React.useState([false, false]);
+    const [checked6, setChecked6] = React.useState([false, false]);
+
     const [expanded, setExpanded] = useState(false);
     return (
     <>
@@ -82,103 +83,178 @@ export default function Recipe({ navigation }) {
                 <Text style={styles.Subheader}> Yield 4-6 Servings </Text>
             </View>
 
-            <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10}}/>
+        <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10}}/>
 
-        <Text style={styles.header}>Dietary Restrictions</Text>
-        
-        <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
-            <Text style={styles.Subheader}>
-              Halal, Kosher
-            </Text>
-            <Text style={styles.Subheader}>
-              Contains Egg, Dairy
-            </Text>
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 10, marginLeft: 3, marginRight: 50 }}> 
-            <Text style={styles.Subheader}>
-              Nut-free
-            </Text>
-            <Text style={styles.Subheader}>
-              Lactose-Free
-            </Text>
-          </View>
-
-          <Text style={styles.header}>Ingredients</Text>
-
-          <ListItem.Accordion
-                content={
-                    <>
-                    <ListItem.Content>
-                        {/* <ListItem.Title>Ingredients</ListItem.Title> */}
-                    </ListItem.Content>
-                    </>
-                }
-                isExpanded={expanded}
-                onPress={() => {
-                    setExpanded(!expanded);
-                }}
-            >
-                
-                    <ListItem.Content>
-                        <CheckBox
-                            center
-                            title="4 Skinless Boneless Chicken Breast"
-                            checked={check1}
-                            onPress={() => setCheck1(!check1)}
-                            />
-                    </ListItem.Content>
-                        <CheckBox
-                            center
-                            title="1 Cup of Panko Bread Crumbs"
-                            checked={check2}
-                            onPress={() => setCheck2(!check2)}
-                            />
+            <Text style={styles.header}>Dietary Restrictions</Text>
             
-              
-                    <ListItem.Content>
-                        <CheckBox
-                            center
-                            title="1 Egg, Beaten"
-                            checked={check1}
-                            onPress={() => setCheck3(!check3)}
-                            />
-                    </ListItem.Content>
-                        <CheckBox
-                            center
-                            title="2 Tablespoons all-purpose flour"
-                            checked={check2}
-                            onPress={() => setCheck4(!check4)}
-                            />
-             
-               
-                    <ListItem.Content>
-                        <CheckBox
-                            center
-                            title="Salt and Pepper"
-                            checked={check1}
-                            onPress={() => setCheck5(!check5)}
-                            />
-                    </ListItem.Content>
-                        <CheckBox
-                            center
-                            title="1 Cup of vegetable oil"
-                            checked={check2}
-                            onPress={() => setCheck6(!check6)}
-                            />
-             
-                <Button
-                    title="Add to Cart"
-                    buttonStyle={{
-                    backgroundColor: '#FFC42D',
-                    borderRadius: 30,
-                    padding: 1,
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
+                <Text style={styles.Subheader}>
+                Halal, Kosher
+                </Text>
+                <Text style={styles.Subheader}>
+                Contains Egg, Dairy
+                </Text>
+            </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 10, marginLeft: 3, marginRight: 50 }}> 
+                <Text style={styles.Subheader}>
+                Nut-free
+                </Text>
+                <Text style={styles.Subheader}>
+                Lactose-Free
+                </Text>
+            </View>
+
+        <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10, marginTop: 10}}/>
+
+        <ListItem.Accordion containerStyle={{
+            borderRadius: 20,
+            backgroundColor: '#F2F2F2',
+        }}
+            content={
+            <ListItem.Content>
+                <ListItem.Subtitle style={styles.header}> 
+                    Ingredients
+                </ListItem.Subtitle>
+            </ListItem.Content>
+            }
+            isExpanded={expanded}
+            onPress={() => {
+            setExpanded(!expanded);
+            }}>
+            
+        {/* ingredient 1 */}
+            <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.CheckBox
+                    iconType="material-community"
+                    checkedIcon="checkbox-marked"
+                    uncheckedIcon="checkbox-blank-outline"
+                    checked={checked1[0]}
+                    onPress={() => setChecked1([!checked1[0], checked1[1]])}
+                    containerStyle= {{
+                        backgroundColor:'#F2F2F2'
                     }}
-                    containerStyle={{
-                        marginHorizontal: 25,
-                        marginVertical: 5,
-                    }}>
-                </Button>
-                </ListItem.Accordion>
+                    checkedColor='#FFC42D'
+                /> 
+                <ListItem.Content>
+                    <ListItem.Title>4 Chicken Breasts</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+        
+        {/* ingredient 2 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.CheckBox
+                    iconType="material-community"
+                    checkedIcon="checkbox-marked"
+                    uncheckedIcon="checkbox-blank-outline"
+                    checked={checked2[0]}
+                    onPress={() => setChecked2([!checked2[0], checked2[1]])}
+                    containerStyle= {{
+                        backgroundColor:'#F2F2F2'
+                    }}
+                    checkedColor='#FFC42D'
+                /> 
+                <ListItem.Content>
+                    <ListItem.Title> 1 egg, beaten </ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+
+        {/* ingredient 3 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.CheckBox
+                    iconType="material-community"
+                    checkedIcon="checkbox-marked"
+                    uncheckedIcon="checkbox-blank-outline"
+                    checked={checked3[0]}
+                    onPress={() => setChecked3([!checked3[0], checked3[1]])}
+                    containerStyle= {{
+                        backgroundColor:'#F2F2F2'
+                    }}
+                    checkedColor='#FFC42D'
+                /> 
+                <ListItem.Content>
+                    <ListItem.Title>Salt and Pepper </ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+
+        {/* ingredient 4 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.CheckBox
+                    iconType="material-community"
+                    checkedIcon="checkbox-marked"
+                    uncheckedIcon="checkbox-blank-outline"
+                    checked={checked4[0]}
+                    onPress={() => setChecked4([!checked4[0], checked4[1]])}
+                    containerStyle= {{
+                        backgroundColor:'#F2F2F2'
+                    }}
+                    checkedColor='#FFC42D'
+                /> 
+                <ListItem.Content>
+                    <ListItem.Title> 1 cup Panko Bread Crumbs</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+        
+        {/* ingredient 5 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.CheckBox
+                    iconType="material-community"
+                    checkedIcon="checkbox-marked"
+                    uncheckedIcon="checkbox-blank-outline"
+                    checked={checked5[0]}
+                    onPress={() => setChecked5([!checked5[0], checked5[1]])}
+                    containerStyle= {{
+                        backgroundColor:'#F2F2F2'
+                    }}
+                    checkedColor='#FFC42D'
+                /> 
+                <ListItem.Content>
+                    <ListItem.Title>4 Chicken Breasts</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+
+        {/* ingredient 6 */}
+        <ListItem containerStyle={{
+                borderRadius: 20,
+                backgroundColor: '#F2F2F2'
+            }}>
+                <ListItem.CheckBox
+                    iconType="material-community"
+                    checkedIcon="checkbox-marked"
+                    uncheckedIcon="checkbox-blank-outline"
+                    checked={checked6[0]}
+                    onPress={() => setChecked6([!checked6[0], checked6[1]])}
+                    containerStyle= {{
+                        backgroundColor:'#F2F2F2'
+                    }}
+                    checkedColor='#FFC42D'
+                /> 
+                <ListItem.Content>
+                    <ListItem.Title>4 Chicken Breasts</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+      </ListItem.Accordion>
+
+
+
+
+
+
+
             
             <Text style={styles.header}>Directions</Text>               
                 <ListItem>
