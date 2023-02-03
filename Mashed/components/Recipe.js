@@ -106,7 +106,7 @@ export default function Recipe({ navigation }) {
           <ListItem.Accordion
                 content={
                     <>
-                    <Icon name="plus" size={30} />
+                    <Icon name="plus" size={25} />
                     <ListItem.Content>
                         <ListItem.Title>Ingredients</ListItem.Title>
                     </ListItem.Content>
@@ -117,7 +117,7 @@ export default function Recipe({ navigation }) {
                     setExpanded(!expanded);
                 }}
             >
-                <View style={{ justifyContent: 'space-between', marginTop: 10, marginLeft: 3 }}>
+                
                     <ListItem.Content>
                         <CheckBox
                             center
@@ -132,8 +132,8 @@ export default function Recipe({ navigation }) {
                             checked={check2}
                             onPress={() => setCheck2(!check2)}
                             />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3}}>
+            
+              
                     <ListItem.Content>
                         <CheckBox
                             center
@@ -148,8 +148,8 @@ export default function Recipe({ navigation }) {
                             checked={check2}
                             onPress={() => setCheck4(!check4)}
                             />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3 }}>
+             
+               
                     <ListItem.Content>
                         <CheckBox
                             center
@@ -164,7 +164,7 @@ export default function Recipe({ navigation }) {
                             checked={check2}
                             onPress={() => setCheck6(!check6)}
                             />
-                </View>
+             
                 <Button
                     title="Add to Cart"
                     buttonStyle={{
@@ -179,8 +179,7 @@ export default function Recipe({ navigation }) {
                 </Button>
                 </ListItem.Accordion>
             
-            <Text style={styles.header}>Directions</Text>
-            <View style={{  justifyContent: 'space-between', marginTop: 10, marginLeft: 3,  }}>                
+            <Text style={styles.header}>Directions</Text>               
                 <ListItem>
                     <ListItem.Content>
                         <ListItem.Title style={styles.body}>1.Season chicken breasts on both sides with salt and pepper.</ListItem.Title>
@@ -238,13 +237,7 @@ export default function Recipe({ navigation }) {
                     }}
                  />
                  </View> */}
-            </View>
-                  
-                    
-
-
-
-
+                 
         </ScrollView>
         </>
     )
