@@ -53,11 +53,26 @@ const styles = StyleSheet.create({
 
 
 export default function Login({navigation}) {
-  return (  
+  return (
 
-    <View style={styles.backgroundPurple}>  
+    
+    <View style={styles.backgroundPurple}> 
 
-      <View style={{ zIndex:11, marginTop: -400, width:'100%'}}>
+      <View style={{ zIndex:11, marginTop: -450, width:'100%',marginBottom:-55,}}>
+        <Image  
+              style={{ height: 50, resizeMode:'contain'}}
+              source={{uri:'https://i.postimg.cc/65XBkHNg/logo.png'}}>  
+        </Image> 
+      </View>
+      
+      <View style={{ zIndex:12, marginTop: 0, marginBottom:-130, width:'100%'}}>
+        <Image  
+              style={{ height: 250, width: '100%' , resizeMode:'contain'}}
+              source={{uri:'https://www.linkpicture.com/q/Food-for-thanksgiving.png'}}>  
+        </Image> 
+      </View>
+
+      {/*<View style={{ zIndex:11, marginTop: -400, width:'100%'}}>
         <Image  
               style={{ height: 50, resizeMode:'contain'}}
               source={{uri:'https://i.postimg.cc/65XBkHNg/logo.png'}}>  
@@ -70,7 +85,7 @@ export default function Login({navigation}) {
           source={{
           uri:'https://ibb.co/XzwByw3',
           }}
-        />
+        />*/}
 
       <View style={styles.containerWhite}>
         <View style={[styles.userInfo, {flex:1, flexDirection: 'column'},]}>   
