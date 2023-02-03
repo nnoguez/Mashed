@@ -44,7 +44,6 @@ export default function Explore({ navigation }) {
           placeholderTextColor="grey"
           cancelButtonTitle="Cancel"
           cancelButtonProps={{}}
-          onCancel={() => console.log(onCancel())}
           value={value}
        />
     <View style={styles.viewOne}>
