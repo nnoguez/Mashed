@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",  
   },
   userInfo: {
-    marginTop:50,
+    marginTop:40,
     zIndex:2,   
     top: 0,
     width: '75%',
@@ -63,10 +63,7 @@ export default function Login({navigation}) {
               source={{uri:'https://i.postimg.cc/65XBkHNg/logo.png'}}>  
       </Image> 
       </View>
-        
-      <View style={styles.containerWhite}>
-        <View style={[styles.userInfo, {flex:1, flexDirection: 'column'},]}>   
-        <Image
+      <Image
           style={{
           width:"35%", 
           height:25}}
@@ -74,6 +71,10 @@ export default function Login({navigation}) {
           uri:'https://ibb.co/XzwByw3',
           }}
         />
+
+      <View style={styles.containerWhite}>
+        <View style={[styles.userInfo, {flex:1, flexDirection: 'column'},]}>   
+       
           
           <View style={{ width:'100%', height: 60}}><Input clearButtonMode="always" style={styles.userInputStyle} placeholder="First Name"/></View>
           <View style={{width:'100%', height:60}}><Input style={styles.userInputStyle} placeholder="Last Name"/></View>
