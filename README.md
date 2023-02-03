@@ -6,14 +6,14 @@ In order to make sure that those messages and themes are portrayed, we focused o
 
 Navigate through our screens:
 
-#Splash Screen
-#Sign Up
-#Login
-#Home
-#Chat
-#Explore
-#Recipe
-#Post
-#Challenge
-#Profile
-#Settings
+# Splash Screen
+# Sign Up
+# Login
+# Home
+# Chat
+# Explore
+# Recipe
+# Post
+# Challenge
+# Profile
+# Settings
