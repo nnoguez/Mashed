@@ -7,7 +7,9 @@ import { View, ScrollView, Text, Image, StyleSheet, SectionList, TouchableOpacit
 import { ListItem } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+
 export default function Challenge ({ navigation }) {
+
   const image = {uri: 'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg'};
   return (
     <>
@@ -50,12 +52,12 @@ export default function Challenge ({ navigation }) {
           {/* row 1 */}
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3, marginRight: 50 }}>
             <Text style={styles.fontBig}>
-              <Icon name="plus" color="#9492EF" size={20} paddingRight={20} />
+              {/* <Icon name="plus" color="#9492EF" size={20} paddingRight={20} /> */}
               Nut-free
             </Text>
             
             <Text style={styles.fontBig}>
-              <Icon name="plus" color="#9492EF" size={20} paddingRight={20} />
+              {/* <Icon name="plus" color="#9492EF" size={20} paddingRight={20} /> */}
               Halal, Kosher
             </Text>
           </View>
@@ -63,7 +65,7 @@ export default function Challenge ({ navigation }) {
           {/* row 2 */}
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3, marginRight: 50 }}> 
             <Text style={styles.fontBig}>
-              <Icon name="plus" color="#9492EF" size={20} />
+              {/* <Icon name="plus" color="#9492EF" size={20} /> */}
               Contains Egg, Dairy
             </Text>
           </View>
@@ -78,15 +80,8 @@ export default function Challenge ({ navigation }) {
           style={styles.roundButton2}>
             <Icon name="random"c size={35} color="white" />
           </TouchableOpacity>
-          <TouchableOpacity
-          style={styles.roundButton1}>
-              <CheckBox
-                checked={checked}
-                checkedIcon="heart"
-                uncheckedIcon="heart-o"
-                checkedColor="red"
-                onPress={toggleCheckbox}
-                />
+          <TouchableOpacity style={styles.roundButton1}>
+            <Icon name="heart" size={32} color="#EE7E74" />
           </TouchableOpacity>
         </View>
     </ScrollView>
