@@ -10,6 +10,7 @@ export default function Recipe({ navigation }) {
     const [check4, setCheck4] = useState(false);
     const [check5, setCheck5] = useState(false);
     const [check6, setCheck6] = useState(false);
+    const [expanded, setExpanded] = useState(false);
     return (
     <>
     {/* mashed logo */}
@@ -102,16 +103,19 @@ export default function Recipe({ navigation }) {
             </Text>
           </View>
 
-          <ListItem
+          <ListItem.Accordion
                 content={
                     <>
-                    <Icon name="Place" size={30} />
+                    <Icon name="place" size={30} />
                     <ListItem.Content>
-                        <ListItem.Title>Ingredients</ListItem.Title>
+                        <ListItem.Title>List Accordion</ListItem.Title>
                     </ListItem.Content>
                     </>
                 }
-               
+                isExpanded={expanded}
+                onPress={() => {
+                    setExpanded(!expanded);
+                }}
             >
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3 }}>
                     <ListItem.Content>
@@ -173,7 +177,7 @@ export default function Recipe({ navigation }) {
                         marginVertical: 5,
                     }}>
                 </Button>
-			</ListItem>
+                </ListItem.Accordion>
             
             <Text style={styles.header}>Directions</Text>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3,  }}>                
