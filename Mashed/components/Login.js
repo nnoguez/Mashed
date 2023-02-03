@@ -85,7 +85,7 @@ export default function Login({navigation}) {
           </View>
 
           <View style={{alignItems:'center',marginVertical: 20, width:'100%'}}>
-            <Text>- Log In With -</Text>
+            <Text>- or Log In With -</Text>
             <View style={[styles.userInfo, {flex:1, flexDirection: 'row'},]}>
             <SocialIcon type="instagram"></SocialIcon>
             <SocialIcon type="facebook"></SocialIcon>
