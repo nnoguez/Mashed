@@ -57,9 +57,12 @@ export default function Login({navigation}) {
               style={{ height: 50, resizeMode:'contain'}}
               source={{uri:'https://i.postimg.cc/65XBkHNg/logo.png'}}>  
       </Image> 
+      </View>
+      
+      <View style={{ zIndex:12, marginTop: 0, marginBottom:-130, width:'100%'}}>
       <Image  
-              style={{ height: 50, width: '100%' , resizeMode:'contain'}}
-              source={{uri:'https://ibb.co/XzwByw3'}}>  
+              style={{ height: 250, width: '100%' , resizeMode:'contain'}}
+              source={{uri:'https://www.linkpicture.com/q/Autumn-still-life-with-pumpkins-beetroot-and-apple.png'}}>  
       </Image> 
       </View>
         
