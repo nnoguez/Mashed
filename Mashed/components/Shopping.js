@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontWeight: 'bold',
       color:"#9492ef",
-      paddingLeft:60,
+      paddingLeft:20,
+      paddingTop: 10,
     },
     headerStyle:{
       zIndex:2,
@@ -66,11 +67,13 @@ const styles = StyleSheet.create({
       fontSize: 15,
       fontWeight: 'bold',
       color:'dark gray',
+      paddingLeft:20,
     },
     cardWeightStyle:{
       fontSize: 10,
       fontWeight: 'bold',
       color:'gray',
+      paddingLeft:20,
     },
 
   })
@@ -104,70 +107,91 @@ export default function Shopping ({ navigation }) {
   <View style={{alignItems:'center'}}> 
         <View>
           <Text style={{zIndex: 1, color:'dark gray', fontSize: 15, paddingTop:10}}>My Cart</Text>
-        </View>
+        </View>      
 
+        
         <Card borderRadius={25} width ={350} >
-          <View style={{justifyContent: 'center'}}>      
-              <Card.Image
-                  style={{width:'30%', height:100, marginTop: 5, borderRadius: 12}}
-                  source={{
-                  uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
-                  }}/>       
-              
+          <View style={[styles.container,{flexDirection: 'row'}]}> 
+                  <View style={{flex: 1}}>
+                    <Card.Image
+                        style={{width:100, height:100, marginTop: 5, borderRadius: 12}}
+                        source={{
+                        uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
+                        }}
+                    /> 
+                  </View>      
+              <View style={{flex: 2, justifyContent: 'space-evenly'}}>
               <View style={{width:'70%'}}>
                 <Text style={styles.cardLabelStyle}>Gold Medal All Purpose Flour</Text>
                 <Text style={styles.cardWeightStyle}>size:5 lb</Text>
                 <Text style={styles.priceStyle}>$3.83</Text>
               </View>
+              </View>
           </View>
         </Card>
-
         <Card borderRadius={25} width ={350} >
-          <View style={{justifyContent: 'center'}}>      
-              <Card.Image
-                  style={{width:'30%', height:100, marginTop: 5, borderRadius: 12}}
-                  source={{
-                  uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
-                  }}/>       
-              
+          <View style={[styles.container,{flexDirection: 'row'}]}> 
+                  <View style={{flex: 1}}>
+                    <Card.Image
+                        style={{width:100, height:100, marginTop: 5, borderRadius: 12}}
+                        source={{
+                        uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
+                        }}
+                    /> 
+                  </View>      
+              <View style={{flex: 2, justifyContent: 'space-evenly'}}>
               <View style={{width:'70%'}}>
-                <Text style={styles.cardLabelStyle}>Freshness Guaranteed Thin-Sliced Chicken Breasts</Text>
+              <Text style={styles.cardLabelStyle}>Freshness Guaranteed Thin-Sliced Chicken Breasts</Text>
                 <Text style={styles.cardWeightStyle}>size:1.7-3.0 lb</Text>
                 <Text style={styles.priceStyle}>$11.31</Text>
+              </View>
               </View>
           </View>
         </Card>
       
         <Card borderRadius={25} width ={350} >
-          <View style={{justifyContent: 'center'}}>      
-              <Card.Image
-                  style={{width:'30%', height:100, marginTop: 5, borderRadius: 12}}
-                  source={{
-                  uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
-                  }}/>       
-              
+          <View style={[styles.container,{flexDirection: 'row'}]}> 
+                  <View style={{flex: 1}}>
+                    <Card.Image
+                        style={{width:100, height:100, marginTop: 5, borderRadius: 12}}
+                        source={{
+                        uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
+                        }}
+                    /> 
+                  </View>      
+              <View style={{flex: 2, justifyContent: 'space-evenly'}}>
               <View style={{width:'70%'}}>
                 <Text style={styles.cardLabelStyle}>Large White Eggs</Text>
                 <Text style={styles.cardWeightStyle}>size: 18 count</Text>
                 <Text style={styles.priceStyle}>$3.51</Text>
               </View>
-          </View>
-        </Card>
-        <Card borderRadius={25} width ={350} >
-          <View style={{justifyContent: 'center'}}>      
-              <Card.Image
-                  style={{width:'30%', height:100, marginTop: 5, borderRadius: 12}}
-                  source={{
-                  uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
-                  }}/>       
-              
-              <View style={{width:'70%'}}>
-                <Text style={styles.cardLabelStyle}>4C Japanese Style Seasoned Panko Bread Crumbs</Text>
-                <Text style={styles.cardWeightStyle}>size: 8 oz</Text>
-                <Text style={styles.priceStyle}>$2.00</Text>
               </View>
           </View>
         </Card>
+
+        <Card borderRadius={25} width ={350} >
+          <View style={[styles.container,{flexDirection: 'row'}]}> 
+                  <View style={{flex: 1}}>
+                    <Card.Image
+                        style={{width:100, height:100, marginTop: 5, borderRadius: 12}}
+                        source={{
+                        uri:'https://tiffycooks.com/wp-content/uploads/2021/05/Screen-Shot-2021-05-26-at-12.35.22-AM.png',
+                        }}
+                    /> 
+                  </View>      
+              <View style={{flex: 2, justifyContent: 'space-evenly'}}>
+              <View style={{width:'70%'}}>
+              <Text style={styles.cardLabelStyle}>4C Japanese Style Seasoned Panko Bread Crumbs</Text>
+                <Text style={styles.cardWeightStyle}>size: 8 oz</Text>
+                <Text style={styles.priceStyle}>$2.00</Text>
+              </View>
+              </View>
+          </View>
+        </Card>
+
+
+
+        
   </View> 
 </ScrollView>
 

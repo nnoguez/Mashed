@@ -39,7 +39,7 @@ export default function Post ( {navigation} ) {
             </View>
 
             <View style={{flex: 2, justifyContent: 'space-evenly'}}>
-                <View style={[{flexDirection: 'row'}]}>
+                <View >
                   <Text style={{fontWeight: 'bold', fontSize: 20}}> @dnovatnak007 </Text>
                 </View>
                 <Button 
@@ -107,9 +107,6 @@ const styles = StyleSheet.create({
     }, 
     containerWhite:{
       zIndex:2,
-      //flex:1,
-      //position:'absolute',    
-      
       height:"60%",
       width: "100%",
       borderTopLeftRadius: 45,
@@ -120,26 +117,6 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',    
       alignItems: "center",
       paddingTop:20, 
-      //justifyContent: "center",  
-    }, 
-    // userInfo: {
-    //   marginTop:50,
-    //   zIndex:2,   
-    //   top: 0,
-    //   width: '75%',
-    //   alignItems: 'center',
-    //   padding: 10,
-    // },  
-    // containerWhite:{
-    //   zIndex:1,
-    //   position:'absolute',    
-    //   bottom: 0,
-    //   height:"60%",
-    //   width: "100%",
-    //   borderTopLeftRadius: 75,
-    //   borderTopRightRadius: 75,
-    //   backgroundColor: '#fff',    
-    //   alignItems: "center", 
-    //   justifyContent: "center",  
-    // },
+        
+    }
   })
