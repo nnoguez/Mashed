@@ -1,12 +1,21 @@
 // home screen (naomy)
 
 
-import React from "react";
+import React, { useState } from "react";
 import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity } from 'react-native';
-import { Avatar, Image, Badge, Card } from '@rneui/themed';
+import { Avatar, Image, Badge, Card, CheckBox } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Home({ navigation }) {
+    const [checked, setState] = React.useState(false);
+    const [checked2, setState2] = React.useState(false);
+    const [checked3, setState3] = React.useState(false);
+    const [checked4, setState4] = React.useState(false);
+
+    const toggleCheckbox = () => setState(!checked);
+    const toggleCheckbox2 = () => setState2(!checked2);
+    const toggleCheckbox3 = () => setState3(!checked3);
+    const toggleCheckbox4 = () => setState4(!checked4);
     return (
     <>
     {/* mashed logo */}
@@ -153,8 +162,21 @@ export default function Home({ navigation }) {
                 status="success" 
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
-            <Text style={{ marginLeft: 250, marginTop: 17, fontWeight: 'bold'}}> 2.5k </Text>
-            <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
+            <Text style={{ marginLeft: 250, marginTop: 19, fontWeight: 'bold'}}> 2.5k </Text>
+            <TouchableOpacity
+                style={{ 
+                    justifyContent: 'center',
+                    marginLeft: -10
+            }}>
+                <CheckBox
+                    checked={checked}
+                    checkedIcon="heart"
+                    uncheckedIcon="heart-o"
+                    checkedColor="#EE7E74"
+                    onPress={toggleCheckbox}
+                />
+          </TouchableOpacity>
+            {/* <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" /> */}
         </View>
         <Card.Image
             style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
@@ -180,7 +202,8 @@ export default function Home({ navigation }) {
         <Card.Divider style={{marginTop: 5}}/>
         <View style={{ flexDirection: 'row'}}>
             <Icon name="book" size={15} color="#FFC42D" />
-            <Text style={{ marginLeft: 5, marginTop: 2, fontSize: 10, fontWeight: 'bold'}}>
+            <Text style={{ marginLeft: 5, marginTop: 2, fontSize: 10, fontWeight: 'bold'}} 
+                onPress={()=> navigation.navigate('Recipe')}>
                 Crispy Chicken Katsu - Alice Zhang
             </Text>
             <View style={{ justifyContent: 'flex-end', marginLeft: 77 }}>
@@ -211,7 +234,20 @@ export default function Home({ navigation }) {
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
             <Text style={{ marginLeft: 250, marginTop: 17, fontWeight: 'bold'}}> 1.3k </Text>
-            <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
+            <TouchableOpacity
+                style={{ 
+                    justifyContent: 'center',
+                    marginLeft: -10
+            }}>
+                <CheckBox
+                    checked={checked2}
+                    checkedIcon="heart"
+                    uncheckedIcon="heart-o"
+                    checkedColor="#EE7E74"
+                    onPress={toggleCheckbox2}
+                />
+            </TouchableOpacity>
+            {/* <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" /> */}
         </View>
         <Card.Image
             style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
@@ -272,7 +308,20 @@ export default function Home({ navigation }) {
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
             <Text style={{ marginLeft: 250, marginTop: 17, fontWeight: 'bold'}}> 2.4k </Text>
-            <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
+            <TouchableOpacity
+                style={{ 
+                    justifyContent: 'center',
+                    marginLeft: -10
+            }}>
+                <CheckBox
+                    checked={checked3}
+                    checkedIcon="heart"
+                    uncheckedIcon="heart-o"
+                    checkedColor="#EE7E74"
+                    onPress={toggleCheckbox3}
+                />
+          </TouchableOpacity>
+            {/* <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" /> */}
         </View>
         <Card.Image
             style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
@@ -330,7 +379,20 @@ export default function Home({ navigation }) {
                 containerStyle={{ position: 'absolute',  left: 50 }}
             />
             <Text style={{ marginLeft: 250, marginTop: 17, fontWeight: 'bold'}}> 3.1k </Text>
-            <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" />
+            <TouchableOpacity
+                style={{ 
+                    justifyContent: 'center',
+                    marginLeft: -10
+            }}>
+                <CheckBox
+                    checked={checked4}
+                    checkedIcon="heart"
+                    uncheckedIcon="heart-o"
+                    checkedColor="#EE7E74"
+                    onPress={toggleCheckbox4}
+                />
+          </TouchableOpacity>
+            {/* <Icon style={{ marginTop: 15, marginRight: 5 }} name="heart" size={20} color="#EE7E74" /> */}
         </View>
         <Card.Image
             style={{width:"100%", height:300, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}

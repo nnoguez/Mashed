@@ -7,7 +7,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Home from "./components/Home";
 import Explore from "./components/Explore";
-import Post from './components/Post';
 import Challenge from './components/Challenge';
 import Profile from './components/Profile';
 import Splash from './components/Splash';
@@ -17,6 +16,7 @@ import Login from './components/Login';
 import Settings from './components/Settings';
 import Recipe from './components/Recipe';
 import Shopping from './components/Shopping';
+import Post from './components/Post';
 
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -31,63 +31,22 @@ export default function App() {
   };
 
   return (
-      <NavigationContainer initialRouteName="Splash">
-        <Tab.Navigator 
-          activeColor="#FFC42D"
-          inactiveColor="grey"
-          screenOptions={({ route }) => ({
-            tabBarButton: [
-              "Route1ToExclude",
-              "Route2ToExclude"
-            ].includes(route.name)
-              ? () => {
-                  return null;
-                }
-              : undefined,
-          })}
-        >
-          <Tab.Screen 
-            name="Splash" 
-            component={Splash} 
-            options={{
-              headerShown: false,
-              tabBarShowLabel: false,
-              tabBarVisible: false, 
-              tabBarButton: (props) => null, 
-            }}
-          />
-          <Tab.Screen 
-            name="Signup" 
-            component={Signup} 
-            options={{
-              headerShown: false,
-              tabBarShowLabel: false,
-              tabBarVisible: false, 
-              tabBarButton: (props) => null, 
-            }}
-          />
-          <Tab.Screen 
-            name="Login" 
-            component={Login} 
-            options={{
-              headerShown: false,
-              tabBarShowLabel: false,
-              tabBarVisible: false, 
-              tabBarButton: (props) => null, 
-            }}
-          />
-          <Tab.Screen 
-            name="Home" 
-            component={Home} 
-            options={{
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Splash">
+        <Stack.Screen name="Home" options={{
+          headerShown: false
+        }}>{() => (
+          <Tab.Navigator initialRouteName="Home">
+
+            <Tab.Screen name="Home" component={Home}
+              options={{
               headerShown: false,
               tabBarShowLabel: false,
               tabBarIcon: ({ color,focused }) => (
                 <Icon name="home" color={focused?'#FFC42D':'grey'} size={30} />
               )
             }}/>
-
-          <Tab.Screen 
+                      <Tab.Screen 
             name="Explore" 
             component={Explore} 
             options={{
@@ -129,6 +88,51 @@ export default function App() {
               )
             }}/>
           <Tab.Screen 
+            name="Recipe" 
+            component={Recipe} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
+          </Tab.Navigator>)}
+        </Stack.Screen>
+
+
+{/* hidden */}
+        <Tab.Screen 
+            name="Splash" 
+            component={Splash} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
+        <Tab.Screen 
+            name="Login" 
+            component={Login} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+        />
+        <Tab.Screen 
+            name="Signup" 
+            component={Signup} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
+        <Tab.Screen 
             name="Chat" 
             component={Chat} 
             options={{
@@ -149,16 +153,6 @@ export default function App() {
             }}
           />
           <Tab.Screen 
-            name="Recipe" 
-            component={Recipe} 
-            options={{
-              headerShown: false,
-              tabBarShowLabel: false,
-              tabBarVisible: false, 
-              tabBarButton: (props) => null, 
-            }}
-          />
-          <Tab.Screen 
             name="Shopping" 
             component={Shopping} 
             options={{
@@ -168,19 +162,7 @@ export default function App() {
               tabBarButton: (props) => null, 
             }}
           />
-        </Tab.Navigator>
-      </NavigationContainer>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-
-// function Shown() {
-//   return (
-//     <NavigationContainer>
-//     <Stack.Navigator initialRouteName="Splash">
-//         <Stack.Screen name="Splash" component={Splash} options={{headerShown: false}}/>
-//     </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
-

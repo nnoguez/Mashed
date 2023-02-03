@@ -6,7 +6,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 export default function Recipe({ navigation }) {
     const [check1, setCheck1] = useState(false);
     const [check2, setCheck2] = useState(false);
-
+    const [check3, setCheck3] = useState(false);
+    const [check4, setCheck4] = useState(false);
+    const [check5, setCheck5] = useState(false);
+    const [check6, setCheck6] = useState(false);
+    const [expanded, setExpanded] = useState(false);
     return (
     <>
     {/* mashed logo */}
@@ -99,18 +103,21 @@ export default function Recipe({ navigation }) {
             </Text>
           </View>
 
-          <ListItem
+          <ListItem.Accordion
                 content={
                     <>
-                    <Icon name="Place" size={30} />
+                    <Icon name="plus" size={25} />
                     <ListItem.Content>
                         <ListItem.Title>Ingredients</ListItem.Title>
                     </ListItem.Content>
                     </>
                 }
-               
+                isExpanded={expanded}
+                onPress={() => {
+                    setExpanded(!expanded);
+                }}
             >
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3 }}>
+                
                     <ListItem.Content>
                         <CheckBox
                             center
@@ -125,39 +132,39 @@ export default function Recipe({ navigation }) {
                             checked={check2}
                             onPress={() => setCheck2(!check2)}
                             />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3}}>
+            
+              
                     <ListItem.Content>
                         <CheckBox
                             center
                             title="1 Egg, Beaten"
                             checked={check1}
-                            onPress={() => setCheck1(!check1)}
+                            onPress={() => setCheck3(!check3)}
                             />
                     </ListItem.Content>
                         <CheckBox
                             center
                             title="2 Tablespoons all-purpose flour"
                             checked={check2}
-                            onPress={() => setCheck2(!check2)}
+                            onPress={() => setCheck4(!check4)}
                             />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3 }}>
+             
+               
                     <ListItem.Content>
                         <CheckBox
                             center
                             title="Salt and Pepper"
                             checked={check1}
-                            onPress={() => setCheck1(!check1)}
+                            onPress={() => setCheck5(!check5)}
                             />
                     </ListItem.Content>
                         <CheckBox
                             center
                             title="1 Cup of vegetable oil"
                             checked={check2}
-                            onPress={() => setCheck2(!check2)}
+                            onPress={() => setCheck6(!check6)}
                             />
-                </View>
+             
                 <Button
                     title="Add to Cart"
                     buttonStyle={{
@@ -170,10 +177,9 @@ export default function Recipe({ navigation }) {
                         marginVertical: 5,
                     }}>
                 </Button>
-			</ListItem>
+                </ListItem.Accordion>
             
-            <Text style={styles.header}>Directions</Text>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginLeft: 3,  }}>                
+            <Text style={styles.header}>Directions</Text>               
                 <ListItem>
                     <ListItem.Content>
                         <ListItem.Title style={styles.body}>1.Season chicken breasts on both sides with salt and pepper.</ListItem.Title>
@@ -197,7 +203,7 @@ export default function Recipe({ navigation }) {
                         <ListItem.Title style={styles.body}>7.Enjoy!</ListItem.Title>
                     </ListItem.Content>
                 </ListItem>
-                <View >
+                {/* <View >
                 <Image
                     style={{
                         width:"35%", 
@@ -230,14 +236,8 @@ export default function Recipe({ navigation }) {
                     uri:'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTAy9m8-qjTNmf_rUUvxwZznaJv6mabXJb1hXdJ5mQH_1ekG9Hf',
                     }}
                  />
-                 </View>
-            </View>
-                  
-                    
-
-
-
-
+                 </View> */}
+                 
         </ScrollView>
         </>
     )
