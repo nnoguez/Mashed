@@ -7,7 +7,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Home from "./components/Home";
 import Explore from "./components/Explore";
-import Post from './components/Post';
 import Challenge from './components/Challenge';
 import Profile from './components/Profile';
 import Splash from './components/Splash';
@@ -17,6 +16,7 @@ import Login from './components/Login';
 import Settings from './components/Settings';
 import Recipe from './components/Recipe';
 import Shopping from './components/Shopping';
+import Post from './components/Post';
 
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -100,7 +100,8 @@ export default function App() {
           </Tab.Navigator>)}
         </Stack.Screen>
 
-{/* hide */}
+
+{/* hidden */}
         <Tab.Screen 
             name="Splash" 
             component={Splash} 
@@ -165,15 +166,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-
-// function Shown() {
-//   return (
-//     <NavigationContainer>
-//     <Stack.Navigator initialRouteName="Splash">
-//         <Stack.Screen name="Splash" component={Splash} options={{headerShown: false}}/>
-//     </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
-
