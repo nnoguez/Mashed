@@ -202,7 +202,8 @@ export default function Home({ navigation }) {
         <Card.Divider style={{marginTop: 5}}/>
         <View style={{ flexDirection: 'row'}}>
             <Icon name="book" size={15} color="#FFC42D" />
-            <Text style={{ marginLeft: 5, marginTop: 2, fontSize: 10, fontWeight: 'bold'}}>
+            <Text style={{ marginLeft: 5, marginTop: 2, fontSize: 10, fontWeight: 'bold'}} 
+                onPress={()=> navigation.navigate('Recipe')}>
                 Crispy Chicken Katsu - Alice Zhang
             </Text>
             <View style={{ justifyContent: 'flex-end', marginLeft: 77 }}>
