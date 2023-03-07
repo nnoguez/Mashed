@@ -21,7 +21,7 @@ export default class Login extends Component {
     if ((Username.length==0) || (Password.length==0)){
       alert("Please fill out all fields");
     }else{
-      var APIURL = "http://localhost:8888/mashed-server/login.php";
+      var APIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/login.php";
 
       var headers = {
         'Accept' : 'application/json',

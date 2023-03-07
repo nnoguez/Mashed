@@ -47,7 +47,7 @@ export default class Signup extends Component {
     
     
     else{
-      var InsertAPIURL = "http://localhost:8888/mashed-server/signup.php";   //API to render signup
+      var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/signup.php";   //API to render signup
 
       var headers = {
         'Accept': 'application/json',
