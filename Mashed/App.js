@@ -15,7 +15,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Settings from './components/Settings';
 import Recipe from './components/Recipe';
-import Shopping from './components/Shopping';
+import Shopping from './components/shoppinglist';
 import Post from './components/Post';
 
 
