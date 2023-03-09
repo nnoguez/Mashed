@@ -6,11 +6,10 @@ import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity } fro
 import { Avatar, Image, Badge, Card, CheckBox } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const a = [];
 const App = props => {
   return (
     <ul>
-      {a.map(i => {
+      {recipes.map(i => {
         return <li>{i}</li>;
       })}
     </ul>
