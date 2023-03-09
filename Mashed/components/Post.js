@@ -1,7 +1,7 @@
 // post screen (laura)
 
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, {Component} from "react";
+import { View, Pressable, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { Image, Avatar, Button } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -101,7 +101,14 @@ export default class Signup extends Component {
           </View>
       </View>
 
-
+            {/* Button */}
+            <View style={styles.buttonsection}>    
+                <Pressable
+                  style={styles.button} 
+                  onPress={()=>{this.UserInfo()}}>
+                  <Text style={styles.text}>Share Recipe</Text>
+                </Pressable>
+              </View>
 
 
 
@@ -203,7 +210,8 @@ export default class Signup extends Component {
 // }
 }
 const styles = StyleSheet.create({
-    viewOne: {
+   
+  viewOne: {
         textAlign: "center",
         margin: 20,
         marginBottom: 175,
@@ -221,6 +229,19 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',    
       alignItems: "center",
       paddingTop:20, 
-        
+    },
+    buttonsection: {
+      width: '100%',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    button: {
+      backgroundColor: '#FFC42D',
+      color: 'white',
+      height: 35,
+      justifyContent: 'center', //up dwn
+      alignItems: 'center',  //r & l
+      width: '70%',
+      borderRadius: 10,
     }
   })

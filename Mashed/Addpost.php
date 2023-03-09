@@ -26,13 +26,13 @@
 // echo json_encode($response);
 include('db.php');
 
-$RecipeName = $decodedData['Recipe Name'];
-$RecipeStep = $decodedData['Recipe Step'];
-$RecipeIngredients = $decodedData['Recipe Ingredients'];
+$RecipeName = $decodedData['RecipeName'];
+$RecipeStep = $decodedData['RecipeStep'];
+$RecipeIngredients = $decodedData['RecipeIngredients'];
 
 $SQL = "SELECT * FROM Recipes WHERE RecipeName = '$RecipeName'";
 $exeSQL = mysqli_query($conn, $SQL);
-$checkEmail =  mysqli_num_rows($exeSQL);
+// $checkEmail =  mysqli_num_rows($exeSQL);
 
     $InsertQuerry = "INSERT INTO Recipes(RecipeName, RecipeStep, RecipeIngredients) VALUES('$RecipeName', '$RecipeStep', '$RecipeIngredients')";
 
