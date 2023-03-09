@@ -6,6 +6,17 @@ import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity } fro
 import { Avatar, Image, Badge, Card, CheckBox } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+const a = [];
+const App = props => {
+  return (
+    <ul>
+      {a.map(i => {
+        return <li>{i}</li>;
+      })}
+    </ul>
+  );
+};
+ App;
 export default function Home({ navigation }) {
     const [checked, setState] = React.useState(false);
     const [checked2, setState2] = React.useState(false);
