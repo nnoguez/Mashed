@@ -27,22 +27,22 @@
 include('db.php');
 
 $RecipeName = $decodedData['Recipe Name'];
-$RecipeSteps = $decodedData['Recipe Step'];
+$RecipeStep = $decodedData['Recipe Step'];
 $RecipeIngredients = $decodedData['Recipe Ingredients'];
 
-if ($link->multi_query($sql) === TRUE) {
-    $InsertQuerry = "INSERT INTO Recipes(RecipeName, RecipeSteps, RecipeIngredients) 
-        VALUES('$RecipeName', '$RecipeSteps', '$RecipeIngredients')";
-    if ($link->query($sql2) == TRUE){
-        echo "New recipe created successfully";} 
+$SQL = "SELECT * FROM Recipes WHERE RecipeName = '$RecipeName'";
+$exeSQL = mysqli_query($conn, $SQL);
+$checkEmail =  mysqli_num_rows($exeSQL);
+
+    $InsertQuerry = "INSERT INTO Recipes(RecipeName, RecipeStep, RecipeIngredients) VALUES('$RecipeName', '$RecipeStep', '$RecipeIngredients')";
+
+    $R = mysqli_query($conn, $InsertQuerry);
+
+    if ($R) {
+        $Message = "Recipe Successfully Posted!";
+    } else {
+        $Message = "We couldn't complete your request";
     }
-    else {
-       echo "Error: " . $sql2 . "<br>" . $link->error;
-    }
-}
-else {
-   echo "Error: " . $sql . "<br>" . $link->error;
-}
 
 $response[] = array("Message" => $Message);
 echo json_encode($response);
