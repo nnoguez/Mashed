@@ -5,7 +5,7 @@ import { View, Pressable, Text, StyleSheet, TextInput, TouchableOpacity } from '
 import { Image, Avatar, Button } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class Signup extends Component {
+export default class Post extends Component {
   constructor(props) {
     super(props);
     this.state = { 
@@ -16,9 +16,10 @@ export default class Signup extends Component {
   }
   
   UserInfo=()=>{
-    var RecipeName = this.state.recipename;
-    var RecipeStep = this.state.recipestep;
-    var RecipeIngredients = this.state.recipeingredients;
+    var RecipeName = this.state.RecipeName;
+    var RecipeStep = this.state.RecipeStep;
+    var RecipeIngredients = this.state.RecipeIngredients;
+
     var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Addpost.php";   //API to render signup
 
       var headers = {
@@ -41,14 +42,13 @@ export default class Signup extends Component {
     .then((response)=>response.json()) //check response type of API (CHECK OUTPUT OF DATA IS IN JSON)
     .then((response)=>{
       alert(response[0].Message);       // If data is in JSON => Display alert msg
-      this.props.navigation.navigate("Home"); //Navigate to home if authentications are valid
+      this.props.navigation.navigate("Explore"); //Navigate to home if authentications are valid
     })
     .catch((error)=>{
         alert("Error Occured" + error);
     });
     }
   
-
   render() {
     return (
       <>
