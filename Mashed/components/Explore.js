@@ -3,7 +3,7 @@
 // explore screen (alan)
 
 import { Card, SearchBar } from "@rneui/base";
-import React, { Component } from "react";
+import React, { Component, useState, useEffect} from "react";
 import { Button, View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
