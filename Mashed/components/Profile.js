@@ -66,7 +66,8 @@ export default class Profile extends Component {
 
 
   render() {
-    const {username, bio } = this.state
+    const {username, bio } = this.state;
+    const { navigation } = this.props;
   return (
     <>
     {/* mashed logo */}
