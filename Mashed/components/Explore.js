@@ -11,7 +11,7 @@ export default function Explore({ navigation }) {
   const [value, setValue] = React.useState("");
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
-    fetch('https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Explore.php')
+    fetch('http://students.gaim.ucf.edu/~yourusername/Explore.php')
       .then(response => response.json())
       .then(data => setRecipes(data))
       .catch(error => console.error(error));
@@ -69,20 +69,19 @@ export default function Explore({ navigation }) {
               Give thanks and celebrate Thanksgiving with some yummy recipes! <Icon name="arrow-right" color="#FFC42D"></Icon>
           </Text>
         </Card>
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} pagingEnabled={true}>
+
+      {/* First Scroll of Recipes  */}
+      <Text style={styles.Headers}>For You</Text>
+      <Text style={styles.Subheaders}>Based on your recent likes and creations.</Text>    
+      <ScrollView horizontal= {true} showsHorizontalScrollIndicator={true} pagingEnabled={true}> 
       {recipes.map(recipe => (
-        <TouchableOpacity key={recipe.id} onPress={() => navigation.navigate('Recipe')}>
+        <TouchableOpacity key={recipe.RecipeName} onPress={() => navigation.navigate('Recipe')}>
           <Card borderRadius={25} width={160} margin>
-            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}>{recipe.name}</Text>
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}>{recipe.RecipeName}</Text>
           </Card>
         </TouchableOpacity>
       ))}
-    </ScrollView>        
-      {/* First Scroll of Recipes  */}
-      {/* <Text style={styles.Headers}>For You</Text>
-      <Text style={styles.Subheaders}>Based on your recent likes and creations.</Text>    
-      <ScrollView horizontal= {true} showsHorizontalScrollIndicator={true} pagingEnabled={true}> 
-      <TouchableOpacity onPress={()=> navigation.navigate('Recipe')}>
+      {/* <TouchableOpacity onPress={()=> navigation.navigate('Recipe')}>
         <Card borderRadius={25} width={160} margin>
               <Card.Image
                   style={{ height:100, borderRadius: 25}}
@@ -92,7 +91,7 @@ export default function Explore({ navigation }) {
               />
             <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold'}}> Crispy Chicken Katsu </Text>
         </Card>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       {/* card posting 2*/}
       {/* <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5} margin>
               <Card.Image
@@ -120,8 +119,8 @@ export default function Explore({ navigation }) {
                   }}
               />
             <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Cheese Tortellini </Text>
-      </Card>    
-      </ScrollView> */} 
+      </Card>     */}
+      </ScrollView>
       {/* Second Scroll of Recipes   */}
       <Text style={styles.Headers}>Latin</Text>
       <Text style={styles.Subheaders}>An aggregate of various national dishes with Native American, African, and European influence.</Text> 
