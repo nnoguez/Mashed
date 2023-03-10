@@ -3,7 +3,6 @@
 
 //how to connect and make sure it is one the users ingredient account
 
-$Username = $decodedData['Username'];
 $Ingredient = $decodeData['Ingredient'];
 
 $SQL = "SELECT * FROM Recipe WHERE Ingredients = '$Igredient'";
