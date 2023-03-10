@@ -9,6 +9,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Explore({ navigation }) {
   const [value, setValue] = React.useState("");
+  const [recipes, setRecipes] = useState([]);
+  useEffect(() => {
+    fetch('http://students.gaim.ucf.edu/~yourusername/fetch_recipes.php')
+      .then(response => response.json())
+      .then(data => setRecipes(data))
+      .catch(error => console.error(error));
+  }, []);
   return (
     <>
     <ScrollView>
@@ -62,9 +69,17 @@ export default function Explore({ navigation }) {
               Give thanks and celebrate Thanksgiving with some yummy recipes! <Icon name="arrow-right" color="#FFC42D"></Icon>
           </Text>
         </Card>
-
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} pagingEnabled={true}>
+      {recipes.map(recipe => (
+        <TouchableOpacity key={recipe.id} onPress={() => navigation.navigate('Recipe')}>
+          <Card borderRadius={25} width={160} margin>
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}>{recipe.name}</Text>
+          </Card>
+        </TouchableOpacity>
+      ))}
+    </ScrollView>        
       {/* First Scroll of Recipes  */}
-      <Text style={styles.Headers}>For You</Text>
+      {/* <Text style={styles.Headers}>For You</Text>
       <Text style={styles.Subheaders}>Based on your recent likes and creations.</Text>    
       <ScrollView horizontal= {true} showsHorizontalScrollIndicator={true} pagingEnabled={true}> 
       <TouchableOpacity onPress={()=> navigation.navigate('Recipe')}>
@@ -79,7 +94,7 @@ export default function Explore({ navigation }) {
         </Card>
       </TouchableOpacity>
       {/* card posting 2*/}
-      <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5} margin>
+      {/* <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5} margin>
               <Card.Image
                   style={{ height:100, borderRadius: 25}}
                   source={{
@@ -106,7 +121,7 @@ export default function Explore({ navigation }) {
               />
             <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Cheese Tortellini </Text>
       </Card>    
-      </ScrollView>
+      </ScrollView> */} 
       {/* Second Scroll of Recipes   */}
       <Text style={styles.Headers}>Latin</Text>
       <Text style={styles.Subheaders}>An aggregate of various national dishes with Native American, African, and European influence.</Text> 
