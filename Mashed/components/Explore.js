@@ -80,7 +80,7 @@ export default function Explore({ navigation }) {
             <Card.Image
               style={{ height: 100, borderRadius: 25 }}
               source={{
-                uri: 'https://www.thespruceeats.com/thmb/a8cS7kg5bbsuFsJN-5zO3eOVvBE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chicken-katsu-4778466-10-67e6122e936b418ab1a92f176709d299.jpg',
+                uri: 'https://napakitchenandbar.com/wp-content/themes/NAPA/img/banner-placeholder.jpg',
               }}
             />
             <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}>{recipe}</Text>
