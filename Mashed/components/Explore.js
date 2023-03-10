@@ -3,12 +3,19 @@
 // explore screen (alan)
 
 import { Card, SearchBar } from "@rneui/base";
-import React, { Component } from "react";
+import React, { Component, useState, useEffect} from "react";
 import { Button, View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Explore({ navigation }) {
   const [value, setValue] = React.useState("");
+  const [recipes, setRecipes] = useState([]);
+  useEffect(() => {
+    fetch('https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Explore.php')
+    .then(response => response.json())
+    .then(data => setRecipes(data))
+    .catch(error => console.error(error));
+}, []);
   return (
     <>
     <ScrollView>
@@ -67,7 +74,20 @@ export default function Explore({ navigation }) {
       <Text style={styles.Headers}>For You</Text>
       <Text style={styles.Subheaders}>Based on your recent likes and creations.</Text>    
       <ScrollView horizontal= {true} showsHorizontalScrollIndicator={true} pagingEnabled={true}> 
-      <TouchableOpacity onPress={()=> navigation.navigate('Recipe')}>
+      {recipes.map((recipe, index) => (
+        <TouchableOpacity key={index} onPress={() => navigation.navigate('Recipe')}>
+          <Card borderRadius={25} width={160} margin>
+            <Card.Image
+              style={{ height: 100, borderRadius: 25 }}
+              source={{
+                uri: 'https://www.thespruceeats.com/thmb/a8cS7kg5bbsuFsJN-5zO3eOVvBE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chicken-katsu-4778466-10-67e6122e936b418ab1a92f176709d299.jpg',
+              }}
+            />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}>{recipe}</Text>
+          </Card>
+        </TouchableOpacity>
+      ))}
+      {/* <TouchableOpacity onPress={()=> navigation.navigate('Recipe')}>
         <Card borderRadius={25} width={160} margin>
               <Card.Image
                   style={{ height:100, borderRadius: 25}}
@@ -77,9 +97,9 @@ export default function Explore({ navigation }) {
               />
             <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold'}}> Crispy Chicken Katsu </Text>
         </Card>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       {/* card posting 2*/}
-      <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5} margin>
+      {/* <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5} margin>
               <Card.Image
                   style={{ height:100, borderRadius: 25}}
                   source={{
@@ -105,7 +125,7 @@ export default function Explore({ navigation }) {
                   }}
               />
             <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Cheese Tortellini </Text>
-      </Card>    
+      </Card>     */}
       </ScrollView>
       {/* Second Scroll of Recipes   */}
       <Text style={styles.Headers}>Latin</Text>
