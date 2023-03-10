@@ -1,34 +1,19 @@
+
 <?php
-
 include('db.php');
+session_start();
 
-$UserID = $decodedData['UserID'];
+$UserID = $_COOKIE['UserID'];
 $bio = $decodedData['bio'];
 
-$SQL = "SELECT * FROM profile WHERE UserID = '$UserID'";
+$SQL = "UPDATE users SET bio = '$bio' WHERE UserID ='$UserID'";
 $exeSQL = mysqli_query($conn, $SQL);
 
-
-    $InsertQuerry = "INSERT INTO profile(UserID, bio) VALUES('$UserID', '$bio')";
-
-    $R = mysqli_query($conn, $InsertQuerry);
-
-    if ($R) {
-        $Message = "Bio Successfully Posted!";
-    } else {
-        $Message = "We couldn't complete your request";
-    }
+if ($exeSQL) {
+    $Message = "Your bio has been updated!";
+} else {
+    $Message = "Failed to update bio.";
+}
 
 $response[] = array("Message" => $Message);
 echo json_encode($response);
-
-
-// function security_loggedIn() {
-//     // Does a cookie exist?
-//     return isset($_COOKIE["login"]);
-// }
-
-// function security_logout() {
-//     // Set a cookie to the past
-//     setcookie("login", "yes", time() - 10);
-// }

@@ -15,6 +15,8 @@ if ($checkUser != 0) {
         $Message = "Incorrect Password";
     } else {
         $Message = "Successfully Logged In!";
+        setcookie("loginStatus", "loggedIn", 0, "/");
+        setcookie("UserID", $arrayu['UserID'], 0, "/");
     }
 } else {
     $Message = "Account not found";

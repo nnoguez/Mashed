@@ -2,9 +2,10 @@
 
 
 import React, { Component } from 'react';
-import { View, Pressable, Text, Linking, Image, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Pressable, Text, Linking, Image, TextInput, Button, TouchableOpacity, StyleSheet, AsyncStorage } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { SocialIcon, SocialIconProps, Input, Icon } from '@rneui/themed'; 
+// import {AsyncStorage} from 'react-native';
 
 export default class Signup extends Component {
   constructor(props) {
@@ -36,10 +37,10 @@ export default class Signup extends Component {
 
     // Password validations
     else if (Password.length<8){
-      alert("A minimum of 8 characters is required");
+      alert("A minimum of 8 characters is required for your password.");
     } 
       else if (!((/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/).test(Password))){
-      alert("At least 1 special character is required");
+      alert("At least 1 special character is required for your password.");
     }
       else if(Password !== ConfirmPw){
       alert("Passwords don't match");
@@ -64,9 +65,17 @@ export default class Signup extends Component {
     fetch(InsertAPIURL,{
         method:'POST',
         headers:headers,
+        credentials : 'include',
         body: JSON.stringify(Data) //convert data to JSON
     })
     .then((response)=>response.json()) //check response type of API (CHECK OUTPUT OF DATA IS IN JSON)
+    
+    // testing
+    // npm i @react-native-async-storage/async-storage
+    // .then((response) => AsyncStorage.setItem(Username, response)) => {console.log(result)};
+
+    // testing
+
     .then((response)=>{
       alert(response[0].Message);       // If data is in JSON => Display alert msg
       this.props.navigation.navigate("Home"); //Navigate to home if authentications are valid

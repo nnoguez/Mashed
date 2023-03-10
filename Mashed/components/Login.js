@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Pressable, Text, TextInput, Image, TouchableOpacity, Button, StyleSheet} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default class Login extends Component {
@@ -14,15 +15,23 @@ export default class Login extends Component {
     };
   }
 
-  UserInfo=()=>{
+  // componentDidMount () {
+  //   AsyncStorage.getItem('username').then((username) => {
+  //     if (username != null) {
+  //       this.props.navigation.navigate('Home');
+  //     }
+  //   });
+  // }
+
+  UserInfo = () => {
     var Username = this.state.username;
     var Password = this.state.password;
 
-    if ((Username.length==0) || (Password.length==0)){
+    if ((Username.length==0) || (Password.length==0)) {
       alert("Please fill out all fields");
-    }else{
+    } else {
       var APIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/login.php";
-
+      
       var headers = {
         'Accept' : 'application/json',
         'Content-Type' : 'application/json'
@@ -30,36 +39,38 @@ export default class Login extends Component {
             
       var Data ={
         Username: Username,
-        Password: Password
+        Password: Password,
       };
 
-      fetch(APIURL,{
+      fetch(APIURL, {
         method: 'POST',
         headers: headers,
-        body: JSON.stringify(Data)
+        credentials : 'include',
+        body: JSON.stringify(Data),
       })
-      .then((response)=>response.json())
-      .then((response)=>{
-        alert(response[0].Message)
+      .then((response) => response.json())
+      .then((response) => {
+        alert(response[0].Message);
         if (response[0].Message == "Successfully Logged In!") {
-          console.log("true")
-          this.props.navigation.navigate("Home");
+          AsyncStorage.setItem('Username', Username);
+          AsyncStorage.setItem('Password', Password);
+          console.log("Logged in user:", Data);
+          this.props.navigation.navigate('Home');
         }
-        console.log(Data);
       })
-      .catch((error)=>{
+      .catch((error) => {
         console.error("ERROR FOUND" + error);
-      })
+      });
     }
-  }
+  };
+  
 
-
-  updateSecureTextEntry(){
+  updateSecureTextEntry() {
     this.setState({
       ...this.state,
       secureTextEntry: !this.state.secureTextEntry
     });
-  }
+  };
 
   render() {
     return (

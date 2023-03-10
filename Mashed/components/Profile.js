@@ -1,15 +1,71 @@
 // profile screen
 
 
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Card } from "@rneui/base";
 import { Avatar, Button } from '@rneui/themed';
-import { View, Image, Text, ScrollView, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
+import { View, Image, Text, TextInput, Pressable, ScrollView, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const image = {uri: 'https://i.pinimg.com/736x/27/1a/b9/271ab997e179c7dde6530e8d8ae632d4.jpg'};
 
-export default function Profile ({ navigation }) {
+export default class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      username : '',
+      bio : '',
+      UserID : '',
+      edit : true
+    };
+  }
+  
+  UserInfo=()=>{
+    var Username = this.state.username;
+    var UserID = this.state.UserID;
+    var bio = this.state.bio;
+
+    
+    var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/profile.php";   //API to render signup
+
+      var headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      };
+      
+      var Data ={
+        Username : Username,
+        UserID: UserID,
+        bio: bio
+      };
+
+    // FETCH func ------------------------------------
+    fetch(InsertAPIURL,{
+        method:'POST',
+        headers:headers,
+        credentials : 'include',
+        body: JSON.stringify(Data) //convert data to JSON
+    })
+    .then((response)=>response.json()) //check response type of API (CHECK OUTPUT OF DATA IS IN JSON)
+    .then((response)=>{
+      alert(response[0].Message);       // If data is in JSON => Display alert msg
+     //Navigate to home if authentications are valid
+    })
+    .catch((error)=>{
+        alert("Error Occured" + error);
+    });
+    }
+
+  
+
+    toggleEdit = () => {
+      this.setState({ edit: !this.state.edit });
+    };
+
+
+
+  render() {
+
   return (
     <>
     {/* mashed logo */}
@@ -50,7 +106,7 @@ export default function Profile ({ navigation }) {
       </ImageBackground>
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }}>
           <Text>Following</Text>
-          <Text style={{ fontWeight:'bold' }}>@dnovatnak007</Text>
+          <Text style={{ fontWeight:'bold' }}>{this.state.Username}</Text>
           <Text>Followers</Text>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', margin: 10 }}>
@@ -61,16 +117,49 @@ export default function Profile ({ navigation }) {
               backgroundColor: '#9492EF',
               borderRadius: 30,
               padding: 1,
-          }}
-          containerStyle={{
-            marginHorizontal: 25,
-            marginVertical: 5,
-          }}
+            }}
+            containerStyle={{
+              marginHorizontal: 25,
+              marginVertical: 5,
+            }}
+            onPress={this.toggleEdit}
           />
           <Text style={{ fontWeight:'bold', fontSize: 17 }}>103</Text>
       </View>
-      <Text style={{ textAlign: 'center', margin: 10 }}>design professor, food-enthusiast, better than you </Text>
-      
+  
+      {/* show static text if edit profile button is not pressed,
+          if pressed, show text input */}
+      <View key={this.state.edit ? 'input' : 'text'}>
+        {this.state.edit ? (
+          <View>
+            <Text style={{ textAlign: 'center', margin: 10 }}> {this.state.bio} </Text>
+          </View>
+        ) : (
+        <View>
+          <TextInput
+            placeholder="Enter Your Bio"
+            placeholderTextColor="#969696"
+            style={styles.textInput}
+            onChangeText={bio=>this.setState({bio})}
+          />
+        <View style={styles.buttonsection}> 
+          <Pressable
+            style={styles.button} 
+            onPress={()=>{
+              this.UserInfo();
+              this.toggleEdit();
+            }}>
+            <Text style={styles.text}>Save</Text>
+          </Pressable>
+          </View>
+        </View>
+        )}
+      </View>
+            {/* Button */}
+   
+
+     
+
       <View style={{ borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10 }}></View>
 
       <View style={{ margin: 15 }}>
@@ -131,11 +220,26 @@ export default function Profile ({ navigation }) {
     </>
   );
 }
+}
 
 const styles = StyleSheet.create({
   viewOne: {
     textAlign: "center",
     margin: 20,
     marginBottom: 10
+},
+buttonsection: {
+  width: '100%',
+  justifyContent: 'center',
+  alignItems: 'center'
+},
+button: {
+  backgroundColor: '#FFC42D',
+  color: 'white',
+  height: 35,
+  justifyContent: 'center', //up dwn
+  alignItems: 'center',  //r & l
+  width: '70%',
+  borderRadius: 10
 }
 })
