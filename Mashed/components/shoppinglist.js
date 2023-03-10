@@ -5,9 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Counter from './counter';
 
 
-export default function Shopping ({ navigation }) {
-
-    
+export default function Shopping ({ navigation }) {   
    
     return (
       <>   
@@ -40,33 +38,21 @@ export default function Shopping ({ navigation }) {
         <Card borderRadius={25} width ={350} >
           <View style={[styles.container,{flexDirection: 'row'}]}> 
                 <View style={{flex: 1, marginLeft: -20, marginRight: -60}}> 
-                  <CheckBox></CheckBox>                 
+                  <CheckBox                     
+                    onPress={() => setChecked1([!checked1[0], checked1[1]])}>
+                    </CheckBox>                 
                 </View>      
-              <View style={{flex: 2}}>
-              <View style={{width:'100%'}}>
-               
+            <View style={{flex: 2}}>
+            <View style={{width:'100%'}}>
                 <Text style={styles.cardLabelStyle}>UserCheckedIngredient{/* INser user Ingredient here*/}</Text>
                 <Counter/>
-
-              </View>
-              </View>
+            </View>
+            </View>
           </View>
-        </Card>  
-        
-
-
-
-        
-  </View> 
-</ScrollView>
-
-
-        
-      </View>      
-       
-    
-       
-      
+        </Card>           
+    </View> 
+    </ScrollView>
+    </View>   
       </>
     );
   }

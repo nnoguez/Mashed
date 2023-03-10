@@ -25,10 +25,6 @@ const styles = StyleSheet.create({
 
 const Counter = () => {
     const [count, setCount] = useState(1)
-
-   
-
-   
 return(
     <View style={{flexDirection: 'row', marginTop:10}}>
         <Pressable style={styles.button}
