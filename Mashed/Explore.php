@@ -1,7 +1,7 @@
 <?php
    include('db.php');
     // Retrieve recipe data from the database
-    $sql = "SELECT RecipeName, ImageURL FROM recipe";
+    $sql = "SELECT RecipeName, ImageURL FROM Recipes";
     $result = mysqli_query($conn, $sql);
 
     // Convert the result set into an array of recipe objects

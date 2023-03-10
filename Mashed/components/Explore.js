@@ -11,7 +11,7 @@ export default function Explore({ navigation }) {
   const [value, setValue] = React.useState("");
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
-    fetch('http://students.gaim.ucf.edu/~yourusername/Explore.php')
+    fetch('https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Explore.php')
       .then(response => response.json())
       .then(data => setRecipes(data))
       .catch(error => console.error(error));
