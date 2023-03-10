@@ -12,10 +12,10 @@ export default function Explore({ navigation }) {
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
     fetch('https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Explore.php')
-      .then(response => response.json())
-      .then(data => setRecipes(data))
-      .catch(error => console.error(error));
-  }, []);
+    .then(response => response.json())
+    .then(data => setRecipes(data))
+    .catch(error => console.error(error));
+}, []);
   return (
     <>
     <ScrollView>
@@ -74,10 +74,16 @@ export default function Explore({ navigation }) {
       <Text style={styles.Headers}>For You</Text>
       <Text style={styles.Subheaders}>Based on your recent likes and creations.</Text>    
       <ScrollView horizontal= {true} showsHorizontalScrollIndicator={true} pagingEnabled={true}> 
-      {recipes.map(recipe => (
-        <TouchableOpacity key={recipe.RecipeName} onPress={() => navigation.navigate('Recipe')}>
+      {recipes.map((recipe, index) => (
+        <TouchableOpacity key={index} onPress={() => navigation.navigate('Recipe')}>
           <Card borderRadius={25} width={160} margin>
-            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}>{recipe.RecipeName}</Text>
+            <Card.Image
+              style={{ height: 100, borderRadius: 25 }}
+              source={{
+                uri: 'https://www.thespruceeats.com/thmb/a8cS7kg5bbsuFsJN-5zO3eOVvBE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chicken-katsu-4778466-10-67e6122e936b418ab1a92f176709d299.jpg',
+              }}
+            />
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}>{recipe}</Text>
           </Card>
         </TouchableOpacity>
       ))}

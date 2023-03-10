@@ -1,24 +1,21 @@
 <?php
    include('db.php');
-    // Retrieve recipe data from the database
-    $sql = "SELECT RecipeName, ImageURL FROM Recipes";
-    $result = mysqli_query($conn, $sql);
+    // Query to select recipe names from the database
+    $sql = "SELECT RecipeName FROM Recipes";
+    $result = $conn->query($sql);
 
-    // Convert the result set into an array of recipe objects
+    // Array to store recipe names
     $recipes = array();
-    if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-    $recipe = array(
-        'id' => count($recipes) + 1,
-        'name' => $row['RecipeName'],
-    );
-    array_push($recipes, $recipe);
+
+    if ($result->num_rows > 0) {
+    // Fetch recipe names from each row
+    while($row = $result->fetch_assoc()) {
+        $recipes[] = $row["RecipeName"];
     }
+    } else {
+    echo "0 results";
     }
 
-    // Close the database connection
-    mysqli_close($conn);
-
-    // Output the recipe data as JSON
+    // Encode recipe names as JSON and send to client
     echo json_encode($recipes);
 ?>
