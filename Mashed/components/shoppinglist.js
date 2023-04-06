@@ -1,16 +1,29 @@
-import { Card,Button, CheckBox } from "@rneui/base";
 import React, {useState} from "react";
-import {View, Text, Image,Pressable, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import {Keyboard, View, Image, Text, StyleSheet, ScrollView } from "react-native";
+import CartInput from './CartInput';
+import CartItem from './CartItem';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Counter from './counter';
 
+export default function Shopping ({ navigation }) {  
+  
+  const [tasks, setTasks] = useState([]);
 
-export default function Shopping ({ navigation }) {   
+  const addTask = (task) =>{
+    if (task==null) return;
+    setTasks([...tasks, task]);
+    Keyboard.dismiss();
+  }
+
+  const deleteTask = (deleteIndex) => {
+  setTasks(tasks.filter((value, index)=> index != deleteIndex));
+  }
    
-    return (
-      <>   
-      <View style={styles.backgroundWhite}>
-       
+
+  return (
+        
+  <View style={styles.backgroundWhite}>
+
       <View style={{flexDirection:'row', height:'15%', backgroundColor:'white', width:'100%', alignItems:'center', marginTop:0}}>              
               <View style={{marginLeft:20,}}>
                 <Icon onPress={()=> navigation.navigate('Recipe')}  name="angle-left" size={35} color="#FFC42D"/>
@@ -26,16 +39,55 @@ export default function Shopping ({ navigation }) {
                   </Image>           
               
       </View>
+      <View>
+        <Text style={styles.header}>SHOPPING LIST</Text>
+      </View>
+       
+      {/* Adding ingredients to the shopping cart*/} 
+      <ScrollView style={styles.scrollView}>   
+        {
+          tasks.map((task, index) => {
 
-<ScrollView >
-  <View style={{alignItems:'center'}}> 
-        <View>
-          <Text style={{zIndex: 1, color:'dark gray', fontSize: 15, paddingTop:10, fontWeight:'bold' }}>Shopping List</Text>
-        </View>      
+            return(
+              <View key={index} style={styles.taskContainer}>
+                <CartItem index={index+1} task={task} deleteTask={()=> deleteTask(index)}/>
+              </View>
 
-     {/* IF there are items checked by user: the value names and quantity will fill the place*/}   
+          );
+        })
+        }     
+                
+      </ScrollView>
+      <CartInput addTask={addTask}/>
+</View>   
+      
+    );
+  }
 
-        <Card borderRadius={25} width ={350} >
+  const styles = StyleSheet.create({
+
+
+    backgroundWhite: {
+     flex:1,
+     backgroundColor: 'white',
+    },
+    
+   scrollView:{
+    marginBottom:70,
+   },
+   taskContainer:{
+    marginTop: 20,
+   },
+  header:{
+    textAlign:'center',
+    fontSize: 15,
+    marginTop:10,
+    color: 'black',
+  },
+
+  })
+
+  {/*    <Card borderRadius={25} width ={350} >
           <View style={[styles.container,{flexDirection: 'row'}]}> 
                 <View style={{flex: 1, marginLeft: -20, marginRight: -60}}> 
                   <CheckBox                     
@@ -44,46 +96,34 @@ export default function Shopping ({ navigation }) {
                 </View>      
             <View style={{flex: 2}}>
             <View style={{width:'100%'}}>
-                <Text style={styles.cardLabelStyle}>UserCheckedIngredient{/* INser user Ingredient here*/}</Text>
+                <Text style={styles.cardLabelStyle}>Chicken Breast{/* INser user Ingredient here}</Text>
                 <Counter/>
             </View>
             </View>
           </View>
-        </Card>           
-    </View> 
-    </ScrollView>
-    </View>   
-      </>
-    );
-  }
+        </Card> 
 
-  const styles = StyleSheet.create({
-    backgroundWhite: {
-      zIndex:0,
-      backgroundColor:' #FAF9F6',
-      flexDirection:"column",
-      flex: 1, 
-      alignItems: "center", 
-      justifyContent: "center",   
-    },
-    containerWhite:{
-      zIndex:2,
-      //flex:1,
-      //position:'absolute',    
-      bottom: 0,
-      height:"20%",
-      width: "100%",
-      borderTopLeftRadius: 25,
-      borderTopRightRadius:25,
-      shadowColor: 'gray',
-      shadowOpacity: '20%',  
-      shadowOffset:{width: 0, height: -3},
-      backgroundColor: '#fff',    
-      alignItems: "center",
-      paddingTop:20, 
-      //justifyContent: "center",  
-    },
-    totalStyle:{
+
+
+<View style={{flexDirection:'row', height:'15%', backgroundColor:'white', width:'100%', alignItems:'center', marginTop:0}}>              
+              <View style={{marginLeft:20,}}>
+                <Icon onPress={()=> navigation.navigate('Recipe')}  name="angle-left" size={35} color="#FFC42D"/>
+              </View>
+                 
+                  <Image   
+                        style={{
+                          marginLeft: 100, 
+                          marginTop: 15,
+                          width:"35%", 
+                          height:25}}
+                        source={{uri:'https://i.postimg.cc/65XBkHNg/logo.png'}}>  
+                  </Image>           
+              
+      </View>
+
+
+
+        totalStyle:{
       fontSize: 20,
       fontWeight: 'bold',
       paddingRight:60,
@@ -132,5 +172,5 @@ export default function Shopping ({ navigation }) {
       paddingLeft:20,
       marginTop: 5
     },
-
-  })
+      
+      */}
