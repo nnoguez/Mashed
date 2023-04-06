@@ -15,14 +15,15 @@ export default class Profile extends Component {
     this.state = { 
       username : '',
       bio : '',
-      UserID : '',
+      // UserID : '',
       edit : true
     };
   }
   
+
   UserInfo=()=>{
     var Username = this.state.username;
-    var UserID = this.state.UserID;
+    // var UserID = this.state.userID;
     var bio = this.state.bio;
 
     
@@ -35,7 +36,7 @@ export default class Profile extends Component {
       
       var Data ={
         Username : Username,
-        UserID: UserID,
+        // UserID: UserID,
         bio: bio
       };
 
@@ -65,7 +66,8 @@ export default class Profile extends Component {
 
 
   render() {
-
+    const {username, bio } = this.state;
+    const { navigation } = this.props;
   return (
     <>
     {/* mashed logo */}
@@ -106,7 +108,7 @@ export default class Profile extends Component {
       </ImageBackground>
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }}>
           <Text>Following</Text>
-          <Text style={{ fontWeight:'bold' }}>{this.state.Username}</Text>
+          <Text style={{ fontWeight:'bold' }}>@{this.state.username}</Text>
           <Text>Followers</Text>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', margin: 10 }}>
@@ -132,7 +134,7 @@ export default class Profile extends Component {
       <View key={this.state.edit ? 'input' : 'text'}>
         {this.state.edit ? (
           <View>
-            <Text style={{ textAlign: 'center', margin: 10 }}> {this.state.bio} </Text>
+            <Text style={{ textAlign: 'center', margin: 10 }}> bio: {this.state.bio} </Text>
           </View>
         ) : (
         <View>
