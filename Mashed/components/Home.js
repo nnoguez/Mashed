@@ -8,16 +8,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 export default function Home({ navigation }) {
-    const [checked, setState] = React.useState(false);
-    const [checked2, setState2] = React.useState(false);
-    const [checked3, setState3] = React.useState(false);
-    const [checked4, setState4] = React.useState(false);
-
-    const toggleCheckbox = () => setState(!checked);
-    const toggleCheckbox2 = () => setState2(!checked2);
-    const toggleCheckbox3 = () => setState3(!checked3);
-    const toggleCheckbox4 = () => setState4(!checked4);
-    const [posts, setPosts] = useState([]);
+    const toggleCheckbox = (index) => {
+        const newCheckedStates = [...checkedStates];
+        newCheckedStates[index] = !newCheckedStates[index];
+        setCheckedStates(newCheckedStates);
+      };
 
     useEffect(() => {
         fetch('https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/HomePage.php')
@@ -153,7 +148,7 @@ export default function Home({ navigation }) {
             For You</Text>
         </View>
         <View>
-            {posts.map(post => (
+            {posts.map(post, index=> (
                 <Card borderRadius={25} margin key={post.postid}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
                     <Avatar
@@ -177,13 +172,13 @@ export default function Home({ navigation }) {
                         justifyContent: 'center',
                         marginLeft: -15
                         }}>
-                        <CheckBox
-                        checked={checked}
-                        checkedIcon="heart"
-                        uncheckedIcon="heart-o"
-                        checkedColor="#EE7E74"
-                        onPress={toggleCheckbox}
-                        />
+                <CheckBox
+                  checked={checkedStates[index]} // use corresponding checked state from array
+                  checkedIcon="heart"
+                  uncheckedIcon="heart-o"
+                  checkedColor="#EE7E74"
+                  onPress={() => toggleCheckbox(index)} // pass index to toggle function
+                />
                     </TouchableOpacity>
                     </View>
                     <Card.Image
