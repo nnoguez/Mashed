@@ -148,7 +148,7 @@ export default function Home({ navigation }) {
             For You</Text>
         </View>
         <View>
-            {posts.map(posts, index)=> (
+            {posts.map(posts, index=> (
                 <Card borderRadius={25} margin key={posts.postid}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
                     <Avatar
