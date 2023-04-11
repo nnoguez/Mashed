@@ -59,7 +59,7 @@ export default class Profile extends Component {
 
 
 
-// pulling bio
+// pulling username
 LoadUsername = () => {
   var Username = this.state.Username;
   var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/usernameaccess.php"; // API to render signup
