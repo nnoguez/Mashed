@@ -13,7 +13,7 @@ export default function Home({ navigation }) {
         newCheckedStates[index] = !newCheckedStates[index];
         setCheckedStates(newCheckedStates);
       };
-
+      const [posts, setPosts] = useState([]);
     useEffect(() => {
         fetch('https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/HomePage.php')
           .then(response => response.json())
