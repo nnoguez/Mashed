@@ -13,7 +13,7 @@ export default function Home({ navigation }) {
         newCheckedStates[index] = !newCheckedStates[index];
         setCheckedStates(newCheckedStates);
       };
-      const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState([]);
     useEffect(() => {
         fetch('https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/HomePage.php')
           .then(response => response.json())
@@ -148,8 +148,8 @@ export default function Home({ navigation }) {
             For You</Text>
         </View>
         <View>
-            {posts.map(post, index=> (
-                <Card borderRadius={25} margin key={post.postid}>
+            {posts.map(posts, index)=> (
+                <Card borderRadius={25} margin key={posts.postid}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
                     <Avatar
                         avatarStyle={{
