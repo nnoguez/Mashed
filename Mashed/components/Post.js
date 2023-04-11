@@ -92,12 +92,22 @@ export default class Post extends Component {
       </View>
       <View style={{ backgroundColor: 'white', borderRadius: '25 0 0 25', padding: '5%'}}>
           <View style={styles.action}>
-            <TextInput
-              placeholder="Enter Recipe Ingredients"
-              placeholderTextColor="#969696"
-              style={styles.textInput}
-              onChangeText={RecipeIngredients=>this.setState({RecipeIngredients})}
-              />
+          <TextInput
+            placeholder="Enter Recipe Ingredients"
+            placeholderTextColor="#969696"
+            style={styles.textInput}
+            multiline={true}
+            onChangeText={RecipeIngredients => {
+              // replace all commas with new lines
+              RecipeIngredients = RecipeIngredients.replace(/,/g, '\n');
+              // remove any multiple new lines
+              RecipeIngredients = RecipeIngredients.replace(/\n{2,}/g, '\n');
+              // ensure the last character is a new line
+              RecipeIngredients = RecipeIngredients.replace(/\n*$/, '\n');
+              // set the state with the updated value
+              this.setState({ RecipeIngredients });
+            }}
+          />
           </View>
       </View>
 
