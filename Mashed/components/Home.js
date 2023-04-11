@@ -8,19 +8,22 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 export default function Home({ navigation }) {
-    const [checkedStates, setCheckedStates] = useState(posts.map(() => false)); // initialize checked state array
+    const [checkedStates, setCheckedStates] = useState([]); // Initialize with empty array
     const toggleCheckbox = (index) => {
         const newCheckedStates = [...checkedStates];
         newCheckedStates[index] = !newCheckedStates[index];
         setCheckedStates(newCheckedStates);
-      };
+    };
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         fetch('https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/HomePage.php')
-          .then(response => response.json())
-          .then(data => setPosts(data))
-          .catch(error => console.error(error))
-      }, []);
+            .then(response => response.json())
+            .then(data => {
+                setPosts(data);
+                setCheckedStates(data.map(() => false)); // Update checkedStates with data length
+            })
+            .catch(error => console.error(error))
+    }, []);
     return (
     <>
     {/* mashed logo */}
