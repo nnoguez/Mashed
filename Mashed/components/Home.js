@@ -148,7 +148,7 @@ export default function Home({ navigation }) {
             For You</Text>
         </View>
         <View>
-            {posts.map(posts, index=> (
+            {posts.map((posts, index)=> (
                 <Card borderRadius={25} margin key={posts.postid}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
                     <Avatar
@@ -172,13 +172,13 @@ export default function Home({ navigation }) {
                         justifyContent: 'center',
                         marginLeft: -15
                         }}>
-                <CheckBox
-                  checked={checkedStates[index]} // use corresponding checked state from array
-                  checkedIcon="heart"
-                  uncheckedIcon="heart-o"
-                  checkedColor="#EE7E74"
-                  onPress={() => toggleCheckbox(index)} // pass index to toggle function
-                />
+                    <CheckBox
+                    checked={checkedStates[index]} // use corresponding checked state from array
+                    checkedIcon="heart"
+                    uncheckedIcon="heart-o"
+                    checkedColor="#EE7E74"
+                    onPress={() => toggleCheckbox(index)} // pass index to toggle function
+                    />
                     </TouchableOpacity>
                     </View>
                     <Card.Image
