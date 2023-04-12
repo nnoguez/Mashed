@@ -13,16 +13,84 @@ export default class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      username : '',
+      Username : '',
       bio : '',
       // UserID : '',
       edit : true
     };
   }
   
+// pulling values from table users
+  componentDidMount() {
+    this.LoadBio();
+    this.LoadUsername();
+
+}
+
+
+// pulling bio
+  LoadBio = () => {
+    var Username = this.state.Username;
+    var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/bioaccess.php"; // API to render signup
+    var headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    };
+    var Data = {
+        Username: Username
+    };
+
+    // FETCH func ------------------------------------
+    fetch(InsertAPIURL, {
+            method: 'POST',
+            headers: headers,
+            credentials: 'include',
+            body: JSON.stringify(Data) //convert data to JSON
+        })
+        .then((response) => response.json())
+        .then((response) => {
+            // Set the value of bio in the component state
+            this.setState({ bio: response[0].bio });
+        })
+        .catch((error) => {
+            alert("oh no" + error);
+        });
+}
+
+
+
+// pulling username
+LoadUsername = () => {
+  var Username = this.state.Username;
+  var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/usernameaccess.php"; // API to render signup
+  var headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+  };
+  var Data = {
+      Username: Username
+  };
+
+  // FETCH func ------------------------------------
+  fetch(InsertAPIURL, {
+          method: 'POST',
+          headers: headers,
+          credentials: 'include',
+          body: JSON.stringify(Data) //convert data to JSON
+      })
+      .then((response) => response.json())
+      .then((response) => {
+          // Set the value of username in the component state
+          this.setState({ Username: response[0].Username });
+      })
+      .catch((error) => {
+          alert("oh no" + error);
+      });
+}
+
 
   UserInfo=()=>{
-    var Username = this.state.username;
+    var Username = this.state.Username;
     // var UserID = this.state.userID;
     var bio = this.state.bio;
 
@@ -65,8 +133,11 @@ export default class Profile extends Component {
 
 
 
+
+
+
   render() {
-    const {username, bio } = this.state;
+    const {Username, bio } = this.state;
     const { navigation } = this.props;
   return (
     <>
@@ -108,7 +179,7 @@ export default class Profile extends Component {
       </ImageBackground>
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }}>
           <Text>Following</Text>
-          <Text style={{ fontWeight:'bold' }}>@{this.state.username}</Text>
+          <Text style={{ fontWeight:'bold' }}>@{this.state.Username}</Text>
           <Text>Followers</Text>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', margin: 10 }}>
@@ -122,7 +193,6 @@ export default class Profile extends Component {
             }}
             containerStyle={{
               marginHorizontal: 25,
-              marginVertical: 5,
             }}
             onPress={this.toggleEdit}
           />
@@ -134,14 +204,14 @@ export default class Profile extends Component {
       <View key={this.state.edit ? 'input' : 'text'}>
         {this.state.edit ? (
           <View>
-            <Text style={{ textAlign: 'center', margin: 10 }}> bio: {this.state.bio} </Text>
+            <Text style={{ textAlign: 'center', margin: 10 }}> {this.state.bio} </Text>
           </View>
         ) : (
-        <View>
+        <View style={{ textAlign: 'center' }}>
           <TextInput
             placeholder="Enter Your Bio"
             placeholderTextColor="#969696"
-            style={styles.textInput}
+            style={{ textAlign: 'center', marginBottom: 10 }}
             onChangeText={bio=>this.setState({bio})}
           />
         <View style={styles.buttonsection}> 
