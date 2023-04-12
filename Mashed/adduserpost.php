@@ -5,9 +5,11 @@ include('db.php');
 $PostName = $_POST['PostName'];
 $PostBio = $_POST['PostBio'];
 $UserId = $_POST['UserId'];
+$postTime = date('Y-m-d H:i:s');
 
 // Insert data into the database
-$sql = "INSERT INTO UserPost (PostName, PostBio, Poster, Likes, Shares, Comments, Bookmarks) VALUES ('$postName', '$postBio','$UserId', 0, 0, 0, 0)";
+$sql = "INSERT INTO UserPost (PostName, PostBio, Poster, Likes, Shares, Comments, Bookmarks) VALUES 
+    ('$postName', '$postBio','$UserId', '$postTime', 0, 0, 0, 0)";
 
 if (mysqli_query($conn, $sql)) {
     $response_array['status'] = 'success';
