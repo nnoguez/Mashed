@@ -33,6 +33,7 @@ return(
 );
 }
 
+/**/
 const styles=StyleSheet.create({
 
     container:{  

@@ -13,6 +13,8 @@ $DisplayIng =  mysqli_num_rows($exeSQL);
 
 if ($Username == $Username) {
     $arrayu = mysqli_fetch_array($exeSQL);
+
+   //change the code to check if there is recipes added to the db 
     if ($arrayu['UserPw'] != $UserPW) {
         $Message = "Incorrect Password";
     } else {
