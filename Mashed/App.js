@@ -60,26 +60,10 @@ export default function App() {
             }}/>
 
 
-
-            {/* testing  */}
+            
             <Tab.Screen 
               name="UserPost" 
               component={UserPost} 
-              options={{
-                headerShown: false,
-                tabBarShowLabel: false,
-                tabBarIcon: ({ color,focused }) => (
-                  <Icon name="compass" color={focused?'#FFC42D':'grey'} size={30} />
-                )
-            }}/>
-            {/* testing  */}
-
-
-
-            
-            <Tab.Screen 
-              name="Post" 
-              component={Post} 
               options={{
                 headerShown: false,
                 tabBarShowLabel: false,
@@ -88,6 +72,7 @@ export default function App() {
                   
                 )
             }}/>
+
           <Tab.Screen 
             name="Challenge" 
             component={Challenge} 
@@ -175,6 +160,16 @@ export default function App() {
           <Tab.Screen 
             name="Recipe" 
             component={Recipe} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
+          <Tab.Screen 
+            name="Post" 
+            component={Post} 
             options={{
               headerShown: false,
               tabBarShowLabel: false,

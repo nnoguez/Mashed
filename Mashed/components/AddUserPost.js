@@ -60,6 +60,8 @@ export default class UserPost extends Component {
 
 
   render() {
+    const { navigation } = this.props;
+
     return (
       <>
         <View style={styles.viewStyle}>
@@ -68,6 +70,12 @@ export default class UserPost extends Component {
             style={{ height: '5%', width: '50%', marginHorizontal: '26%', marginTop: '10%', resizeMode: 'contain' }}
             source={{ uri: 'https://i.postimg.cc/65XBkHNg/logo.png' }}>
           </Image>
+        </View>
+        <View style={[styles.container, { flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }]}>
+            <Text style={styles.followForColor}> Post | </Text>
+            <TouchableOpacity onPress={()=> navigation.navigate('Post')}>
+              <Text style={styles.followFor}>Recipe</Text> 
+            </TouchableOpacity>
         </View>
         <View style={[styles.container, { flexDirection: 'row' }]}>
           <View style={{ flex: 1 }}>
@@ -148,5 +156,12 @@ const styles = StyleSheet.create({
       alignItems: 'center',  //r & l
       width: '70%',
       borderRadius: 10,
-    }
-  })
+    },
+    followFor: {
+      textAlign: "center",
+  },
+    followForColor: {
+      color: "#FFC42D",
+      fontWeight: 'bold'
+  }
+})
