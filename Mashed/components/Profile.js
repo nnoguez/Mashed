@@ -7,7 +7,9 @@ import { Avatar, Button } from '@rneui/themed';
 import { View, Image, Text, TextInput, Pressable, ScrollView, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const image = {uri: 'https://i.pinimg.com/736x/27/1a/b9/271ab997e179c7dde6530e8d8ae632d4.jpg'};
+const image = {uri: '{https://i.pinimg.com/736x/27/1a/b9/271ab997e179c7dde6530e8d8ae632d4.jpg}'};
+// const image = {uri: '{urlimage}'};
+
 
 export default class Profile extends Component {
   constructor(props) {

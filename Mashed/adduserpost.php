@@ -4,12 +4,17 @@ include('db.php');
 
 // ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get data from request
-    $PostName = isset($_POST['PostName']) ? $_POST['PostName'] : '';
-    $PostBio = isset($_POST['PostBio']) ? $_POST['PostBio'] : '';
+    $PostName = $decodedData['PostName'] ;
+    $PostBio = $decodedData['PostBio'] ;
+    $UserId = $_COOKIE['UserID'];
+    $PostTime = date('Y-m-d H:i:s');
+
+    $SQL = "SELECT Username FROM users WHERE UserID ='$UserID'";
+    $Username = mysqli_query($conn, $sql);
 
     // Insert data into the database
-    $sql = "INSERT INTO Posts (PostName, PostBio) VALUES 
-        ('$PostName', '$PostBio')";
+    $sql = "INSERT INTO Posts (PostName, PostBio, Poster, PostTime, PostImage, Likes, Comments, Shares, Bookmarks) VALUES 
+        ('$PostName', '$PostBio', '$Username', '$PostTime', 0,0,0,0,0)";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
