@@ -2,23 +2,24 @@
 
 include('db.php');
 
+// Get data from request
 $PostName = $_POST['PostName'];
 $PostBio = $_POST['PostBio'];
-$UserId = $_POST['UserId'];
-$postTime = date('Y-m-d H:i:s');
 
 // Insert data into the database
-$sql = "INSERT INTO UserPost (PostName, PostBio, Poster, Likes, Shares, Comments, Bookmarks) VALUES 
-    ('$postName', '$postBio','$UserId', '$postTime', 0, 0, 0, 0)";
+$sql = "INSERT INTO Post (PostName, PostBio) VALUES 
+    (?, ?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $PostName, $PostBio);
+$R = $stmt->execute();
+$stmt->close();
 
-if (mysqli_query($conn, $sql)) {
-    $response_array['status'] = 'success';
-    $response_array['Message'] = 'Post added successfully!';
+if ($R) {
+    $Message = "Recipe Successfully Posted!";
 } else {
-    $response_array['status'] = 'error';
-    $response_array['Message'] = 'Error adding post: ' . mysqli_error($conn);
+    $Message = "We couldn't complete your request";
 }
 
-echo json_encode(array($response_array));
-$response[] = array("Message" => $Message);
+// Prepare response as JSON
+$response = array("Message" => $Message);
 echo json_encode($response);

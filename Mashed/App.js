@@ -17,6 +17,8 @@ import Settings from './components/Settings';
 import Recipe from './components/Recipe';
 import Shopping from './components/shoppinglist';
 import Post from './components/Post';
+import UserPost from './components/AddUserPost';
+
 
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -56,6 +58,25 @@ export default function App() {
                   <Icon name="compass" color={focused?'#FFC42D':'grey'} size={30} />
                 )
             }}/>
+
+
+
+            {/* testing  */}
+            <Tab.Screen 
+              name="UserPost" 
+              component={UserPost} 
+              options={{
+                headerShown: false,
+                tabBarShowLabel: false,
+                tabBarIcon: ({ color,focused }) => (
+                  <Icon name="compass" color={focused?'#FFC42D':'grey'} size={30} />
+                )
+            }}/>
+            {/* testing  */}
+
+
+
+            
             <Tab.Screen 
               name="Post" 
               component={Post} 
