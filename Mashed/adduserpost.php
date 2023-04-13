@@ -2,24 +2,29 @@
 
 include('db.php');
 
-// Get data from request
-$PostName = $_POST['PostName'];
-$PostBio = $_POST['PostBio'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get data from request
+    $PostName = isset($_POST['PostName']) ? $_POST['PostName'] : '';
+    $PostBio = isset($_POST['PostBio']) ? $_POST['PostBio'] : '';
 
-// Insert data into the database
-$sql = "INSERT INTO Post (PostName, PostBio) VALUES 
-    (?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $PostName, $PostBio);
-$R = $stmt->execute();
-$stmt->close();
+    // Insert data into the database
+    $sql = "INSERT INTO Posts (PostName, PostBio) VALUES 
+        ('$PostName', '$PostBio')";
+    $result = mysqli_query($conn, $sql);
 
-if ($R) {
-    $Message = "Recipe Successfully Posted!";
+    if ($result) {
+        $Message = "Post Successfully Added!";
+    } else {
+        $Message = "We couldn't complete your request";
+    }
+
+    // Prepare response as JSON
+    $response = array("Message" => $Message);
+    echo json_encode($response);
 } else {
-    $Message = "We couldn't complete your request";
+    // Handle invalid request
+    $response = array("Message" => "Invalid request method");
+    echo json_encode($response);
 }
 
-// Prepare response as JSON
-$response = array("Message" => $Message);
-echo json_encode($response);
+?>
