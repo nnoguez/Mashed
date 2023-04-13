@@ -36,17 +36,27 @@ export default class UserPost extends Component {
     })
       .then((response) => response.json()) //check response type of API (CHECK OUTPUT OF DATA IS IN JSON)
       .then((response) => {
-        if (response.Message === "Post Successfully Added!") { // Check the response for success
-          alert(response.Message); // If data is in JSON => Display success alert msg
-          this.props.navigation.navigate("Home"); //Navigate to home if authentication is valid
-        } else {
-          alert(response.Message); // If data is in JSON => Display error alert msg
-        }
+
+        alert(response[0].Message);       // If data is in JSON => Display alert msg
+        this.props.navigation.navigate("Home"); //Navigate to home if authentications are valid
       })
-      .catch((error) => {
-        alert("Error Occured: " + error); // Display error message in the alert
+      .catch((error)=>{
+          alert("Error Occured" + error);
       });
-  }
+      }
+
+
+  //       if (response.Message === "Post Successfully Added!") { // Check the response for success
+  //         alert(response.Message); // If data is in JSON => Display success alert msg
+  //         this.props.navigation.navigate("Home"); //Navigate to home if authentication is valid
+  //       } else {
+  //         alert(response.Message); // If data is in JSON => Display error alert msg
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       alert("Error Occured: " + error.message); // Display error message in the alert
+  //     });
+  // }
 
 
   render() {
@@ -94,10 +104,10 @@ export default class UserPost extends Component {
         <View style={styles.buttonsection}>
           <Pressable
             style={styles.button}
-            onPress={() => this.UserInfo()}>
-<Text style={styles.buttonText}>Submit</Text>
-</Pressable>
-</View>
+            onPress={()=>{this.UserInfo()}}>
+          <Text style={styles.buttonText}>Submit</Text>
+        </Pressable>
+      </View>
 </>
 );
 }

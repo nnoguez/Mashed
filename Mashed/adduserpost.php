@@ -2,7 +2,7 @@
 
 include('db.php');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get data from request
     $PostName = isset($_POST['PostName']) ? $_POST['PostName'] : '';
     $PostBio = isset($_POST['PostBio']) ? $_POST['PostBio'] : '';
@@ -18,13 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $Message = "We couldn't complete your request";
     }
 
-    // Prepare response as JSON
-    $response = array("Message" => $Message);
+    $response[] = array("Message" => $Message);
     echo json_encode($response);
-} else {
-    // Handle invalid request
-    $response = array("Message" => "Invalid request method");
-    echo json_encode($response);
-}
-
 ?>
+
+
