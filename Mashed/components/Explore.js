@@ -75,7 +75,7 @@ export default function Explore({ navigation }) {
       <Text style={styles.Subheaders}>Based on your recent likes and creations.</Text>    
       <ScrollView horizontal= {true} showsHorizontalScrollIndicator={true} pagingEnabled={true}> 
       {recipes.map((recipe, index) => (
-        <TouchableOpacity key={index} onPress={() => navigation.navigate('Recipe', { recipeId: recipe.id })}>
+        <TouchableOpacity key={index} onPress={() => navigation.navigate('Recipe')}>
           <Card borderRadius={25} width={160} margin>
             <Card.Image
               style={{ height: 100, borderRadius: 25 }}
