@@ -28,7 +28,7 @@ export default function Recipe({ navigation }) {
         }
       };
       fetchData();
-    }, [recipeId]);
+    }, [RecipeId]);
     
 
 
