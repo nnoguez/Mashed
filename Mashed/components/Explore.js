@@ -83,7 +83,7 @@ export default function Explore({ navigation }) {
                 uri: 'https://napakitchenandbar.com/wp-content/themes/NAPA/img/banner-placeholder.jpg',
               }}
             />
-            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}>{recipe}</Text>
+            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}>{recipe.RecipeName}</Text>
           </Card>
         </TouchableOpacity>
       ))}
