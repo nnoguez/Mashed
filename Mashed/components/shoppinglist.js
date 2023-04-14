@@ -10,7 +10,8 @@ import { useRoute } from '@react-navigation/native';
 export default function Shopping ({ navigation }) {  
   const [tasks, setTasks] = useState([]);
   const [recipes, setRecipes] = useState([]);
-  useEffect(() => {
+
+  /*useEffect(() => {
     fetch('https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Explore.php')
     .then(response => response.json())
     .then(data => setRecipes(data))
@@ -21,7 +22,7 @@ export default function Shopping ({ navigation }) {
   const { recipeId } = route.params; // get the recipeId parameter from the route
 
   const recipe = recipes.find(r => r.id === recipeId); // find the recipe with the matching id
-
+*/
   const addTask = (task) =>{
     if (task==null) return;
     setTasks([...tasks, task]);
