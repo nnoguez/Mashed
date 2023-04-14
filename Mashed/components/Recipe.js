@@ -18,7 +18,7 @@ export default function Recipe({ navigation }) {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/recipe.php?RecipeId=${RecipeId}`);
+          const response = await fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Recipe.php?RecipeId=${RecipeId}`);
           const data = await response.json();
           if (data && data.length > 0) {
             setRecipe(data[0]);
