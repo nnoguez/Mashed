@@ -1,7 +1,7 @@
 <?php
    include('db.php');
     // Query to select recipe names from the database
-    $sql = "SELECT RecipeName FROM Recipes";
+    $sql = "SELECT RecipeName, RecipeId FROM Recipes";
     $result = $conn->query($sql);
 
     // Array to store recipe names
