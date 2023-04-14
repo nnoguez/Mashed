@@ -87,45 +87,6 @@ export default function Explore({ navigation }) {
           </Card>
         </TouchableOpacity>
       ))}
-      {/* <TouchableOpacity onPress={()=> navigation.navigate('Recipe')}>
-        <Card borderRadius={25} width={160} margin>
-              <Card.Image
-                  style={{ height:100, borderRadius: 25}}
-                  source={{
-                  uri:'https://www.thespruceeats.com/thmb/a8cS7kg5bbsuFsJN-5zO3eOVvBE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chicken-katsu-4778466-10-67e6122e936b418ab1a92f176709d299.jpg',
-                  }}
-              />
-            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold'}}> Crispy Chicken Katsu </Text>
-        </Card>
-      </TouchableOpacity> */}
-      {/* card posting 2*/}
-      {/* <Card borderRadius={25} width={160} marginLeft={-5} marginRight={-5} margin>
-              <Card.Image
-                  style={{ height:100, borderRadius: 25}}
-                  source={{
-                  uri:'https://dinnerthendessert.com/wp-content/uploads/2021/05/Berry-Stuffed-French-Toast-1-1-1.jpg',
-                  }}
-              />
-            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Berry-Stuffed French Toast </Text>
-      </Card>
-      <Card borderRadius={25} width={160} marginRight={-5} margin> 
-              <Card.Image
-                  style={{ height:100, borderRadius: 25}}
-                  source={{
-                  uri:'https://www.jocooks.com/wp-content/uploads/2020/09/belgian-waffles-1-16-730x913.jpg',
-                  }}
-              />
-            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> BEST Belgian Waffles </Text>
-        </Card>
-      <Card borderRadius={25} width={160} marginRight={-5} margin>
-              <Card.Image
-                  style={{ height:100, borderRadius: 25}}
-                  source={{
-                  uri:'https://midwestfoodieblog.com/wp-content/uploads/2022/03/FINAL-cheese-tortellini-3.jpg',
-                  }}
-              />
-            <Text style={{ marginTop: 5, textAlign: 'center', fontWeight: 'bold' }}> Cheese Tortellini </Text>
-      </Card>     */}
       </ScrollView>
       {/* Second Scroll of Recipes   */}
       <Text style={styles.Headers}>Latin</Text>
