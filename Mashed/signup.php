@@ -1,4 +1,3 @@
-
 <?php
 include('db.php');
 
@@ -13,20 +12,20 @@ $checkEmail =  mysqli_num_rows($exeSQL);
 if ($checkEmail != 0) {
     $Message = "You are already registered, so we went ahead and logged you in. Welcome back to Mashed!";
 } else {
-// sending info to users table
-    $InsertQuerry = "INSERT INTO users(UserEmail, Username, UserPW) VALUES('$UserEmail', '$Username', '$UserPW')";
+    // sending info to users table with specific values
+    $InsertQuerry = "INSERT INTO users(UserEmail, Username, UserPW, bio) VALUES('$UserEmail', '$Username', '$UserPW', '')";
 
     $R = mysqli_query($conn, $InsertQuerry);
 
-    // onPress user enters into Mashed
+    // Check if the query was successful
     if ($R) {
-        $Message = "Welcome to Mashed!";
+        $Message = "Welcome to Mashed! Please go ahead and login with your credentials.";
         setcookie("loginStatus", "loggedIn", 0, "/");
         setcookie("UserID", $arrayu['UserID'], 0, "/");
     } else {
-        $Message = "We couldn't complete your request";
+        $Message = "We couldn't complete your request: " . mysqli_error($conn);
     }
 }
-$response[] = array("Message" => $Message);
 
+$response[] = array("Message" => $Message);
 echo json_encode($response);
