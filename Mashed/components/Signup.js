@@ -2,7 +2,7 @@
 
 
 import React, { Component } from 'react';
-import { View, Pressable, Text, Linking, Image, TextInput, Button, TouchableOpacity, StyleSheet, AsyncStorage } from 'react-native';
+import { View, Pressable, Text, Linking, Image, TextInput, Button, TouchableOpacity, StyleSheet, AsyncStorage, ScrollView } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { SocialIcon, SocialIconProps, Input, Icon } from '@rneui/themed'; 
 // import {AsyncStorage} from 'react-native';
@@ -103,6 +103,7 @@ export default class Signup extends Component {
   render() {
     return (
       <>
+      <ScrollView>
       <View style={styles.viewStyle}>
         {/* LOGO */}
           <Image  
@@ -221,6 +222,7 @@ export default class Signup extends Component {
               </View>
         </View>
       </View>
+      </ScrollView>
       </>
     );
   }
