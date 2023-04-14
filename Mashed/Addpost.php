@@ -35,19 +35,20 @@ $Difficulty = $decodedData['Difficulty'];
 $ServingSize = $decodedData['ServingSize'];
 $RecipeDescription = $decodedData['RecipeDescription'];
 
-$SQL = "SELECT * FROM Recipes WHERE RecipeName = '$RecipeName'";
-$exeSQL = mysqli_query($conn, $SQL);
+// $SQL = "SELECT * FROM Recipes WHERE RecipeName = '$RecipeName'";
+// $exeSQL = mysqli_query($conn, $SQL);
 
 $InsertQuerry = "INSERT INTO Recipes(RecipeName, RecipeStep, RecipeIngredients, PrepTime, CookTime, Difficulty, ServingSize, RecipeDescription) 
                 VALUES('$RecipeName', '$RecipeStep', '$RecipeIngredients', '$PrepTime', '$CookTime', '$Difficulty', '$ServingSize', '$RecipeDescription')";
 
-$R = mysqli_query($conn, $InsertQuerry);
+$result = mysqli_query($conn, $sql);
 
-if ($R) {
-    $Message = "Recipe Successfully Posted!";
+if ($result) {
+    $Message = "Recipe Successfully Added!";
 } else {
     $Message = "We couldn't complete your request";
 }
 
 $response[] = array("Message" => $Message);
 echo json_encode($response);
+?>
