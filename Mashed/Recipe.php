@@ -4,13 +4,13 @@ include('db.php');
 // Get the recipe ID from the URL parameter
 $recipe_id = $_GET['recipe_id'];
 
-$sql = "SELECT RecipeName, RecipeStep, RecipeIngredients, description, prep_time, cook_time, difficulty, serving_size FROM recipes WHERE RecipeId = $recipe_id";
+$sql = "SELECT RecipeName, RecipeStep, RecipeIngredients, PrepTime, CookTime, Difficulty, ServingSize, RecipeDescription FROM Recipes WHERE RecipeId = $recipe_id";
 $result = mysqli_query($conn, $sql);
 
-// Check for errors
-if (!$result) {
-    die("Error: " . $sql . "<br>" . mysqli_error($conn));
-}
+// // Check for errors
+// if (!$result) {
+//     die("Error: " . $sql . "<br>" . mysqli_error($conn));
+// }
 
 // Build an array of the recipe data
 $recipe = array();

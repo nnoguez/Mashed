@@ -10,9 +10,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 export default function Home({ navigation }) {
     const [checkedStates, setCheckedStates] = useState([]); // Initialize with empty array
     const toggleCheckbox = (index) => {
-        const newCheckedStates = [...checkedStates];
-        newCheckedStates[index] = !newCheckedStates[index];
-        setCheckedStates(newCheckedStates);
+    const newCheckedStates = [...checkedStates];
+    newCheckedStates[index] = !newCheckedStates[index];
+    setCheckedStates(newCheckedStates);
     };
     const [posts, setPosts] = useState([]);
     useEffect(() => {

@@ -58,7 +58,7 @@ export default function Recipe({ navigation }) {
         {/* Title and star rating */}
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-start'}}>
                 <View style={[{flexDirection: 'row', marginLeft: -6 }]}>
-                    <Text style={styles.header}> {recipe.RecipeName}</Text>
+                    <Text style={styles.header}> {RecipeName}</Text>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
                     <View style={{justifyContent:'space-evenly', marginLeft: 62}}>
@@ -79,12 +79,12 @@ export default function Recipe({ navigation }) {
             </View>
 
             <View style={{ flexDirection: 'row',justifyContent: 'space-evenly', marginTop: 10 }}>
-                <Text style={styles.Subheader}> {recipe.prep_time} mins </Text>
+                <Text style={styles.Subheader}> {prep_time} mins </Text>
                 <Text style={styles.Subheader}> {recipe.cook_time} mins </Text>
             </View>
             <View style={{ flexDirection: 'row',justifyContent: 'space-evenly', marginTop: 10, fontWeight: 'bold' }}>
-                <Text style={styles.Subheader}> {recipe.difficulty} </Text>
-                <Text style={styles.Subheader}> {recipe.serving_size} people </Text>
+                <Text style={styles.Subheader}> {difficulty} </Text>
+                <Text style={styles.Subheader}> {serving_size} people </Text>
             </View>
 
         <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10}}/>
@@ -143,7 +143,7 @@ export default function Recipe({ navigation }) {
                     checkedColor='#FFC42D'
                 /> 
                 <ListItem.Content>
-                    <ListItem.Title>{recipe.RecipeIngredients}</ListItem.Title>
+                    <ListItem.Title>{RecipeIngredients}</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
         </ListItem.Accordion>
@@ -172,7 +172,7 @@ export default function Recipe({ navigation }) {
                 backgroundColor: '#F2F2F2'
             }}>
                 <ListItem.Content>
-                    <ListItem.Title>{recipe.RecipeSteps} </ListItem.Title>
+                    <ListItem.Title>{RecipeSteps} </ListItem.Title>
                 </ListItem.Content>
             </ListItem>
         
