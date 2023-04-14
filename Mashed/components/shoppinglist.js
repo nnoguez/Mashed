@@ -8,14 +8,14 @@ import { useRoute } from '@react-navigation/native';
 
 
 export default function Shopping ({ navigation }) {  
-  
+  const [recipes, setRecipes] = useState([]);
   const [tasks, setTasks] = useState([]);
   const route = useRoute();
   const { recipeId } = route.params;
   useEffect(() => {
     fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Recipe.php?id=${recipeId}`)
       .then((response) => response.json())
-      .then((data) => setRecipe(data))
+      .then((data) => setRecipes(data))
       .catch((error) => console.error(error));
   }, [recipeId]);
   
@@ -36,7 +36,7 @@ export default function Shopping ({ navigation }) {
 
       <View style={{flexDirection:'row', height:'15%', backgroundColor:'white', width:'100%', alignItems:'center', marginTop:0}}>              
               <View style={{marginLeft:20,}}>
-                <Icon onPress={()=> navigation.navigate('Recipe')}  name="angle-left" size={35} color="#FFC42D"/>
+                <Icon onPress={() => navigation.navigate('Recipe', { recipeId: recipe.id })}  name="angle-left" size={35} color="#FFC42D"/>
               </View>
                  
                   <Image   
