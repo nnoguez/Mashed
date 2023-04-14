@@ -78,7 +78,7 @@ export default class Signup extends Component {
 
     .then((response)=>{
       alert(response[0].Message);       // If data is in JSON => Display alert msg
-      this.props.navigation.navigate("Home"); //Navigate to home if authentications are valid
+      this.props.navigation.navigate("Login"); //Navigate to home if authentications are valid
     })
     .catch((error)=>{
         alert("Error Occured" + error);
