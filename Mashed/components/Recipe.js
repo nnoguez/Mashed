@@ -1,19 +1,21 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity, Image } from 'react-native';
 import { Avatar, Badge, Card, CheckBox, ListItem, Button } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { AirbnbRating } from "@rneui/base";
+import { useRoute } from '@react-navigation/native';
 
 export default function Recipe({ navigation }) {
     const [checked1, setChecked1] = React.useState([false, false]);
     const [expanded, setExpanded] = useState(false);
     const [expanded2, setExpanded2] = useState(false);
     const [recipes, setRecipes] = useState([]);
+    const route = useRoute();
     const { recipeId } = route.params;
     useEffect(() => {
         fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Explore.php?id=${recipeId}`)
           .then((response) => response.json())
-          .then((data) => setRecipe(data))
+          .then((data) => setRecipes(data))
           .catch((error) => console.error(error));
       }, [recipeId]);
     return (
