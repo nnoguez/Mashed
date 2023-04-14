@@ -1,14 +1,24 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Keyboard, View, Image, Text, StyleSheet, ScrollView } from "react-native";
 import CartInput from './CartInput';
 import CartItem from './CartItem';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Counter from './counter';
+import { useRoute } from '@react-navigation/native';
+
 
 export default function Shopping ({ navigation }) {  
   
   const [tasks, setTasks] = useState([]);
-
+  const route = useRoute();
+  const { recipeId } = route.params;
+  useEffect(() => {
+    fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Explore.php?id=${recipeId}`)
+      .then((response) => response.json())
+      .then((data) => setRecipe(data))
+      .catch((error) => console.error(error));
+  }, [recipeId]);
+  
   const addTask = (task) =>{
     if (task==null) return;
     setTasks([...tasks, task]);
