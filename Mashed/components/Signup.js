@@ -103,7 +103,6 @@ export default class Signup extends Component {
   render() {
     return (
       <>
-      <ScrollView>
       <View style={styles.viewStyle}>
         {/* LOGO */}
           <Image  
@@ -222,7 +221,6 @@ export default class Signup extends Component {
               </View>
         </View>
       </View>
-      </ScrollView>
       </>
     );
   }
