@@ -2,9 +2,9 @@
 include('db.php');
 
 // Get the recipe ID from the URL parameter
-$recipe_id = $_GET['recipe_id'];
+// $recipe_id = $_GET['recipe_id'];
 
-$sql = "SELECT RecipeName, RecipeStep, RecipeIngredients, PrepTime, CookTime, Difficulty, ServingSize, RecipeDescription FROM Recipes WHERE RecipeId = $recipe_id";
+$sql = "SELECT RecipeName, RecipeStep, RecipeIngredients, PrepTime, CookTime, Difficulty, ServingSize, RecipeDescription FROM Recipes WHERE RecipeId = 1";
 $result = mysqli_query($conn, $sql);
 
 // // Check for errors
