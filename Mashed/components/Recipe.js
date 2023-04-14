@@ -9,13 +9,13 @@ export default function Recipe({ navigation }) {
     const [checked1, setChecked1] = React.useState([false, false]);
     const [expanded, setExpanded] = useState(false);
     const [expanded2, setExpanded2] = useState(false);
-    const [recipe, setRecipe] = useState([]);
+    const [recipes, setRecipes] = useState([]);
     const route = useRoute();
     const { recipeId } = route.params;
     useEffect(() => {
         fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Recipe.php`)
           .then((response) => response.json())
-          .then((data) => setRecipe(data))
+          .then((data) => setRecipes(data))
           .catch((error) => console.error(error));
       }, [recipeId]);
     return (
@@ -52,12 +52,12 @@ export default function Recipe({ navigation }) {
             uri:'https://www.thespruceeats.com/thmb/a8cS7kg5bbsuFsJN-5zO3eOVvBE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chicken-katsu-4778466-10-67e6122e936b418ab1a92f176709d299.jpg',
             }}>
         </Image>
-        {recipe.map((Recipes)=> (
+        {recipes.map((recipe)=> (
         <View style={{ margin:20 }}>
         {/* Title and star rating */}
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-start'}}>
                 <View style={[{flexDirection: 'row', marginLeft: -6 }]}>
-                    <Text style={styles.header}> {Recipes.RecipeName}</Text>
+                    <Text style={styles.header}> {recipe.RecipeName}</Text>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
                     <View style={{justifyContent:'space-evenly', marginLeft: 62}}>
@@ -72,17 +72,17 @@ export default function Recipe({ navigation }) {
 
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey'}}>
                 <View style={[{flexDirection: 'row', marginTop: 10 }]}>
-                    <Text style={styles.body}>{Recipes.description}</Text>
+                    <Text style={styles.body}>{recipe.description}</Text>
                 </View>
             </View>
 
             <View style={{ flexDirection: 'row',justifyContent: 'space-evenly', marginTop: 10 }}>
-                <Text style={styles.Subheader}> {Recipes.prep_time} mins </Text>
-                <Text style={styles.Subheader}> {Recipes.cook_time} mins </Text>
+                <Text style={styles.Subheader}> {recipe.prep_time} mins </Text>
+                <Text style={styles.Subheader}> {recipe.cook_time} mins </Text>
             </View>
             <View style={{ flexDirection: 'row',justifyContent: 'space-evenly', marginTop: 10, fontWeight: 'bold' }}>
-                <Text style={styles.Subheader}> {Recipes.difficulty} </Text>
-                <Text style={styles.Subheader}> {Recipes.serving_size} people </Text>
+                <Text style={styles.Subheader}> {recipe.difficulty} </Text>
+                <Text style={styles.Subheader}> {recipe.serving_size} people </Text>
             </View>
 
         <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10}}/>
@@ -141,7 +141,7 @@ export default function Recipe({ navigation }) {
                     checkedColor='#FFC42D'
                 /> 
                 <ListItem.Content>
-                    <ListItem.Title>{Recipes.RecipeIngredients}</ListItem.Title>
+                    <ListItem.Title>{recipe.RecipeIngredients}</ListItem.Title>
                 </ListItem.Content>
             </ListItem>
         </ListItem.Accordion>
@@ -170,7 +170,7 @@ export default function Recipe({ navigation }) {
                 backgroundColor: '#F2F2F2'
             }}>
                 <ListItem.Content>
-                    <ListItem.Title>{Recipes.RecipeSteps} </ListItem.Title>
+                    <ListItem.Title>{recipe.RecipeSteps} </ListItem.Title>
                 </ListItem.Content>
             </ListItem>
         

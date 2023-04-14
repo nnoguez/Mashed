@@ -13,23 +13,23 @@ $result = mysqli_query($conn, $sql);
 // }
 
 // Build an array of the recipe data
-$recipe = array();
+$recipes = array();
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
-        $recipe["RecipeName"] = $row["RecipeName"];
-        $recipe["RecipeStep"] = $row["RecipeStep"];
-        $recipe["RecipeIngredients"] = $row["RecipeIngredients"];
-        $recipe["description"] = $row["description"];
-        $recipe["prep_time"] = $row["prep_time"];
-        $recipe["cook_time"] = $row["cook_time"];
-        $recipe["difficulty"] = $row["difficulty"];
-        $recipe["serving_size"] = $row["serving_size"];
+        $recipes["RecipeName"] = $row["RecipeName"];
+        $recipes["RecipeStep"] = $row["RecipeStep"];
+        $recipes["RecipeIngredients"] = $row["RecipeIngredients"];
+        $recipes["description"] = $row["description"];
+        $recipes["prep_time"] = $row["prep_time"];
+        $recipes["cook_time"] = $row["cook_time"];
+        $recipes["difficulty"] = $row["difficulty"];
+        $recipes["serving_size"] = $row["serving_size"];
     }
 }
 
 // Return the recipe data as JSON
 header('Content-Type: application/json');
-echo json_encode($recipe);
+echo json_encode($recipes);
 
 // Close the database connection
 mysqli_close($conn);
