@@ -220,8 +220,20 @@ LoadUsername = () => {
           marginTop: 75,
         }}
         >
-      <Pressable onPress={this.pickImage}> 
+      <View key={this.state.edit ? 'input' : 'text'}>
+        {this.state.edit ? (
           <Avatar
+            avatarStyle={{ 
+            borderWidth: 10, 
+            borderColor: '#F5F5F5', 
+            borderRadius: 100, 
+            }}        
+              size={150}
+              rounded
+              source={{ uri: 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png' }}
+          />
+          ) : (
+            <Avatar
             avatarStyle={{ 
             borderWidth: 10, 
             borderColor: '#F5F5F5', 
@@ -231,8 +243,8 @@ LoadUsername = () => {
               rounded
               source={{ uri: image.uri }}
           />
-      </Pressable>
-
+          )}
+        </View>
         {/* <Button onPress={this.pickImage}>Upload Image</Button> */}
 
 
@@ -261,7 +273,7 @@ LoadUsername = () => {
       </View>
   
       {/* show static text if edit profile button is not pressed,
-          if pressed, show text input */}
+          if pressed, show text input and image picker*/}
       <View key={this.state.edit ? 'input' : 'text'}>
         {this.state.edit ? (
           <View>
@@ -269,6 +281,13 @@ LoadUsername = () => {
           </View>
         ) : (
         <View style={{ textAlign: 'center' }}>
+          <View style={styles.buttonsection}> 
+            <Pressable
+              style={styles.button} 
+              onPress={this.pickImage}>
+              <Text style={styles.text}>Upload Image</Text>
+            </Pressable>
+          </View>
           <TextInput
             placeholder="Enter Your Bio"
             placeholderTextColor="#969696"
@@ -372,7 +391,8 @@ button: {
   height: 35,
   justifyContent: 'center', //up dwn
   alignItems: 'center',  //r & l
-  width: '70%',
-  borderRadius: 10
+  width: '40%',
+  borderRadius: 10,
+  marginBottom: 10,
 }
 })
