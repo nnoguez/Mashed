@@ -38,8 +38,8 @@ $Description = $decodedData['Description'];
 $SQL = "SELECT * FROM Recipes WHERE RecipeName = '$RecipeName'";
 $exeSQL = mysqli_query($conn, $SQL);
 
-$InsertQuerry = "INSERT INTO Recipes(RecipeName, RecipeStep, RecipeIngredients, PrepTime, CookTime, Difficulty, ServingSize, Description) 
-                VALUES('$RecipeName', '$RecipeStep', '$RecipeIngredients', '$PrepTime', '$CookTime', '$Difficulty', '$ServingSize', '$Description')";
+$InsertQuerry = "INSERT INTO Recipes(RecipeName, RecipeStep, RecipeIngredients, PrepTime, CookTime, Difficulty, ServingSize, RecipeDescription) 
+                VALUES('$RecipeName', '$RecipeStep', '$RecipeIngredients', '$PrepTime', '$CookTime', '$Difficulty', '$ServingSize', '$RecipeDescription')";
 
 $R = mysqli_query($conn, $InsertQuerry);
 

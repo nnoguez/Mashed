@@ -9,7 +9,7 @@ export default class Post extends Component {
   recipeNameRegex = /^.+$/;
   recipeDescriptionRegex = /^.+$/;
   recipeStepsRegex = /^.+$/;
-  recipeIngredientsRegex = /^.+$/;
+  // recipeIngredientsRegex = /^.+$/;
   prepTimeRegex = /^.+$/;
   cookTimeRegex = /^.+$/;
   difficultyRegex = /^.+$/;
@@ -52,10 +52,10 @@ export default class Post extends Component {
       return;
     }
   
-    if (!this.recipeIngredientsRegex.test(RecipeIngredients)) {
-      alert('Please enter recipe ingredients');
-      return;
-    }
+    // if (!this.recipeIngredientsRegex.test(RecipeIngredients)) {
+    //   alert('Please enter recipe ingredients');
+    //   return;
+    // }
   
     if (!this.prepTimeRegex.test(PrepTime)) {
       alert('Please enter prep time');
@@ -184,6 +184,9 @@ export default class Post extends Component {
           />
           </View>
       </View>
+
+
+      
       <View style={{ backgroundColor: 'white', borderRadius: '25 0 0 25', padding: '5%'}}>
           <View style={styles.action}>
             <TextInput
