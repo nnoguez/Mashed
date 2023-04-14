@@ -11,6 +11,25 @@ export default CartInput = (props) => {
         setTask(null);
     }
 
+    const submitData = () => {
+        fetch('https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/ShoppingList.php', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            text_input: task,
+          }),
+        })
+          .then((response) => response.text())
+          .then((responseData) => {
+            console.log(responseData);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      };
 
 return(
     <KeyboardAvoidingView behavior={Platform.OS==="ios" ? "padding":"height"} 
@@ -22,8 +41,9 @@ return(
         onChangeText={text => setTask(text)} 
         placeholder={"Add Item..."} 
         placeholderTextColor={'gray'}>
+            
         </TextInput>
-        <TouchableOpacity onPress={()=>handleAddTask(task)}>
+        <TouchableOpacity onPress={()=>handleAddTask(task)&&{submitData}}>
             <View style={styles.button}>
                 <MaterialIcons name='keyboard-arrow-right' size={40} color='gray'/>
             </View>

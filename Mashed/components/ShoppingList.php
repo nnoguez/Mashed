@@ -1,21 +1,25 @@
 
 <?php
 include('db.php');
-session_start();
 
-$UserID = $_COOKIE['UserID'];
-$List = $decodedData['List'];
 
-$SQL = "UPDATE users SET List = '$List' WHERE UserID ='$UserID'";
+
+$text_input = $_POST['text_input']
+$text_input = mysqli_real_escape_string($conn, $text_input);
+
+$SQL = "SELECT * FROM ShoppingList WHERE Ingredient = '$text_input'";
 $exeSQL = mysqli_query($conn, $SQL);
 
-if ($exeSQL) {
-    $Message = "Your bio has been updated!";
+$InsertQuerry = "INSERT INTO ShoppingList (Ingredients) VALUES ('$text_input')";
+
+
+if ($conn->query($InsertQuerry) === TRUE) {
+    echo "Data inserted successfully";
 } else {
-    $Message = "Failed to update bio.";
+    echo "Error: " . $InsertQuerry . "<br>" . $conn->error;
 }
 
+//$conn->close();
 
+?>
 
-$response[] = array("Message" => $Message);
-echo json_encode($response);
