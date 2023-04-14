@@ -188,7 +188,6 @@ LoadUsername = () => {
 
 
 
-
   render() {
     const {Username, bio } = this.state;
     const { navigation } = this.props;
@@ -232,11 +231,6 @@ LoadUsername = () => {
               rounded
               source={{ uri: image.uri }}
           />
-
-<View>
-      {image && image.uri && <Avatar source={{ uri: image.uri }} />}
-      {/* ... other UI components ... */}
-    </View>
       </Pressable>
 
         {/* <Button onPress={this.pickImage}>Upload Image</Button> */}

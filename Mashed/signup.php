@@ -13,7 +13,7 @@ if ($checkEmail != 0) {
     $Message = "You are already registered, so we went ahead and logged you in. Welcome back to Mashed!";
 } else {
     // sending info to users table with specific values
-    $InsertQuerry = "INSERT INTO users(UserEmail, Username, UserPW, bio) VALUES('$UserEmail', '$Username', '$UserPW', '')";
+    $InsertQuerry = "INSERT INTO users(UserEmail, Username, UserPW, bio, pfpUrl) VALUES('$UserEmail', '$Username', '$UserPW', '', '')";
 
     $R = mysqli_query($conn, $InsertQuerry);
 

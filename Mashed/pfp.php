@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Move the uploaded file to the specified directory
         if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
             // File upload successful, get the uploaded file URL
-            $pfpUrl = 'https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/' . $uploadFile; // replace 'https://example.com/' with the actual URL of your server and directory path
+            $pfpUrl = 'https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/pfp/' . basename($_FILES['image']['name']); // update the URL to include the correct file path
 
             // Store the image URL in your MySQL database
             // You can use the $pfpUrl variable to insert the image URL into your MySQL table
