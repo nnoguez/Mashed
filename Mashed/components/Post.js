@@ -1,17 +1,29 @@
 // post screen (laura)
 
 import React, {Component} from "react";
-import { View, Pressable, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, Pressable, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { Image, Avatar, Button } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Post extends Component {
+  recipeNameRegex = /^.+$/;
+  recipeDescriptionRegex = /^.+$/;
+  recipeStepsRegex = /^.+$/;
+  recipeIngredientsRegex = /^.+$/;
+  prepTimeRegex = /^.+$/;
+  cookTimeRegex = /^.+$/;
+  difficultyRegex = /^.+$/;
   constructor(props) {
     super(props);
     this.state = { 
       RecipeName : '',
       RecipeStep : '',
       RecipeIngredients : '',
+      PrepTime: '',
+      CookTime: '',
+      Difficulty: '',
+      ServingSize: '',
+      Description: ''
     };
   }
   
@@ -19,6 +31,46 @@ export default class Post extends Component {
     var RecipeName = this.state.RecipeName;
     var RecipeStep = this.state.RecipeStep;
     var RecipeIngredients = this.state.RecipeIngredients;
+    var PrepTime = this.state.PrepTime;
+    var CookTime = this.state.CookTime;
+    var Difficulty = this.state.Difficulty;
+    var ServingSize = this.state.ServingSize;
+    var Description = this.state.Description;
+
+    if (!recipeNameRegex.test(RecipeName)) {
+      alert('Please enter a recipe name');
+      return;
+    }
+  
+    if (!recipeDescriptionRegex.test(Description)) {
+      alert('Please enter a recipe description');
+      return;
+    }
+  
+    if (!recipeStepsRegex.test(RecipeStep)) {
+      alert('Please enter recipe steps');
+      return;
+    }
+  
+    if (!recipeIngredientsRegex.test(RecipeIngredients)) {
+      alert('Please enter recipe ingredients');
+      return;
+    }
+  
+    if (!prepTimeRegex.test(PrepTime)) {
+      alert('Please enter prep time');
+      return;
+    }
+  
+    if (!cookTimeRegex.test(CookTime)) {
+      alert('Please enter cook time');
+      return;
+    }
+  
+    if (!difficultyRegex.test(Difficulty)) {
+      alert('Please enter level of expertise');
+      return;
+    }
 
     var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Addpost.php";   //API to render signup
 
@@ -30,7 +82,12 @@ export default class Post extends Component {
       var Data ={
         RecipeName: RecipeName,
         RecipeStep: RecipeStep,
-        RecipeIngredients: RecipeIngredients
+        RecipeIngredients: RecipeIngredients,
+        PrepTime: PrepTime,
+        CookTime: CookTime,
+        Difficulty: Difficulty,
+        ServingSize: ServingSize,
+        Description: Description
       };
 
     // FETCH func ------------------------------------
@@ -48,7 +105,6 @@ export default class Post extends Component {
         alert("Error Occured" + error);
     });
     }
-  
   render() {
     const { navigation } = this.props;
 
@@ -91,6 +147,16 @@ export default class Post extends Component {
       <View style={{ backgroundColor: 'white', borderRadius: '25 0 0 25', padding: '5%'}}>
           <View style={styles.action}>
             <TextInput
+              placeholder="Enter Recipe Description"
+              placeholderTextColor="#969696"
+              style={styles.textInput}
+              onChangeText={Description=>this.setState({Description})}
+              />
+          </View>
+      </View>
+      <View style={{ backgroundColor: 'white', borderRadius: '25 0 0 25', padding: '5%'}}>
+          <View style={styles.action}>
+            <TextInput
               placeholder="Enter Recipe Steps"
               placeholderTextColor="#969696"
               style={styles.textInput}
@@ -118,7 +184,36 @@ export default class Post extends Component {
           />
           </View>
       </View>
-
+      <View style={{ backgroundColor: 'white', borderRadius: '25 0 0 25', padding: '5%'}}>
+          <View style={styles.action}>
+            <TextInput
+              placeholder="Enter Prep Time"
+              placeholderTextColor="#969696"
+              style={styles.textInput}
+              onChangeText={PrepTime=>this.setState({PrepTime})}
+              />
+          </View>
+      </View>
+      <View style={{ backgroundColor: 'white', borderRadius: '25 0 0 25', padding: '5%'}}>
+          <View style={styles.action}>
+            <TextInput
+              placeholder="Enter Cook Time"
+              placeholderTextColor="#969696"
+              style={styles.textInput}
+              onChangeText={CookTime=>this.setState({CookTime})}
+              />
+          </View>
+      </View>
+      <View style={{ backgroundColor: 'white', borderRadius: '25 0 0 25', padding: '5%'}}>
+          <View style={styles.action}>
+            <TextInput
+              placeholder="Enter Level of Expertise"
+              placeholderTextColor="#969696"
+              style={styles.textInput}
+              onChangeText={Difficulty=>this.setState({Difficulty})}
+              />
+          </View>
+      </View>
             {/* Button */}
             <View style={styles.buttonsection}>    
                 <Pressable
@@ -133,8 +228,53 @@ export default class Post extends Component {
       </>
     )
   }
+}
+const styles = StyleSheet.create({
+   
+  viewOne: {
+        textAlign: "center",
+        margin: 20,
+        marginBottom: 175,
+       
+    }, 
+    containerWhite:{
+      zIndex:2,
+      height:"60%",
+      width: "100%",
+      borderTopLeftRadius: 45,
+      borderTopRightRadius:45,
+      shadowColor: 'gray',
+      shadowOpacity: '20%',  
+      shadowOffset:{width: 0, height: -3},
+      backgroundColor: '#fff',    
+      alignItems: "center",
+      paddingTop:20, 
+    },
+    buttonsection: {
+      width: '100%',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    button: {
+      backgroundColor: '#FFC42D',
+      color: 'white',
+      height: 35,
+      justifyContent: 'center', //up dwn
+      alignItems: 'center',  //r & l
+      width: '70%',
+      borderRadius: 10,
+    },
+      followFor: {
+        textAlign: "center",
+    },
+      followForColor: {
+        color: "#FFC42D",
+        fontWeight: 'bold'
+    }
+  })
 
-// export default function Post ( {navigation} ) {
+
+  // export default function Post ( {navigation} ) {
 //   return (
 //     <>
 //   <View style={styles.viewOne}>
@@ -226,47 +366,3 @@ export default class Post extends Component {
 //     </>
 //   );
 // }
-}
-const styles = StyleSheet.create({
-   
-  viewOne: {
-        textAlign: "center",
-        margin: 20,
-        marginBottom: 175,
-       
-    }, 
-    containerWhite:{
-      zIndex:2,
-      height:"60%",
-      width: "100%",
-      borderTopLeftRadius: 45,
-      borderTopRightRadius:45,
-      shadowColor: 'gray',
-      shadowOpacity: '20%',  
-      shadowOffset:{width: 0, height: -3},
-      backgroundColor: '#fff',    
-      alignItems: "center",
-      paddingTop:20, 
-    },
-    buttonsection: {
-      width: '100%',
-      justifyContent: 'center',
-      alignItems: 'center'
-    },
-    button: {
-      backgroundColor: '#FFC42D',
-      color: 'white',
-      height: 35,
-      justifyContent: 'center', //up dwn
-      alignItems: 'center',  //r & l
-      width: '70%',
-      borderRadius: 10,
-    },
-      followFor: {
-        textAlign: "center",
-    },
-      followForColor: {
-        color: "#FFC42D",
-        fontWeight: 'bold'
-    }
-  })
