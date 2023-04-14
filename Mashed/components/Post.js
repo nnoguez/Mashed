@@ -37,40 +37,40 @@ export default class Post extends Component {
     var ServingSize = this.state.ServingSize;
     var Description = this.state.Description;
 
-    // if (!recipeNameRegex.test(RecipeName)) {
-    //   alert('Please enter a recipe name');
-    //   return;
-    // }
+    if (!this.recipeNameRegex.test(RecipeName)) {
+      alert('Please enter a recipe name');
+      return;
+    }
   
-    // if (!recipeDescriptionRegex.test(Description)) {
-    //   alert('Please enter a recipe description');
-    //   return;
-    // }
+    if (!this.recipeDescriptionRegex.test(Description)) {
+      alert('Please enter a recipe description');
+      return;
+    }
   
-    // if (!recipeStepsRegex.test(RecipeStep)) {
-    //   alert('Please enter recipe steps');
-    //   return;
-    // }
+    if (!this.recipeStepsRegex.test(RecipeStep)) {
+      alert('Please enter recipe steps');
+      return;
+    }
   
-    // if (!recipeIngredientsRegex.test(RecipeIngredients)) {
-    //   alert('Please enter recipe ingredients');
-    //   return;
-    // }
+    if (!this.recipeIngredientsRegex.test(RecipeIngredients)) {
+      alert('Please enter recipe ingredients');
+      return;
+    }
   
-    // if (!prepTimeRegex.test(PrepTime)) {
-    //   alert('Please enter prep time');
-    //   return;
-    // }
+    if (!this.prepTimeRegex.test(PrepTime)) {
+      alert('Please enter prep time');
+      return;
+    }
   
-    // if (!cookTimeRegex.test(CookTime)) {
-    //   alert('Please enter cook time');
-    //   return;
-    // }
+    if (!this.cookTimeRegex.test(CookTime)) {
+      alert('Please enter cook time');
+      return;
+    }
   
-    // if (!difficultyRegex.test(Difficulty)) {
-    //   alert('Please enter level of expertise');
-    //   return;
-    // }
+    if (!this.difficultyRegex.test(Difficulty)) {
+      alert('Please enter level of expertise');
+      return;
+    }
 
     var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Addpost.php";   //API to render signup
 
