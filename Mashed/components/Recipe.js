@@ -13,12 +13,12 @@ export default function Recipe({ navigation }) {
     const [expanded2, setExpanded2] = useState(false);
     const [recipe, setRecipe] = useState([]);
     const route = useRoute();
-    const { recipeId } = route.params;
+    const { RecipeId } = route.params;
   
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/recipe.php?recipeId=${recipeId}`);
+          const response = await fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/recipe.php?recipeId=${RecipeId}`);
           const data = await response.json();
           if (data && data.length > 0) {
             setRecipe(data[0]);
