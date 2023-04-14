@@ -72,17 +72,17 @@ export default function Recipe({ navigation }) {
 
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey'}}>
                 <View style={[{flexDirection: 'row', marginTop: 10 }]}>
-                    <Text style={styles.body}>{recipe.description}</Text>
+                    <Text style={styles.body}>{recipe.RecipeDescription}</Text>
                 </View>
             </View>
 
             <View style={{ flexDirection: 'row',justifyContent: 'space-evenly', marginTop: 10 }}>
-                <Text style={styles.Subheader}> {recipe.prep_time} mins </Text>
-                <Text style={styles.Subheader}> {recipe.cook_time} mins </Text>
+                <Text style={styles.Subheader}> {recipe.PrepTime} mins </Text>
+                <Text style={styles.Subheader}> {recipe.CookTime} mins </Text>
             </View>
             <View style={{ flexDirection: 'row',justifyContent: 'space-evenly', marginTop: 10, fontWeight: 'bold' }}>
-                <Text style={styles.Subheader}> {recipe.difficulty} </Text>
-                <Text style={styles.Subheader}> {recipe.serving_size} people </Text>
+                <Text style={styles.Subheader}> {recipe.Difficulty} </Text>
+                <Text style={styles.Subheader}> {recipe.ServingSize} people </Text>
             </View>
 
         <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10}}/>
