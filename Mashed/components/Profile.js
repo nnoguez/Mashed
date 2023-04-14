@@ -6,8 +6,9 @@ import { Card } from "@rneui/base";
 import { Avatar, Button } from '@rneui/themed';
 import { View, Image, Text, TextInput, Pressable, ScrollView, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import * as ImagePicker from 'expo-image-picker';
 
-const image = {uri: 'https://i.pinimg.com/736x/27/1a/b9/271ab997e179c7dde6530e8d8ae632d4.jpg'};
+const bgimg = {uri: 'https://i.pinimg.com/736x/27/1a/b9/271ab997e179c7dde6530e8d8ae632d4.jpg'};
 // const image = {uri: '{urlimage}'};
 
 
@@ -17,8 +18,8 @@ export default class Profile extends Component {
     this.state = { 
       Username : '',
       bio : '',
-      // UserID : '',
-      edit : true
+      edit : true,
+      image: null
     };
   }
   
@@ -134,13 +135,27 @@ LoadUsername = () => {
     };
 
 
-
+    pickImage = async () => {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+  
+      if (!result.cancelled) {
+        this.setState({ image: result.uri });
+      }
+    }
 
 
 
   render() {
     const {Username, bio } = this.state;
     const { navigation } = this.props;
+    const { image } = this.state;
+
+
   return (
     <>
     {/* mashed logo */}
@@ -160,7 +175,7 @@ LoadUsername = () => {
             }}
             /> 
       </View>
-      <ImageBackground source={image} resizeMode="cover" borderBottomLeftRadius={25} borderBottomRightRadius={25}>
+      <ImageBackground source={bgimg} resizeMode="cover" borderBottomLeftRadius={25} borderBottomRightRadius={25}>
         <View style={{ 
           justifyContent: 'center',
           alignItems: 'center',
@@ -177,6 +192,9 @@ LoadUsername = () => {
               rounded
               source={{ uri: "https://communication.ucf.edu/wp-content/uploads/sites/2/2018/05/Daniel-V.-Novatnak-1.jpeg" }}
           />
+
+
+<Button style={styles.editIcon} onPress={this.pickImage}/>
         </View>
       </ImageBackground>
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }}>
