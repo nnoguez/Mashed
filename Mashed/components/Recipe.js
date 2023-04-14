@@ -119,7 +119,7 @@ export default function Recipe({ navigation }) {
             <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10, marginTop: 10}}/>
 
 
-            <List.AccordionGroup>
+            <ListItem.AccordionGroup>
                 <View>
                 {recipe.RecipeIngredients &&
                     recipe.RecipeIngredients.split(",").map((item, key) => (
@@ -136,7 +136,7 @@ export default function Recipe({ navigation }) {
                     </View>
                     ))}
                 </View>
-          </List.AccordionGroup>
+          </ListItem.AccordionGroup>
 
         <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10, marginTop: 10}}/>
 
