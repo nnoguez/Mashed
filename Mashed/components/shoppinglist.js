@@ -13,7 +13,7 @@ export default function Shopping ({ navigation }) {
   const route = useRoute();
   const { recipeId } = route.params;
   useEffect(() => {
-    fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Explore.php?id=${recipeId}`)
+    fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Recipe.php?id=${recipeId}`)
       .then((response) => response.json())
       .then((data) => setRecipe(data))
       .catch((error) => console.error(error));
