@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import * as ImagePicker from 'expo-image-picker';
 
 const bgimg = {uri: 'https://i.pinimg.com/736x/27/1a/b9/271ab997e179c7dde6530e8d8ae632d4.jpg'};
+
 // const image = {uri: '{urlimage}'};
 
 
@@ -19,9 +20,10 @@ export default class Profile extends Component {
       Username : '',
       bio : '',
       edit : true,
-      image: null
+      image: {}
     };
   }
+
   
 // pulling values from table users
   componentDidMount() {
@@ -142,11 +144,48 @@ LoadUsername = () => {
         aspect: [4, 3],
         quality: 1,
       });
-  
+    
       if (!result.cancelled) {
-        this.setState({ image: result.uri });
+        this.setState({ image: { uri: result.assets[0].uri } });
       }
     }
+    
+
+
+    // Define a function to handle image upload
+    handleImageUpload = (imageFile) => {
+      var insertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/pfp.php"; // URL of your updated PHP script
+      var headers = {
+        'Accept': 'application/json',
+        // Remove Content-Type header as it's not required for file upload
+      };
+
+      // Create a FormData object to append the image file
+      var formData = new FormData();
+      formData.append('image', imageFile); // 'image' should match the name of the input field in the server-side code
+
+      // FETCH func for image upload
+      fetch(insertAPIURL, {
+        method: 'POST',
+        headers: headers,
+        credentials: 'include',
+        body: formData // Pass the FormData object as the request body
+      })
+      .then((response) => response.json())
+      .then((response) => {
+        // Handle the response from the server after image upload
+        // ... Do something with the response ...
+        alert(response);
+      })
+      .catch((error) => {
+        alert("oh no" + error);
+      });
+    }
+
+
+
+
+
 
 
 
@@ -182,6 +221,7 @@ LoadUsername = () => {
           marginTop: 75,
         }}
         >
+      <Pressable onPress={this.pickImage}> 
           <Avatar
             avatarStyle={{ 
             borderWidth: 10, 
@@ -190,11 +230,18 @@ LoadUsername = () => {
             }}        
               size={150}
               rounded
-              source={{ uri: "https://communication.ucf.edu/wp-content/uploads/sites/2/2018/05/Daniel-V.-Novatnak-1.jpeg" }}
+              source={{ uri: image.uri }}
           />
 
+<View>
+      {image && image.uri && <Avatar source={{ uri: image.uri }} />}
+      {/* ... other UI components ... */}
+    </View>
+      </Pressable>
 
-<Button style={styles.editIcon} onPress={this.pickImage}/>
+        {/* <Button onPress={this.pickImage}>Upload Image</Button> */}
+
+
         </View>
       </ImageBackground>
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }}>
