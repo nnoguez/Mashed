@@ -17,7 +17,7 @@ export default function Recipe({ navigation }) {
           .then((response) => response.json())
           .then((data) => setRecipes(data))
           .catch((error) => console.error(error));
-      }, [recipeId]);
+      });
     return (
     <>
     {/* mashed logo */}
