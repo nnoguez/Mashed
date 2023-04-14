@@ -23,7 +23,7 @@ export default class Post extends Component {
       CookTime: '',
       Difficulty: '',
       ServingSize: '',
-      Description: ''
+      RecipeDescription: ''
     };
   }
   
@@ -35,14 +35,14 @@ export default class Post extends Component {
     var CookTime = this.state.CookTime;
     var Difficulty = this.state.Difficulty;
     var ServingSize = this.state.ServingSize;
-    var Description = this.state.Description;
+    var RecipeDescription = this.state.RecipeDescription;
 
     if (!this.recipeNameRegex.test(RecipeName)) {
       alert('Please enter a recipe name');
       return;
     }
   
-    if (!this.recipeDescriptionRegex.test(Description)) {
+    if (!this.recipeDescriptionRegex.test(RecipeDescription)) {
       alert('Please enter a recipe description');
       return;
     }
@@ -64,6 +64,7 @@ export default class Post extends Component {
   
     if (!this.cookTimeRegex.test(CookTime)) {
       alert('Please enter cook time');
+      console.log({CookTime});
       return;
     }
   
@@ -87,7 +88,7 @@ export default class Post extends Component {
         CookTime: CookTime,
         Difficulty: Difficulty,
         ServingSize: ServingSize,
-        Description: Description
+        RecipeDescription: RecipeDescription
       };
 
     // FETCH func ------------------------------------
@@ -150,7 +151,7 @@ export default class Post extends Component {
               placeholder="Enter Recipe Description"
               placeholderTextColor="#969696"
               style={styles.textInput}
-              onChangeText={Description=>this.setState({Description})}
+              onChangeText={RecipeDescription=>this.setState({RecipeDescription})}
               />
           </View>
       </View>

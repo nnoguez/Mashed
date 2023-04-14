@@ -33,7 +33,7 @@ $PrepTime = $decodedData['PrepTime'];
 $CookTime = $decodedData['CookTime'];
 $Difficulty = $decodedData['Difficulty'];
 $ServingSize = $decodedData['ServingSize'];
-$Description = $decodedData['Description'];
+$RecipeDescription = $decodedData['RecipeDescription'];
 
 $SQL = "SELECT * FROM Recipes WHERE RecipeName = '$RecipeName'";
 $exeSQL = mysqli_query($conn, $SQL);
