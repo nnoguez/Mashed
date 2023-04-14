@@ -1,22 +1,21 @@
 <?php
    include('db.php');
-    // Query to select recipe names from the database
-    $sql = "SELECT RecipeName FROM Recipes";
+    // Query to select recipe names and ids from the database
+    $sql = "SELECT RecipeName, RecipeId FROM Recipes";
     $result = $conn->query($sql);
 
-    // Array to store recipe names
+    // Array to store recipe names and ids
     $recipes = array();
 
     if ($result->num_rows > 0) {
-    // Fetch recipe names from each row
+    // Fetch recipe names and ids from each row
     while($row = $result->fetch_assoc()) {
-        $recipes[] = $row["RecipeName"];
+        $recipes[] = $row;
     }
     } else {
     echo "0 results";
     }
 
-    // Encode recipe names as JSON and send to client
+    // Encode recipe names and ids as JSON and send to client
     echo json_encode($recipes);
-
 ?>

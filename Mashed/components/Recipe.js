@@ -14,22 +14,21 @@ export default function Recipe({ navigation }) {
     const [recipe, setRecipe] = useState([]);
     const route = useRoute();
     const { recipeId } = route.params;
-
+  
     useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const response = await fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Recipe.php?RecipeId=${recipeId}`);
-            const data = await response.json();
-            if (data && data.length > 0) {
-              setRecipe(data[0]);
-            }
-          } catch (error) {
-            console.error(error);
+      const fetchData = async () => {
+        try {
+          const response = await fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/recipe.php?recipeId=${recipeId}`);
+          const data = await response.json();
+          if (data && data.length > 0) {
+            setRecipe(data[0]);
           }
-        };
-        fetchData();
-      }, [recipeId]);
-    
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      fetchData();
+    }, [recipeId]);
 
 
 
@@ -120,72 +119,43 @@ export default function Recipe({ navigation }) {
             <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10, marginTop: 10}}/>
 
 
-            <ListItem.Accordion containerStyle={{
-            borderRadius: 20,
-            backgroundColor: '#F2F2F2',
-        }}
-            content={
-            <ListItem.Content>
-                <ListItem.Subtitle style={styles.header}> 
-                    Ingredients
-                </ListItem.Subtitle>
-            </ListItem.Content>
-            }
-            isExpanded={expanded}
-            onPress={() => {
-            setExpanded(!expanded);
-            }}>
-            
-        {/* ingredient 1 */}
-            <ListItem containerStyle={{
-                borderRadius: 20,
-                backgroundColor: '#F2F2F2'
-            }}>
-                <ListItem.CheckBox
-                    iconType="material-community"
-                    checkedIcon="checkbox-marked"
-                    uncheckedIcon="checkbox-blank-outline"
-                    checked={checked1[0]}
-                    onPress={() => setChecked1([!checked1[0], checked1[1]])}
-                    containerStyle= {{
-                        backgroundColor:'#F2F2F2'
-                    }}
-                    checkedColor='#FFC42D'
-                /> 
-                <ListItem.Content>
-                    <ListItem.Title>{recipe.RecipeIngredients}</ListItem.Title>
-                </ListItem.Content>
-            </ListItem>
-        </ListItem.Accordion>
+            <List.AccordionGroup>
+                <View>
+                {recipe.RecipeIngredients &&
+                    recipe.RecipeIngredients.split(",").map((item, key) => (
+                    <View key={key} style={{ flexDirection: "row", marginBottom: 5 }}>
+                        <CheckBox
+                        checked={checked1[key]}
+                        onPress={() => {
+                            let newChecked = [...checked1];
+                            newChecked[key] = !checked1[key];
+                            setChecked1(newChecked);
+                        }}
+                        />
+                        <Text>{item.trim()}</Text>
+                    </View>
+                    ))}
+                </View>
+          </List.AccordionGroup>
 
         <View style={{paddingBottom: 10, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10, marginTop: 10}}/>
 
-        <ListItem.Accordion containerStyle={{
-            borderRadius: 20,
-            backgroundColor: '#F2F2F2',
-        }}
-            content={
-            <ListItem.Content>
-                <ListItem.Subtitle style={styles.header}> 
-                    Directions
-                </ListItem.Subtitle>
-            </ListItem.Content>
-            }
-            isExpanded={expanded2}
-            onPress={() => {
-            setExpanded2(!expanded2);
-            }}>
-            
-            {/* ingredient 1 */}
-            <ListItem containerStyle={{
-                borderRadius: 20,
-                backgroundColor: '#F2F2F2'
-            }}>
-                <ListItem.Content>
-                    <ListItem.Title>{recipe.RecipeStep} </ListItem.Title>
-                </ListItem.Content>
-            </ListItem>
-        
+        <ListItem.Accordion> 
+            <View>
+            {recipe.RecipeStep &&
+                recipe.RecipeStep.split("\n").map((item, key) => (
+                <View key={key} style={{ marginBottom: 5 }}>
+                    <TouchableOpacity onPress={() => setExpanded(!expanded)}>
+                    <Text>{item.trim()}</Text>
+                    </TouchableOpacity>
+                    {expanded && (
+                    <View>
+                        <Text style={{ marginTop: 5 }}>Additional details</Text>
+                    </View>
+                    )}
+                </View>
+                ))}
+            </View>
         </ListItem.Accordion>
             </View>
             </ScrollView>
