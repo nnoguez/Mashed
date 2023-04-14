@@ -8,17 +8,14 @@ import { useRoute } from '@react-navigation/native';
 
 
 export default function Shopping ({ navigation }) {  
-  const [recipes, setRecipes] = useState([]);
   const [tasks, setTasks] = useState([]);
-  const route = useRoute();
-  const { recipeId } = route.params;
+  const [recipes, setRecipes] = useState([]);
   useEffect(() => {
-    fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Recipe.php?id=${recipeId}`)
-      .then((response) => response.json())
-      .then((data) => setRecipes(data))
-      .catch((error) => console.error(error));
-  }, [recipeId]);
-  
+    fetch('https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Explore.php')
+    .then(response => response.json())
+    .then(data => setRecipes(data))
+    .catch(error => console.error(error));
+}, []);
   const addTask = (task) =>{
     if (task==null) return;
     setTasks([...tasks, task]);
