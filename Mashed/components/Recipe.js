@@ -10,8 +10,8 @@ export default function Recipe({ navigation }) {
     const [expanded, setExpanded] = useState(false);
     const [expanded2, setExpanded2] = useState(false);
     const [recipes, setRecipes] = useState([]);
-    const route = useRoute();
-    const { recipeId } = route.params;
+    // const route = useRoute();
+    // const { recipeId } = route.params;
     useEffect(() => {
         fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Recipe.php`)
           .then((response) => response.json())
