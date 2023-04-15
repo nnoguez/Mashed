@@ -213,6 +213,8 @@ LoadUsername = () => {
             }}
             /> 
       </View>
+
+
       <ImageBackground source={bgimg} resizeMode="cover" borderBottomLeftRadius={25} borderBottomRightRadius={25}>
         <View style={{ 
           justifyContent: 'center',
@@ -220,20 +222,7 @@ LoadUsername = () => {
           marginTop: 75,
         }}
         >
-      <View key={this.state.edit ? 'input' : 'text'}>
-        {this.state.edit ? (
           <Avatar
-            avatarStyle={{ 
-            borderWidth: 10, 
-            borderColor: '#F5F5F5', 
-            borderRadius: 100, 
-            }}        
-              size={150}
-              rounded
-              source={{ uri: 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png' }}
-          />
-          ) : (
-            <Avatar
             avatarStyle={{ 
             borderWidth: 10, 
             borderColor: '#F5F5F5', 
@@ -243,10 +232,6 @@ LoadUsername = () => {
               rounded
               source={{ uri: image.uri }}
           />
-          )}
-        </View>
-        {/* <Button onPress={this.pickImage}>Upload Image</Button> */}
-
 
         </View>
       </ImageBackground>
