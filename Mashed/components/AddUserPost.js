@@ -72,23 +72,17 @@ export default class UserPost extends Component {
           </Image>
         </View>
         <View style={[styles.container, { flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }]}>
-            <Text style={styles.followForColor}> Post | </Text>
+            <Text style={styles.followForColor}> Post</Text>
             <TouchableOpacity onPress={()=> navigation.navigate('Post')}>
-              <Text style={styles.followFor}>Recipe</Text> 
+              <Text style={styles.followFor}> | Recipe</Text> 
             </TouchableOpacity>
         </View>
-        <View style={[styles.container, { flexDirection: 'row' }]}>
-          <View style={{ flex: 1 }}>
-            <View style={styles.avatarSpacing}>
-              <Avatar
-                size={120}
-                rounded
-                source={{ uri: "https://communication.ucf.edu/wp-content/uploads/sites/2/2018/05/Daniel-V.-Novatnak-1.jpeg" }}
-              />
-            </View>
-          </View>
-        </View>
-        <View style={{ backgroundColor: 'white', borderRadius: 25, padding: '5%' }}>
+
+
+
+        <View style={[styles.viewOne]}>
+
+        <View style={{ backgroundColor: 'white', borderRadius: 25, padding: '5%', marginTop: '3%', borderWidth: 2, borderColor: '#9492EF' }}>
           <View style={styles.action}>
             <TextInput
               placeholder="Tried recipe"
@@ -98,12 +92,12 @@ export default class UserPost extends Component {
             />
           </View>
         </View>
-        <View style={{ backgroundColor: 'white', borderRadius: 25, padding: '5%' }}>
+        <View style={{ backgroundColor: 'white', borderRadius: 25, padding: '5%', marginTop: '3%', marginBottom: '5%', borderWidth: 2, borderColor: '#9492EF' }}>
           <View style={styles.action}>
             <TextInput
               placeholder="Post Bio..."
               placeholderTextColor="#969696"
-              style={styles.textInput}
+              style={[styles.textInput, { height: 100 }]}
               onChangeText={PostBio => this.setState({ PostBio })}
             />
           </View>
@@ -116,6 +110,7 @@ export default class UserPost extends Component {
           <Text style={styles.buttonText}>Submit</Text>
         </Pressable>
       </View>
+      </View>
 </>
 );
 }
@@ -123,13 +118,11 @@ export default class UserPost extends Component {
 
 
 const styles = StyleSheet.create({
-   
   viewOne: {
-        textAlign: "center",
-        margin: 20,
-        marginBottom: 175,
-       
-    }, 
+    textAlign: "center",
+    margin: 20,
+    marginBottom: 10
+  },
     containerWhite:{
       zIndex:2,
       height:"60%",
@@ -159,9 +152,11 @@ const styles = StyleSheet.create({
     },
     followFor: {
       textAlign: "center",
+      fontSize: '17'
   },
     followForColor: {
       color: "#FFC42D",
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontSize: '17'
   }
 })
