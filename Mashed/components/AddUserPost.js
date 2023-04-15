@@ -33,7 +33,7 @@ export default class UserPost extends Component {
       fetch(InsertAPIURL, {
         method: 'POST',
         headers,
-        body: JSON.stringify(data), //convert data to JSON
+        body: JSON.stringify(Data), //convert data to JSON
       })
         .then((response) => response.json())
         .then((response) => {

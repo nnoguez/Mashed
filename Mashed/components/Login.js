@@ -82,7 +82,7 @@ export default class Login extends Component {
         </Image> 
 
           <Image  
-            style={{ height: '30%', width: '100%' , resizeMode:'contain'}}
+            style={{ height: '25%', width: '95%' }}
             source={{uri:'https://www.linkpicture.com/q/Autumn-still-life-with-pumpkins-beetroot-and-apple.png'}}>  
           </Image> 
 
