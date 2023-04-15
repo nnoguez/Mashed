@@ -62,7 +62,7 @@ export default function Recipe({ navigation }) {
         <ScrollView style={{marginBottom: 100}}>
             <Image style={{width:"100%", height:300, marginTop: 5, marginTop: 5, borderBottomRightRadius: 25, borderBottomLeftRadius: 25}}
                 source={{
-                uri:'https://www.thespruceeats.com/thmb/a8cS7kg5bbsuFsJN-5zO3eOVvBE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chicken-katsu-4778466-10-67e6122e936b418ab1a92f176709d299.jpg',
+                uri:'https://www.goldnplump.com/sites/default/files/default_images/recipe_placeholder_1.jpg',
                 }}>
             </Image>
             <View style={{ margin:20 }}>
