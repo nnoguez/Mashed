@@ -42,7 +42,7 @@ export default function Recipe({ navigation }) {
                 <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                   <Icon style={{ marginRight: 355, marginTop: 20 }} name="angle-left" size={35} color="#FFC42D" />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Shopping', { recipeId: recipeId })}>
+                <TouchableOpacity onPress={() => navigation.navigate('Shopping', { recipeId: RecipeId })}>
                   <Icon style={{ marginLeft: -15, marginTop: 20 }} name="shopping-basket" size={25} color="#FFC42D" />
                 </TouchableOpacity>
               </View>
