@@ -10,19 +10,26 @@ import { useRoute } from '@react-navigation/native';
 export default function Shopping ({ navigation }) {  
   const [tasks, setTasks] = useState([]);
   const [recipes, setRecipes] = useState([]);
+  const route = useRoute();
+  const { RecipeId } = route.params;
 
-  /*useEffect(() => {
-    fetch('https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Explore.php')
-    .then(response => response.json())
-    .then(data => setRecipes(data))
-    .catch(error => console.error(error));
-  }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Recipe.php?RecipeId=${RecipeId}`);
+        const data = await response.json();
+        if (data && data.length > 0) {
+          setRecipes(data[0]);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, [RecipeId]);
 
-  const route = useRoute(); // get the route object from the navigation stack
-  const { recipeId } = route.params; // get the recipeId parameter from the route
 
-  const recipe = recipes.find(r => r.id === recipeId); // find the recipe with the matching id
-*/
+  
   const addTask = (task) =>{
     if (task==null) return;
     setTasks([...tasks, task]);
