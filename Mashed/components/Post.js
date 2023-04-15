@@ -217,6 +217,16 @@ export default class Post extends Component {
       <View style={{ backgroundColor: 'white', borderRadius: '25 0 0 25', padding: '5%'}}>
           <View style={styles.action}>
             <TextInput
+              placeholder="Enter Serving Size"
+              placeholderTextColor="#969696"
+              style={styles.textInput}
+              onChangeText={ServingSize=>this.setState({ServingSize})}
+              />
+          </View>
+      </View>
+      <View style={{ backgroundColor: 'white', borderRadius: '25 0 0 25', padding: '5%'}}>
+          <View style={styles.action}>
+            <TextInput
               placeholder="Enter Level of Expertise"
               placeholderTextColor="#969696"
               style={styles.textInput}

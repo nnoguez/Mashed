@@ -1,32 +1,4 @@
 <?php
-// include('db.php');
-
-// $sql = "INSERT INTO recipes (recipe_name) VALUES ('$recipe_name');"
-// $sql. = "INSERT INTO ingredients (ingredient_name) VALUES ('$ingredient_name')";
-// $sql. = "INSERT INTO ingredients (recipe_steps) VALUES ('$recipe_steps')";
-// if ($link->multi_query($sql) === TRUE) {
-//     $recipeId = $link->insert_id;
-//     $link->next_result();
-//     $ingredientId = $link->insert_id;
-//     $stepId = $link-> insert_id;
-//     $link->next_result();
-//     $sql2 = "INSERT INTO recipe_ingredients(recipe_id,ingredient_id,amount,step_id) VALUES ($recipeId,$ingredientId,$amount,$stepId);"
-//     if ($link->query($sql2) == TRUE){
-//         echo "New recipe created successfully";} 
-//     }
-//     else {
-//        echo "Error: " . $sql2 . "<br>" . $link->error;
-//     }
-// }
-// else {
-//    echo "Error: " . $sql . "<br>" . $link->error;
-// }
-
-// $response[] = array("Message" => $Message);
-// echo json_encode($response);
-// $SQL = "SELECT * FROM Recipes WHERE RecipeName = '$RecipeName'";
-// $exeSQL = mysqli_query($conn, $SQL);
-
 include('db.php');
 
 $RecipeName = $decodedData['RecipeName'];
@@ -38,16 +10,15 @@ $Difficulty = $decodedData['Difficulty'];
 $ServingSize = $decodedData['ServingSize'];
 $RecipeDescription = $decodedData['RecipeDescription'];
 
+$InsertQuery = "INSERT INTO Recipes (RecipeName, RecipeStep, RecipeIngredients, PrepTime, CookTime, Difficulty, ServingSize, RecipeDescription) 
+                VALUES ('$RecipeName', '$RecipeStep', '$RecipeIngredients', '$PrepTime', '$CookTime', '$Difficulty', '$ServingSize', '$RecipeDescription')";
 
-$InsertQuerry = "INSERT INTO Recipes(RecipeName, RecipeStep, RecipeIngredients, PrepTime, CookTime, Difficulty, ServingSize, RecipeDescription) 
-                VALUES('$RecipeName', '$RecipeStep', '$RecipeIngredients', '$PrepTime', '$CookTime', '$Difficulty', '$ServingSize', '$RecipeDescription')";
-
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $InsertQuery);
 
 if ($result) {
     $Message = "Recipe Successfully Added!";
 } else {
-    $Message = "We couldn't complete your request";
+    $Message = "We couldn't complete your request. Error: " . mysqli_error($conn);
 }
 
 $response[] = array("Message" => $Message);
