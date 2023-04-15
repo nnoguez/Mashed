@@ -107,7 +107,7 @@ export default class UserPost extends Component {
           <Pressable
             style={styles.button}
             onPress={()=>{this.UserInfo()}}>
-          <Text style={styles.buttonText}>Submit</Text>
+          <Text style={styles.buttonText}>Upload Post</Text>
         </Pressable>
       </View>
       </View>
