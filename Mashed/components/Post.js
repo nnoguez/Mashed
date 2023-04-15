@@ -6,13 +6,13 @@ import { Image, Avatar, Button } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Post extends Component {
-  recipeNameRegex = /^.+$/;
-  recipeDescriptionRegex = /^.+$/;
-  recipeStepsRegex = /^.+$/;
+  // recipeNameRegex = /^.+$/;
+  // recipeDescriptionRegex = /^.+$/;
+  // recipeStepsRegex = /^.+$/;
  
-  prepTimeRegex = /^.+$/;
-  cookTimeRegex = /^.+$/;
-  difficultyRegex = /^.+$/;
+  // prepTimeRegex = /^.+$/;
+  // cookTimeRegex = /^.+$/;
+  // difficultyRegex = /^.+$/;
   constructor(props) {
     super(props);
     this.state = { 
@@ -39,35 +39,35 @@ export default class Post extends Component {
     RecipeDescription,
   } = this.state;
 
-  if (!this.recipeNameRegex.test(RecipeName)) {
-    alert('Please enter a recipe name');
-    return;
-  }
+  // if (!this.recipeNameRegex.test(RecipeName)) {
+  //   alert('Please enter a recipe name');
+  //   return;
+  // }
 
-  if (!this.recipeDescriptionRegex.test(RecipeDescription)) {
-    alert('Please enter a recipe description');
-    return;
-  }
+  // if (!this.recipeDescriptionRegex.test(RecipeDescription)) {
+  //   alert('Please enter a recipe description');
+  //   return;
+  // }
 
-  if (!this.recipeStepsRegex.test(RecipeStep)) {
-    alert('Please enter recipe steps');
-    return;
-  }
+  // if (!this.recipeStepsRegex.test(RecipeStep)) {
+  //   alert('Please enter recipe steps');
+  //   return;
+  // }
 
-  if (!this.prepTimeRegex.test(PrepTime)) {
-    alert('Please enter prep time');
-    return;
-  }
+  // if (!this.prepTimeRegex.test(PrepTime)) {
+  //   alert('Please enter prep time');
+  //   return;
+  // }
 
-  if (!this.cookTimeRegex.test(CookTime)) {
-    alert('Please enter cook time');
-    return;
-  }
+  // if (!this.cookTimeRegex.test(CookTime)) {
+  //   alert('Please enter cook time');
+  //   return;
+  // }
 
-  if (!this.difficultyRegex.test(Difficulty)) {
-    alert('Please enter level of expertise');
-    return;
-  }
+  // if (!this.difficultyRegex.test(Difficulty)) {
+  //   alert('Please enter level of expertise');
+  //   return;
+  // }
 
   const insertAPIURL =
     'https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Addpost.php';
