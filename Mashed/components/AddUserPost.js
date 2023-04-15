@@ -29,21 +29,29 @@ export default class UserPost extends Component {
     };
 
     // FETCH func ------------------------------------
-    fetch(InsertAPIURL, {
-      method: 'POST',
-      headers: headers,
-      body: JSON.stringify(Data) //convert data to JSON
-    })
-      .then((response) => response.json()) //check response type of API (CHECK OUTPUT OF DATA IS IN JSON)
-      .then((response) => {
-
-        alert(response[0].Message);       // If data is in JSON => Display alert msg
-        this.props.navigation.navigate("Home"); //Navigate to home if authentications are valid
+    try {
+      fetch(InsertAPIURL, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(data), //convert data to JSON
       })
-      .catch((error)=>{
-          alert("Error Occured" + error);
-      });
-      }
+        .then((response) => response.json())
+        .then((response) => {
+          if (response.length && response[0].Message) {
+            alert(response[0].Message);
+            this.props.navigation.navigate('Home');
+          } else {
+            // handle the case where the response is not what we expected
+            alert('Unexpected response from server');
+          }
+        })
+        .catch((error) => {
+          alert('Error occurred during fetch request: ' + error);
+        });
+    } catch (error) {
+      alert('Error occurred during fetch request: ' + error);
+    }
+  };
 
 
   //       if (response.Message === "Post Successfully Added!") { // Check the response for success
