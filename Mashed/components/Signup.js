@@ -104,6 +104,8 @@ export default class Signup extends Component {
     return (
       <>
       <View style={styles.viewStyle}>
+      <ScrollView>
+
         {/* LOGO */}
           <Image  
               style={{ height: '5%', width: '50%', marginHorizontal: '26%', marginTop: '10%', resizeMode:'contain'}}
@@ -213,13 +215,15 @@ export default class Signup extends Component {
             </View>
 
             {/* REDIRECT TO SIGNUP */}
-              <View style={{ flexDirection: 'row', margin: '20%'}}>
+              <View style={{ flexDirection: 'row', marginBottom: '20%', marginLeft: '20%'}}>
                 <Text> Already have an account? </Text>
                 <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Login')}}>
                     <Text style={{ fontWeight: 'bold', color: '#9492EF'}}>Log In!</Text>
                 </TouchableOpacity>
               </View>
         </View>
+      </ScrollView>
+
       </View>
       </>
     );
