@@ -9,7 +9,7 @@ export default class Post extends Component {
   recipeNameRegex = /^.+$/;
   recipeDescriptionRegex = /^.+$/;
   recipeStepsRegex = /^.+$/;
-  // recipeIngredientsRegex = /^.+$/;
+ 
   prepTimeRegex = /^.+$/;
   cookTimeRegex = /^.+$/;
   difficultyRegex = /^.+$/;
@@ -27,85 +27,91 @@ export default class Post extends Component {
     };
   }
   
-  UserInfo=()=>{
-    var RecipeName = this.state.RecipeName;
-    var RecipeStep = this.state.RecipeStep;
-    var RecipeIngredients = this.state.RecipeIngredients;
-    var PrepTime = this.state.PrepTime;
-    var CookTime = this.state.CookTime;
-    var Difficulty = this.state.Difficulty;
-    var ServingSize = this.state.ServingSize;
-    var RecipeDescription = this.state.RecipeDescription;
+  UserInfo = () => {
+  const {
+    RecipeName,
+    RecipeStep,
+    RecipeIngredients,
+    PrepTime,
+    CookTime,
+    Difficulty,
+    ServingSize,
+    RecipeDescription,
+  } = this.state;
 
-    if (!this.recipeNameRegex.test(RecipeName)) {
-      alert('Please enter a recipe name');
-      return;
-    }
-  
-    if (!this.recipeDescriptionRegex.test(RecipeDescription)) {
-      alert('Please enter a recipe description');
-      return;
-    }
-  
-    if (!this.recipeStepsRegex.test(RecipeStep)) {
-      alert('Please enter recipe steps');
-      return;
-    }
-  
-    // if (!this.recipeIngredientsRegex.test(RecipeIngredients)) {
-    //   alert('Please enter recipe ingredients');
-    //   return;
-    // }
-  
-    if (!this.prepTimeRegex.test(PrepTime)) {
-      alert('Please enter prep time');
-      return;
-    }
-  
-    if (!this.cookTimeRegex.test(CookTime)) {
-      alert('Please enter cook time');
-      console.log({CookTime});
-      return;
-    }
-  
-    if (!this.difficultyRegex.test(Difficulty)) {
-      alert('Please enter level of expertise');
-      return;
-    }
+  if (!this.recipeNameRegex.test(RecipeName)) {
+    alert('Please enter a recipe name');
+    return;
+  }
 
-    var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Addpost.php";   //API to render signup
+  if (!this.recipeDescriptionRegex.test(RecipeDescription)) {
+    alert('Please enter a recipe description');
+    return;
+  }
 
-      var headers = {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      };
-      
-      var Data ={
-        RecipeName: RecipeName,
-        RecipeStep: RecipeStep,
-        RecipeIngredients: RecipeIngredients,
-        PrepTime: PrepTime,
-        CookTime: CookTime,
-        Difficulty: Difficulty,
-        ServingSize: ServingSize,
-        RecipeDescription: RecipeDescription
-      };
+  if (!this.recipeStepsRegex.test(RecipeStep)) {
+    alert('Please enter recipe steps');
+    return;
+  }
 
-    // FETCH func ------------------------------------
-    fetch(InsertAPIURL,{
-        method:'POST',
-        headers:headers,
-        body: JSON.stringify(Data) //convert data to JSON
+  if (!this.prepTimeRegex.test(PrepTime)) {
+    alert('Please enter prep time');
+    return;
+  }
+
+  if (!this.cookTimeRegex.test(CookTime)) {
+    alert('Please enter cook time');
+    return;
+  }
+
+  if (!this.difficultyRegex.test(Difficulty)) {
+    alert('Please enter level of expertise');
+    return;
+  }
+
+  const insertAPIURL =
+    'https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/Addpost.php';
+
+  const headers = {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  };
+
+  const data = {
+    RecipeName,
+    RecipeStep,
+    RecipeIngredients,
+    PrepTime,
+    CookTime,
+    Difficulty,
+    ServingSize,
+    RecipeDescription,
+  };
+
+  // Use try-catch to catch any errors that occur during the fetch request
+  try {
+    fetch(insertAPIURL, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(data), //convert data to JSON
     })
-    .then((response)=>response.json()) //check response type of API (CHECK OUTPUT OF DATA IS IN JSON)
-    .then((response)=>{
-      alert(response[0].Message);       // If data is in JSON => Display alert msg
-      this.props.navigation.navigate("Explore"); //Navigate to home if authentications are valid
-    })
-    .catch((error)=>{
-        alert("Error Occured" + error);
-    });
-    }
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.length && response[0].Message) {
+          alert(response[0].Message);
+          this.props.navigation.navigate('Explore');
+        } else {
+          // handle the case where the response is not what we expected
+          alert('Unexpected response from server');
+        }
+      })
+      .catch((error) => {
+        alert('Error occurred during fetch request: ' + error);
+      });
+  } catch (error) {
+    alert('Error occurred during fetch request: ' + error);
+  }
+};
   render() {
     const { navigation } = this.props;
 
@@ -277,6 +283,13 @@ const styles = StyleSheet.create({
     }
   })
 
+
+   // recipeIngredientsRegex = /^.+$/;
+      // if (!this.recipeIngredientsRegex.test(RecipeIngredients)) {
+    //   alert('Please enter recipe ingredients');
+    //   return;
+    // }
+  
 
   // export default function Post ( {navigation} ) {
 //   return (
