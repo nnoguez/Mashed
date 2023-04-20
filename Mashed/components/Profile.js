@@ -1,15 +1,199 @@
 // profile screen
 
 
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Card } from "@rneui/base";
 import { Avatar, Button } from '@rneui/themed';
-import { View, Image, Text, ScrollView, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
+import { View, Image, Text, TextInput, Pressable, ScrollView, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import * as ImagePicker from 'expo-image-picker';
 
-const image = {uri: 'https://i.pinimg.com/736x/27/1a/b9/271ab997e179c7dde6530e8d8ae632d4.jpg'};
+const bgimg = {uri: 'https://i.pinimg.com/736x/27/1a/b9/271ab997e179c7dde6530e8d8ae632d4.jpg'};
 
-export default function Profile ({ navigation }) {
+// const image = {uri: '{urlimage}'};
+
+
+export default class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      Username : '',
+      bio : '',
+      edit : true,
+      image: {}
+    };
+  }
+
+  
+// pulling values from table users
+  componentDidMount() {
+    this.LoadBio();
+    this.LoadUsername();
+
+}
+
+
+// pulling bio
+  LoadBio = () => {
+    var Username = this.state.Username;
+    var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/bioaccess.php"; // API to render signup
+    var headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    };
+    var Data = {
+        Username: Username
+    };
+
+    // FETCH func ------------------------------------
+    fetch(InsertAPIURL, {
+            method: 'POST',
+            headers: headers,
+            credentials: 'include',
+            body: JSON.stringify(Data) //convert data to JSON
+        })
+        .then((response) => response.json())
+        .then((response) => {
+            // Set the value of bio in the component state
+            this.setState({ bio: response[0].bio });
+        })
+        .catch((error) => {
+            alert("oh no" + error);
+        });
+}
+
+
+
+// pulling username
+LoadUsername = () => {
+  var Username = this.state.Username;
+  var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/usernameaccess.php"; // API to render signup
+  var headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+  };
+  var Data = {
+      Username: Username
+  };
+
+  // FETCH func ------------------------------------
+  fetch(InsertAPIURL, {
+          method: 'POST',
+          headers: headers,
+          credentials: 'include',
+          body: JSON.stringify(Data) //convert data to JSON
+      })
+      .then((response) => response.json())
+      .then((response) => {
+          // Set the value of username in the component state
+          this.setState({ Username: response[0].Username });
+      })
+      .catch((error) => {
+          alert("oh no" + error);
+      });
+}
+
+
+  UserInfo=()=>{
+    var Username = this.state.Username;
+    // var UserID = this.state.userID;
+    var bio = this.state.bio;
+
+    
+    var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/profile.php";   //API to render signup
+
+      var headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      };
+      
+      var Data ={
+        Username : Username,
+        // UserID: UserID,
+        bio: bio
+      };
+
+    // FETCH func ------------------------------------
+    fetch(InsertAPIURL,{
+        method:'POST',
+        headers:headers,
+        credentials : 'include',
+        body: JSON.stringify(Data) //convert data to JSON
+    })
+    .then((response)=>response.json()) //check response type of API (CHECK OUTPUT OF DATA IS IN JSON)
+    .then((response)=>{
+      alert(response[0].Message);       // If data is in JSON => Display alert msg
+     //Navigate to home if authentications are valid
+    })
+    .catch((error)=>{
+        alert("Error Occured" + error);
+    });
+    }
+
+  
+
+    toggleEdit = () => {
+      this.setState({ edit: !this.state.edit });
+    };
+
+
+    pickImage = async () => {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+    
+      if (!result.cancelled) {
+        this.setState({ image: { uri: result.assets[0].uri } });
+      }
+    }
+    
+
+
+    // Define a function to handle image upload
+    handleImageUpload = (imageFile) => {
+      var insertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/pfp.php"; // URL of your updated PHP script
+      var headers = {
+        'Accept': 'application/json',
+        // Remove Content-Type header as it's not required for file upload
+      };
+
+      // Create a FormData object to append the image file
+      var formData = new FormData();
+      formData.append('image', imageFile); // 'image' should match the name of the input field in the server-side code
+
+      // FETCH func for image upload
+      fetch(insertAPIURL, {
+        method: 'POST',
+        headers: headers,
+        credentials: 'include',
+        body: formData // Pass the FormData object as the request body
+      })
+      .then((response) => response.json())
+      .then((response) => {
+        // Handle the response from the server after image upload
+        // ... Do something with the response ...
+        alert(response);
+      })
+      .catch((error) => {
+        alert("oh no" + error);
+      });
+    }
+
+
+
+
+
+
+
+  render() {
+    const {Username, bio } = this.state;
+    const { navigation } = this.props;
+    const { image } = this.state;
+
+
   return (
     <>
     {/* mashed logo */}
@@ -29,7 +213,9 @@ export default function Profile ({ navigation }) {
             }}
             /> 
       </View>
-      <ImageBackground source={image} resizeMode="cover" borderBottomLeftRadius={25} borderBottomRightRadius={25}>
+
+
+      <ImageBackground source={bgimg} resizeMode="cover" borderBottomLeftRadius={25} borderBottomRightRadius={25}>
         <View style={{ 
           justifyContent: 'center',
           alignItems: 'center',
@@ -44,13 +230,14 @@ export default function Profile ({ navigation }) {
             }}        
               size={150}
               rounded
-              source={{ uri: "https://communication.ucf.edu/wp-content/uploads/sites/2/2018/05/Daniel-V.-Novatnak-1.jpeg" }}
+              source={{ uri: image.uri }}
           />
+
         </View>
       </ImageBackground>
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }}>
           <Text>Following</Text>
-          <Text style={{ fontWeight:'bold' }}>@dnovatnak007</Text>
+          <Text style={{ fontWeight:'bold' }}>@{this.state.Username}</Text>
           <Text>Followers</Text>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', margin: 10 }}>
@@ -61,16 +248,55 @@ export default function Profile ({ navigation }) {
               backgroundColor: '#9492EF',
               borderRadius: 30,
               padding: 1,
-          }}
-          containerStyle={{
-            marginHorizontal: 25,
-            marginVertical: 5,
-          }}
+            }}
+            containerStyle={{
+              marginHorizontal: 25,
+            }}
+            onPress={this.toggleEdit}
           />
           <Text style={{ fontWeight:'bold', fontSize: 17 }}>103</Text>
       </View>
-      <Text style={{ textAlign: 'center', margin: 10 }}>design professor, food-enthusiast, better than you </Text>
-      
+  
+      {/* show static text if edit profile button is not pressed,
+          if pressed, show text input and image picker*/}
+      <View key={this.state.edit ? 'input' : 'text'}>
+        {this.state.edit ? (
+          <View>
+            <Text style={{ textAlign: 'center', margin: 10 }}> {this.state.bio} </Text>
+          </View>
+        ) : (
+        <View style={{ textAlign: 'center' }}>
+          <View style={styles.buttonsection}> 
+            <Pressable
+              style={styles.button} 
+              onPress={this.pickImage}>
+              <Text style={styles.text}>Upload Image</Text>
+            </Pressable>
+          </View>
+          <TextInput
+            placeholder="Enter Your Bio"
+            placeholderTextColor="#969696"
+            style={{ textAlign: 'center', marginBottom: 10 }}
+            onChangeText={bio=>this.setState({bio})}
+          />
+        <View style={styles.buttonsection}> 
+          <Pressable
+            style={styles.button} 
+            onPress={()=>{
+              this.UserInfo();
+              this.toggleEdit();
+            }}>
+            <Text style={styles.text}>Save</Text>
+          </Pressable>
+          </View>
+        </View>
+        )}
+      </View>
+            {/* Button */}
+   
+
+     
+
       <View style={{ borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginBottom: 10 }}></View>
 
       <View style={{ margin: 15 }}>
@@ -131,11 +357,27 @@ export default function Profile ({ navigation }) {
     </>
   );
 }
+}
 
 const styles = StyleSheet.create({
   viewOne: {
     textAlign: "center",
     margin: 20,
     marginBottom: 10
+},
+buttonsection: {
+  width: '100%',
+  justifyContent: 'center',
+  alignItems: 'center'
+},
+button: {
+  backgroundColor: '#FFC42D',
+  color: 'white',
+  height: 35,
+  justifyContent: 'center', //up dwn
+  alignItems: 'center',  //r & l
+  width: '40%',
+  borderRadius: 10,
+  marginBottom: 10,
 }
 })

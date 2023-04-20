@@ -1,125 +1,276 @@
 // Signup screen (shelby)
 
 
-import React, { Component } from "react";
-import { SafeAreaView, View, ScrollView, Text, StyleSheet, SectionList, TouchableOpacity, Image } from 'react-native';
+import React, { Component } from 'react';
+import { View, Pressable, Text, Linking, Image, TextInput, Button, TouchableOpacity, StyleSheet, AsyncStorage, ScrollView } from 'react-native';
+import Feather from 'react-native-vector-icons/Feather';
+import { SocialIcon, SocialIconProps, Input, Icon } from '@rneui/themed'; 
+// import {AsyncStorage} from 'react-native';
 
-import { SocialIcon, SocialIconProps, Input, Button, Icon } from '@rneui/themed'; 
+export default class Signup extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      email : '',
+      username : '',
+      password : '',
+      confirmPw : '',
+      check_textInputChange : false,
+      secureTextEntry : true,
+      confirmSecureTextEntry : true
+    };
+  }
+  
+  UserInfo=()=>{
+    var Email = this.state.email;
+      // email reg ex
+        var checkEmail = RegExp(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i);
+    var Username = this.state.username;
+    var Password = this.state.password;
+    var ConfirmPw = this.state.confirmPw;
+  
+    if ((Email.length==0) || (Password.length==0) || (ConfirmPw.length==0)){
+      alert("Please make sure to fill out all fields");
+    }else if (!(checkEmail).test(Email)){
+      alert("Enter a valid Email");
+    }
+
+    // Password validations
+    else if (Password.length<8){
+      alert("A minimum of 8 characters is required for your password.");
+    } 
+      else if (!((/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/).test(Password))){
+      alert("At least 1 special character is required for your password.");
+    }
+      else if(Password !== ConfirmPw){
+      alert("Passwords don't match");
+    }
+    
+    
+    else{
+      var InsertAPIURL = "https://students.gaim.ucf.edu/~na404266/dig4104c/mashed-server/signup.php";   //API to render signup
+
+      var headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      };
+      
+      var Data ={
+        Email: Email,
+        Username: Username,
+        Password: Password
+      };
+
+    // FETCH func ------------------------------------
+    fetch(InsertAPIURL,{
+        method:'POST',
+        headers:headers,
+        credentials : 'include',
+        body: JSON.stringify(Data) //convert data to JSON
+    })
+    .then((response)=>response.json()) //check response type of API (CHECK OUTPUT OF DATA IS IN JSON)
+    
+    // testing
+    // npm i @react-native-async-storage/async-storage
+    // .then((response) => AsyncStorage.setItem(Username, response)) => {console.log(result)};
+
+    // testing
+
+    .then((response)=>{
+      alert(response[0].Message);       // If data is in JSON => Display alert msg
+      this.props.navigation.navigate("Login"); //Navigate to home if authentications are valid
+    })
+    .catch((error)=>{
+        alert("Error Occured" + error);
+    })
+    }
+  }
+  
+  updateSecureTextEntry(){
+    this.setState({
+        ...this.state,
+        secureTextEntry: !this.state.secureTextEntry
+    });
+  }
+
+  updateConfirmSecureTextEntry(){
+    this.setState({
+        ...this.state,
+        confirmSecureTextEntry: !this.state.confirmSecureTextEntry
+    });
+}
+
+  render() {
+    return (
+      <>
+      <View style={styles.viewStyle}>
+      <ScrollView>
+
+        {/* LOGO */}
+          <Image  
+              style={{ height: '5%', width: '50%', marginHorizontal: '26%', marginTop: '10%', resizeMode:'contain'}}
+              source={{uri:'https://i.postimg.cc/65XBkHNg/logo.png'}}>  
+          </Image> 
+
+            <Image  
+              style={{ height: '20%', width: '100%' , resizeMode:'contain'}}
+              source={{uri:'https://www.linkpicture.com/q/Food-for-thanksgiving.png'}}>  
+            </Image> 
+
+
+          <View style={{ backgroundColor: 'white', borderRadius: '25 0 0 25', padding: '5%'}}>
+            <View style={styles.action}>
+              <TextInput
+                placeholder="Enter Email"
+                placeholderTextColor="#969696"
+                style={styles.textInput}
+                onChangeText={email=>this.setState({email})}
+                />
+            </View>
+
+            <View style={styles.action}>
+              <TextInput
+                placeholder="Enter Username"
+                placeholderTextColor="#969696"
+                style={styles.textInput}
+                onChangeText={username=>this.setState({username})}
+                />
+            </View>
+
+            <View style={styles.action}>
+              <TextInput
+                placeholder="Enter Password"
+                placeholderTextColor="#969696"
+                style={styles.textInput}
+                secureTextEntry={this.state.secureTextEntry ? true : false}
+                onChangeText={password=>this.setState({password})}
+                />
+                  <TouchableOpacity
+                    onPress={this.updateSecureTextEntry.bind(this)}>
+                    {this.state.secureTextEntry ?
+                    <Feather
+                    name="eye-off"
+                    color="grey"
+                    size={20}
+                    />
+                  :  
+                    <Feather
+                    name="eye"
+                    color="#9492EF"
+                    size={20}
+                    />
+                  }
+                  </TouchableOpacity>  
+            </View>
+
+            <View style={styles.action}>
+              <TextInput
+                placeholder="Confirm Password"
+                placeholderTextColor="#969696"
+                style={styles.textInput}
+                secureTextEntry={this.state.secureTextEntry ? true : false}
+                onChangeText={confirmPw=>this.setState({confirmPw})}
+                />
+                  <TouchableOpacity
+                    onPress={this.updateSecureTextEntry.bind(this)}>
+                    {this.state.secureTextEntry ?
+                    <Feather
+                    name="eye-off"
+                    color="grey"
+                    size={20}
+                    />
+                  :  
+                    <Feather
+                    name="eye"
+                    color="#9492EF"
+                    size={20}
+                    />
+                  }
+                  </TouchableOpacity>  
+            </View>
+
+            {/* Button */}
+            <View style={styles.buttonsection}>    
+                <Pressable
+                  style={styles.button} 
+                  onPress={()=>{this.UserInfo()}}>
+                  <Text style={styles.text}>SIGN UP</Text>
+                </Pressable>
+              </View>
+
+            <View style={{alignItems:'center',marginVertical: 20, width:'100%'}}>
+              <Text>- or Log In With -</Text>
+              <View style={[styles.userInfo, {flex:1, flexDirection: 'row'},]}>
+                <TouchableOpacity>
+                  <SocialIcon type="instagram" onPress={() => Linking.openURL('http://instagram.com')}></SocialIcon>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <SocialIcon type="facebook" onPress={() => Linking.openURL('http://facebook.com')}></SocialIcon>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <SocialIcon type="google" onPress={() => Linking.openURL('http://google.com')}></SocialIcon>
+                </TouchableOpacity>
+              </View>
+              
+            </View>
+
+            {/* REDIRECT TO SIGNUP */}
+              <View style={{ flexDirection: 'row', marginBottom: '20%', marginLeft: '20%'}}>
+                <Text> Already have an account? </Text>
+                <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Login')}}>
+                    <Text style={{ fontWeight: 'bold', color: '#9492EF'}}>Log In!</Text>
+                </TouchableOpacity>
+              </View>
+        </View>
+      </ScrollView>
+
+      </View>
+      </>
+    );
+  }
+}
 
 
 const styles = StyleSheet.create({
-  backgroundPurple: {
-      zIndex:0,
-      backgroundColor:'#9492ef',
-      //margin:0,
-      flexDirection:"column",
-      flex: 1, 
-      alignItems: "center", 
-      justifyContent: "center",      
+  viewStyle:{
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#9492EF'
   },
-  containerWhite:{
-    zIndex:1,
-    position:'absolute',    
-    bottom: 0,
-    height:"60%",
-    width: "100%",
-    borderTopLeftRadius: 75,
-    borderTopRightRadius: 75,
-    backgroundColor: '#fff',    
-    alignItems: "center", 
-    justifyContent: "center",  
+  textInput:{
+      borderBottomColor: '#9492EF',
+      borderBottomWidth: 1,
+      marginBottom: 50,
+      height: 40,
+      fontSize: 20,
+      flex: 1,
   },
-  userInfo: {
-    marginTop:40,
-    zIndex:2,   
-    top: 0,
-    width: '75%',
-    alignItems: 'center',
-    //justifyContent: 'center',
-    //height:'100%',
-    padding: 10,
-   
+  action: {
+    flexDirection: 'row',
+    marginTop: 10,
+ 
+    width: '100%'
   },
-  userInputStyle: { 
-    zIndex:3,     
-    // borderColor: 'gray',
-    // borderWidth: 2,
-    // borderRadius: 25,
-    padding:4,
-    textAlign:'center',
+  text: {
+    fontSize: 18,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+    textTransform: 'uppercase'
+  },
+  buttonsection: {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  button: {
+    backgroundColor: '#FFC42D',
+    color: 'white',
+    height: 35,
+    justifyContent: 'center', //up dwn
+    alignItems: 'center',  //r & l
+    width: '70%',
+    borderRadius: 10,
   }
 })
-
-
-
-export default function Signup({navigation}) {
-  return (
-
-    
-    <View style={styles.backgroundPurple}> 
-
-      <View style={{ zIndex:11, marginTop: -450, width:'100%',marginBottom:-55,}}>
-        <Image  
-              style={{ height: 50, resizeMode:'contain'}}
-              source={{uri:'https://i.postimg.cc/65XBkHNg/logo.png'}}>  
-        </Image> 
-      </View>
-      
-      <View style={{ zIndex:12, marginTop: 0, marginBottom:-130, width:'100%'}}>
-        <Image  
-              style={{ height: 250, width: '100%' , resizeMode:'contain'}}
-              source={{uri:'https://www.linkpicture.com/q/Food-for-thanksgiving.png'}}>  
-        </Image> 
-      </View>
-
-      {/*<View style={{ zIndex:11, marginTop: -400, width:'100%'}}>
-        <Image  
-              style={{ height: 50, resizeMode:'contain'}}
-              source={{uri:'https://i.postimg.cc/65XBkHNg/logo.png'}}>  
-      </Image> 
-      </View>
-      <Image
-          style={{
-          width:"35%", 
-          height:25}}
-          source={{
-          uri:'https://ibb.co/XzwByw3',
-          }}
-        />*/}
-
-      <View style={styles.containerWhite}>
-        <View style={[styles.userInfo, {flex:1, flexDirection: 'column'},]}>   
-       
-          
-          <View style={{ width:'100%', height: 60}}><Input clearButtonMode="always" style={styles.userInputStyle} placeholder="First Name"/></View>
-          <View style={{width:'100%', height:60}}><Input style={styles.userInputStyle} placeholder="Last Name"/></View>
-          <View style={{width:'100%', height:60}}><Input style={styles.userInputStyle} placeholder="Email Address"/></View>
-          <View style={{width:'100%', height:60}}><Input style={styles.userInputStyle} placeholder="Password"/></View>
-          <View style={{width:'100%', height:60}}><Input style={styles.userInputStyle} placeholder="Confirm Password"/></View>
-          <View style={{ width:'100%'}}>
-            
-              <Button
-                    onPress={()=> navigation.navigate('Home')}
-                    title="SIGN UP"
-                    buttonStyle={{backgroundColor: '#FFC42D', borderWidth: 2, borderColor: 'white', borderRadius: 30,}}
-                    containerStyle={{ width: 200, marginHorizontal: 50,  marginVertical: 10,}}
-                    titleStyle={{ fontWeight: 'bold' }}>
-              </Button>
-            
-          </View>
-
-          
-          <View style={{alignItems:'center', width:'100%', marginVertical: 20}}>
-            <Text>Already Have An Account? </Text>
-            <Button 
-              onPress={()=> navigation.navigate('Login')}
-              title="LOG IN" 
-              type="clear" 
-            />
-          </View>
-
-        </View>     
-      </View> 
-    </View> 
-  );
-}

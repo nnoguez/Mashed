@@ -15,8 +15,10 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Settings from './components/Settings';
 import Recipe from './components/Recipe';
-import Shopping from './components/Shopping';
+import Shopping from './components/shoppinglist';
 import Post from './components/Post';
+import UserPost from './components/AddUserPost';
+
 
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -56,9 +58,12 @@ export default function App() {
                   <Icon name="compass" color={focused?'#FFC42D':'grey'} size={30} />
                 )
             }}/>
+
+
+            
             <Tab.Screen 
-              name="Post" 
-              component={Post} 
+              name="UserPost" 
+              component={UserPost} 
               options={{
                 headerShown: false,
                 tabBarShowLabel: false,
@@ -67,6 +72,7 @@ export default function App() {
                   
                 )
             }}/>
+
           <Tab.Screen 
             name="Challenge" 
             component={Challenge} 
@@ -154,6 +160,16 @@ export default function App() {
           <Tab.Screen 
             name="Recipe" 
             component={Recipe} 
+            options={{
+              headerShown: false,
+              tabBarShowLabel: false,
+              tabBarVisible: false, 
+              tabBarButton: (props) => null, 
+            }}
+          />
+          <Tab.Screen 
+            name="Post" 
+            component={Post} 
             options={{
               headerShown: false,
               tabBarShowLabel: false,
